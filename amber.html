@@ -11,6 +11,7 @@
 <meta name="Generator" content="makeinfo">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="#Top" rel="start" title="Top">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="dir.html#Top" rel="up" title="(dir)">
 <style type="text/css">
 <!--
@@ -50,10 +51,122 @@ ul.no-bullet {list-style: none}
 
 
 
+
+
 <a name="Top"></a>
 <a name="Chaosnet"></a>
 <h1 class="top">Chaosnet</h1>
 
+<a name="SEC_Contents"></a>
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="no-bullet">
+  <li><a name="toc-Introduction" href="#Introduction">1 Introduction</a></li>
+  <li><a name="toc-Hardware-Protocol" href="#Hardware-Protocol">2 Hardware Protocol</a>
+  <ul class="no-bullet">
+    <li><a name="toc-The-Ether" href="#The-Ether">2.1 The Ether</a></li>
+    <li><a name="toc-Packets" href="#Packets">2.2 Packets</a></li>
+    <li><a name="toc-The-Transceiver" href="#The-Transceiver">2.3 The Transceiver</a></li>
+    <li><a name="toc-The-Interface" href="#The-Interface">2.4 The Interface</a></li>
+    <li><a name="toc-Hardware-Protocols" href="#Hardware-Protocols">2.5 Hardware Protocols</a></li>
+    <li><a name="toc-Ether-Contention" href="#Ether-Contention">2.6 Ether Contention</a></li>
+  </ul></li>
+  <li><a name="toc-Software-Protocol_002d_002dWorld-View" href="#Software-Protocol_002d_002dWorld-View">3 Software Protocol&ndash;World View</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Connections" href="#Connections">3.1 Connections</a></li>
+    <li><a name="toc-Contact-Names" href="#Contact-Names">3.2 Contact Names</a></li>
+    <li><a name="toc-Addresses-and-Indices" href="#Addresses-and-Indices">3.3 Addresses and Indices</a></li>
+    <li><a name="toc-Packet-Numbers" href="#Packet-Numbers">3.4 Packet Numbers</a></li>
+    <li><a name="toc-Packets-1" href="#Packets-1">3.5 Packets</a></li>
+    <li><a name="toc-Data-Formats" href="#Data-Formats">3.6 Data Formats</a></li>
+    <li><a name="toc-Routing" href="#Routing">3.7 Routing</a></li>
+    <li><a name="toc-Flow-and-Error-Control" href="#Flow-and-Error-Control">3.8 Flow and Error Control</a></li>
+  </ul></li>
+  <li><a name="toc-Software-Protocol_002d_002dDetails" href="#Software-Protocol_002d_002dDetails">4 Software Protocol&ndash;Details</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Connection-Establishment" href="#Connection-Establishment">4.1 Connection Establishment</a></li>
+    <li><a name="toc-Status" href="#Status">4.2 Status</a></li>
+    <li><a name="toc-Data" href="#Data">4.3 Data</a></li>
+    <li><a name="toc-End_002dof_002dData" href="#End_002dof_002dData">4.4 End-of-Data</a></li>
+    <li><a name="toc-Broadcast" href="#Broadcast">4.5 Broadcast</a></li>
+    <li><a name="toc-Low_002dlevel" href="#Low_002dlevel">4.6 Low-level</a></li>
+    <li><a name="toc-Connection-States" href="#Connection-States">4.7 Connection States</a></li>
+  </ul></li>
+  <li><a name="toc-Higher_002dLevel-Protocols" href="#Higher_002dLevel-Protocols">5 Higher-Level Protocols</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Status-1" href="#Status-1">5.1 Status</a></li>
+    <li><a name="toc-Pulsar" href="#Pulsar">5.2 Pulsar</a></li>
+    <li><a name="toc-Telnet-and-Supdup" href="#Telnet-and-Supdup">5.3 Telnet and Supdup</a></li>
+    <li><a name="toc-File-Access" href="#File-Access">5.4 File Access</a></li>
+    <li><a name="toc-Mail" href="#Mail">5.5 Mail</a></li>
+    <li><a name="toc-Send" href="#Send">5.6 Send</a></li>
+    <li><a name="toc-Name" href="#Name">5.7 Name</a></li>
+    <li><a name="toc-Time" href="#Time">5.8 Time</a></li>
+    <li><a name="toc-Arpanet-Gateway" href="#Arpanet-Gateway">5.9 Arpanet Gateway</a></li>
+    <li><a name="toc-Host-Table" href="#Host-Table">5.10 Host Table</a></li>
+    <li><a name="toc-Dover" href="#Dover">5.11 Dover</a></li>
+  </ul></li>
+  <li><a name="toc-Using-Foreign-Protocols-in-Chaosnet" href="#Using-Foreign-Protocols-in-Chaosnet">6 Using Foreign Protocols in Chaosnet</a></li>
+  <li><a name="toc-Hardware-Programming-Documentation" href="#Hardware-Programming-Documentation">7 Hardware Programming Documentation</a></li>
+  <li><a name="toc-The-ITS-Implementation" href="#The-ITS-Implementation">8 The ITS Implementation</a>
+  <ul class="no-bullet">
+    <li><a name="toc-System-Calls" href="#System-Calls">8.1 System Calls</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Opening-I_002fO-Channels" href="#Opening-I_002fO-Channels">8.1.1 Opening I/O Channels</a></li>
+      <li><a name="toc-Input-and-Output" href="#Input-and-Output">8.1.2 Input and Output</a></li>
+      <li><a name="toc-Interrupts" href="#Interrupts">8.1.3 Interrupts</a></li>
+      <li><a name="toc-Miscellaneous-Operations" href="#Miscellaneous-Operations">8.1.4 Miscellaneous Operations</a></li>
+    </ul></li>
+    <li><a name="toc-Utility-Programs" href="#Utility-Programs">8.2 Utility Programs</a></li>
+    <li><a name="toc-Server-Programs" href="#Server-Programs">8.3 Server Programs</a></li>
+    <li><a name="toc-Subroutine-Packages" href="#Subroutine-Packages">8.4 Subroutine Packages</a></li>
+  </ul></li>
+  <li><a name="toc-The-TOPS_002d20_002fTENEX-Implementation" href="#The-TOPS_002d20_002fTENEX-Implementation">9 The TOPS-20/TENEX Implementation</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Opening-Connections" href="#Opening-Connections">9.1 Opening Connections</a></li>
+    <li><a name="toc-Stream-Input-and-Output" href="#Stream-Input-and-Output">9.2 Stream Input and Output</a></li>
+    <li><a name="toc-Packet-Input-and-Output" href="#Packet-Input-and-Output">9.3 Packet Input and Output</a></li>
+    <li><a name="toc-Special-Operations" href="#Special-Operations">9.4 Special Operations</a></li>
+    <li><a name="toc-Utility-Programs-1" href="#Utility-Programs-1">9.5 Utility Programs</a></li>
+    <li><a name="toc-Server-Programs-1" href="#Server-Programs-1">9.6 Server Programs</a></li>
+  </ul></li>
+  <li><a name="toc-The-Lisp-Machine-Implementation" href="#The-Lisp-Machine-Implementation">10 The Lisp Machine Implementation</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Opening-and-Closing-Connections" href="#Opening-and-Closing-Connections">10.1 Opening and Closing Connections</a>
+    <ul class="no-bullet">
+      <li><a name="toc-User_002dSide" href="#User_002dSide">10.1.1 User-Side</a></li>
+      <li><a name="toc-Server_002dSide" href="#Server_002dSide">10.1.2 Server-Side</a></li>
+    </ul></li>
+    <li><a name="toc-Connection-States-1" href="#Connection-States-1">10.2 Connection States</a></li>
+    <li><a name="toc-Stream-Input-and-Output-1" href="#Stream-Input-and-Output-1">10.3 Stream Input and Output</a></li>
+    <li><a name="toc-Packet-Input-and-Output-1" href="#Packet-Input-and-Output-1">10.4 Packet Input and Output</a></li>
+    <li><a name="toc-Connection-Interrupts" href="#Connection-Interrupts">10.5 Connection Interrupts</a></li>
+    <li><a name="toc-Information-and-Control" href="#Information-and-Control">10.6 Information and Control</a></li>
+  </ul></li>
+  <li><a name="toc-The-VAX_002fVMS-Implementation" href="#The-VAX_002fVMS-Implementation">11 The VAX/VMS Implementation</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Opening-and-Closing" href="#Opening-and-Closing">11.1 Opening and Closing</a></li>
+    <li><a name="toc-Stream-Input-and-Output-2" href="#Stream-Input-and-Output-2">11.2 Stream Input and Output</a></li>
+    <li><a name="toc-Packet-Input-and-Output-2" href="#Packet-Input-and-Output-2">11.3 Packet Input and Output</a></li>
+    <li><a name="toc-Checking-the-State" href="#Checking-the-State">11.4 Checking the State</a></li>
+  </ul></li>
+  <li><a name="toc-The-Unix-Implementation" href="#The-Unix-Implementation">12 The Unix Implementation</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Header-Files" href="#Header-Files">12.1 Header Files</a></li>
+    <li><a name="toc-Special-Files-for-Creating-Connections" href="#Special-Files-for-Creating-Connections">12.2 Special Files for Creating Connections</a></li>
+    <li><a name="toc-Stream-Mode-Connections" href="#Stream-Mode-Connections">12.3 Stream Mode Connections</a></li>
+    <li><a name="toc-Record-Mode-Connections" href="#Record-Mode-Connections">12.4 Record Mode Connections</a></li>
+    <li><a name="toc-TTY-Mode-Connections" href="#TTY-Mode-Connections">12.5 TTY Mode Connections</a></li>
+    <li><a name="toc-Foreign-Protocol-Mode" href="#Foreign-Protocol-Mode">12.6 Foreign Protocol Mode</a></li>
+    <li><a name="toc-IOCTL-System-Call-Commands" href="#IOCTL-System-Call-Commands">12.7 IOCTL System Call Commands</a></li>
+    <li><a name="toc-Signals" href="#Signals">12.8 Signals</a></li>
+    <li><a name="toc-Software-Installation" href="#Software-Installation">12.9 Software Installation</a></li>
+  </ul></li>
+  <li><a name="toc-References" href="#References">13 References</a></li>
+</ul>
+</div>
 
 
 <a name="Introduction"></a>
@@ -1183,9 +1296,9 @@ seen by the user.
 connections.  First the packets are described and then the details of the
 various connection-establishment protocols are given.
 </p>
-<p><b>1 RFC Request for connection</b>
-</p>
-<p>All connections are initiated by the transmission of an RFC from the user to the server.
+<dl>
+<dt><a name="index-RFC"></a>Packet: <strong>RFC</strong> <em>1 Request for connection</em></dt>
+<dd><p>All connections are initiated by the transmission of an RFC from the user to the server.
 The data field of the packet contains the contact name.  The contact name can
 be followed by arbitrary arguments to the server, delimited by a space character.
 The destination index field of an RFC contains 0 since the destination index is
@@ -1198,9 +1311,11 @@ required.  When an NCP receives an RFC packet, it checks all pending RFC&rsquo;s
 and all connections which are in the Open or RFC-received state (see
 (connection-states)), to see if the source address and index match; if so,
 the RFC is a duplicate and is discarded.
-</p>
-<p><b>12 LSN Listen</b>
-</p>
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-LSN"></a>Packet: <strong>LSN</strong> <em>12 Listen</em></dt>
+<dd>
 <p>A server process informs the local NCP of the contact name to which it is
 listening by sending a LSN packet, with the contact name in the data field.
 This packet is never transmitted anywhere through the network.  It simply
@@ -1209,10 +1324,11 @@ RFC and a LSN containing the same contact name meet, the LSN is discarded
 and the RFC is given to the server, putting its connection into the
 RFC-received state (see (connection-states)).  The server reads the RFC
 and decides whether or not to open the connection.
-</p>
-<p><b>2 OPN Open connection</b>
-</p>
-<p>OPN is the usual positive response to RFC.  The source index field conveys the
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-OPN"></a>Packet: <strong>OPN</strong> <em>2 Open connection</em></dt>
+<dd><p>OPN is the usual positive response to RFC.  The source index field conveys the
 server&rsquo;s index number to the user; the user&rsquo;s index number was conveyed in the RFC.
 The data field of OPN is the same as that of STS (see below); it serves mainly to convey
 the server&rsquo;s window-size to the user.  The Acknowledgement field of the OPN
@@ -1225,10 +1341,11 @@ it is simply discarded
 and an STS is sent.  This can happen if the connection is opened while a
 retransmitted OPN packet is in transit through the network, or if the STS
 which acknowledges an OPN is lost in the network.
-</p>
-<p><b>3 CLS Close connection</b>
-</p>
-<p>CLS is the negative response to RFC.  It indicates that no server was
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-CLS"></a>Packet: <strong>CLS</strong> <em>3 Close connection</em></dt>
+<dd><p>CLS is the negative response to RFC.  It indicates that no server was
 listening to the contact name, and one couldn&rsquo;t be created, or for
 some reason the server didn&rsquo;t feel like accepting this request for a
 connection, or the destination NCP was unable to complete the
@@ -1248,10 +1365,11 @@ CLS.  Since there is no error recovery or retransmission mechanism for
 CLS, the use of CLS is necessarily optional; a process could simply
 stop responding to its connection.  However, it is desirable to send a
 CLS when possible to provide an error message for the user.
-</p>
-<p><b>4 FWD Forward a request for connection</b>
-</p>
-<p>This is a response to RFC which indicates that the desired service is
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-FWD"></a>Packet: <strong>FWD</strong> <em>4 Forward a request for connection</em></dt>
+<dd><p>This is a response to RFC which indicates that the desired service is
 not available from the process contacted, but may be available at a
 possibly-different contact name at a possibly-different host.  The data
 field contains the new contact name and the Acknowledgement
@@ -1259,14 +1377,16 @@ field&ndash;exceptionally&ndash;contains the new host number.  The issuer of the
 RFC should issue another RFC to that address.  FWD is an uncontrolled
 packet; if it is lost in the network, the retransmission of the RFC
 will presumably stimulate an identical FWD.
-</p>
-<p><b>5 ANS Answer to a simple transaction</b>
-</p>
-<p>This is another kind of response to RFC.  The data field contains
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-ANS"></a>Packet: <strong>ANS</strong> <em>5 Answer to a simple transaction</em></dt>
+<dd><p>This is another kind of response to RFC.  The data field contains
 the entirety of the response, and no connection is established.
 ANS is an uncontrolled packet; if it is lost in the network, the
 retransmission of the RFC will presumably stimulate an identical ANS.
-</p>
+</p></dd></dl>
+
 <p>There are several connection-initiation protocols implemented with
 these packet types.  In addition to those described here, there is also
 a broadcast mechanism; see (broadcast).
@@ -1333,9 +1453,9 @@ a small piece of information (e.g. the time of day) from a central data-base.
 <a name="Status"></a>
 <h3 class="section">4.2 Status</h3>
 
-<p><b>7 STS Status</b>
-</p>
-<p>STS is an uncontrolled packet which is used to convey status
+<dl>
+<dt><a name="index-STS"></a>Packet: <strong>STS</strong> <em>7 Status</em></dt>
+<dd><p>STS is an uncontrolled packet which is used to convey status
 information between NCPs.  The Acknowledgement field in the packet
 header contains an acknowledgement, that is, the packet number of the
 last packet given to the receiving user process.  The first 16-bit byte
@@ -1347,16 +1467,18 @@ field contains the window size for packets sent in the opposite direction
 The byte count is presently always 4.
 This will change if the protocol is revised to add additional items to
 the STS packet.
-</p>
-<p><b>6 SNS Sense status</b>
-</p>
-<p>SNS is an uncontrolled packet whose sole purpose is to cause the
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-SNS"></a>Packet: <strong>SNS</strong> <em>6 Sense status</em></dt>
+<dd><p>SNS is an uncontrolled packet whose sole purpose is to cause the
 other end of the connection to send back an STS.  This is used by
 the <i>probing</i> mechanism described above (see (probing)).
-</p>
-<p><b>11 LOS Lossage</b>
-</p>
-<p>LOS is an uncontrolled packet which is used by one NCP to inform another of
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-LOS"></a>Packet: <strong>LOS</strong> <em>11 Lossage</em></dt>
+<dd><p>LOS is an uncontrolled packet which is used by one NCP to inform another of
 an error.  The data field contains a character-string explanation of the
 problem.  The source and destination addresses and indices are simply the
 destination and source addresses and indices, respectively, of the
@@ -1379,27 +1501,30 @@ state, nor in response to a SNS to a connection not in the Open state,
 nor in response to a LOS to a non-existent or broken connection.  These
 rules are important to make the protocols work without timing errors.
 An OPN or a SNS to a non-existent connection elicits a LOS.
-</p>
+</p></dd></dl>
+
 <a name="Data"></a>
 <h3 class="section">4.3 Data</h3>
 
-<p><b>200-277 DAT 8-bit Data</b>
-</p>
-<p>Opcodes 200 through 277 (octal) are controlled packets with user data
+<dl>
+<dt><a name="index-277_002d200"></a>Packet: <strong>277-200</strong> <em>DAT 8-bit Data</em></dt>
+<dd><p>Opcodes 200 through 277 (octal) are controlled packets with user data
 in 8-bit bytes in the data field.  The NCP treats all 64 of these opcodes
 identically; some higher-level protocols use the opcodes for their
 own purposes.  The standard default opcode is 200.
-</p>
-<p><b>300-377 DAT 16-bit Data</b>
-</p>
-<p>Opcodes 300 through 377 (octal) are controlled packets with user data
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-377_002d300"></a>Packet: <strong>377-300</strong> <em>DAT 16-bit Data</em></dt>
+<dd><p>Opcodes 300 through 377 (octal) are controlled packets with user data
 in 16-bit bytes in the data field.  The NCP treats all 64 of these
 opcodes identically; some higher-level protocols use the opcodes for their
 own purposes.  The standard default opcode for 16-bit data is 300.
-</p>
-<p><b>15 UNC Uncontrolled Data</b>
-</p>
-<p>This is an uncontrolled packet with user data in 8-bit bytes in
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-UNC"></a>Packet: <strong>UNC</strong> <em>15 Uncontrolled Data</em></dt>
+<dd><p>This is an uncontrolled packet with user data in 8-bit bytes in
 the data field.  It exists so that user-level programs may bypass
 the flow-control mechanism of Chaosnet protocol.  Note that
 the NCP is free to discard these packets at any time, since they
@@ -1413,13 +1538,14 @@ up to one more UNC packet than the window size may be queued.
 <p>UNC packets are also used by the standard protocol for encapsulating
 packets of foreign protocols for transmission through Chaosnet
 (see (foreign-protocols)).
-</p>
+</p></dd></dl>
+
 <a name="End_002dof_002dData"></a>
 <h3 class="section">4.4 End-of-Data</h3>
 
-<p><b>14 EOF End of File</b>
-</p>
-<p>EOF is a controlled packet which serves as a &quot;logical end of data&quot; mark
+<dl>
+<dt><a name="index-EOF"></a>Packet: <strong>EOF</strong> <em>14 End of File</em></dt>
+<dd><p>EOF is a controlled packet which serves as a &quot;logical end of data&quot; mark
 in the packet stream.  When the user program is ignoring packets and
 treating a Chaosnet connection as a conventional byte-stream I/O device,
 the NCP uses the EOF packet to convey the notion of conventional end-of-file
@@ -1460,31 +1586,24 @@ timeout has elapsed.  This asymmetrical protocol guarantees that each side
 gets a chance to know that both sides agree that all the data have been
 transferred.  The first CLS will only be sent after both sides have waited
 for their (first) EOF to be acknowledged.
-</p>
+</p></dd></dl>
+
 <a name="Broadcast"></a>
 <h3 class="section">4.5 Broadcast</h3>
 
 <p>Chaosnet includes a generalized broadcast facility, intended to satisfy needs such as:
 </p>
-<dl compact="compact">
-<dt><tt>-</tt></dt>
-<dd><p>Locating services when it is not known what host they are on.
-</p></dd>
-<dt><tt>-</tt></dt>
-<dd><p>Internal communications of other protocols using Chaosnet as a transmission
+<ul>
+<li> Locating services when it is not known what host they are on.
+</li><li> Internal communications of other protocols using Chaosnet as a transmission
 medium, such as routing in their own address spaces.
-</p></dd>
-<dt><tt>-</tt></dt>
-<dd><p>Reloading and remote debugging of Chaosnet bridge computers.
-</p></dd>
-<dt><tt>-</tt></dt>
-<dd><p>Experiments with radically different protocols.
-</p></dd>
-</dl>
+</li><li> Reloading and remote debugging of Chaosnet bridge computers.
+</li><li> Experiments with radically different protocols.
+</li></ul>
 
-<p><b>16 BRD Broadcast</b>
-</p>
-<p>A BRD packet works much like an RFC packet; it contains the name of a
+<dl>
+<dt><a name="index-BRD"></a>Packet: <strong>BRD</strong> <em>16 Broadcast</em></dt>
+<dd><p>A BRD packet works much like an RFC packet; it contains the name of a
 server to be communicated with, and possibly some arguments.  Unlike an
 RFC, which is delivered to a particular host, a BRD is broadcast to all
 hosts.  Only hosts which understand the service it is looking for will
@@ -1560,22 +1679,24 @@ discarded.
 <p>BRD packets put a noticeable load on every host on the network, so they
 should be used judiciously.  &quot;Beacons&quot; that send a BRD every 30 seconds all
 day long should not be used.
-</p>
+</p></dd></dl>
+
 <a name="Low_002dlevel"></a>
 <h3 class="section">4.6 Low-level</h3>
 
-<p><b>13 MNT Maintenance</b>
-</p>
-<p>MNT is a special packet type reserved for the use of network
+<dl>
+<dt><a name="index-MNT"></a>Packet: <strong>MNT</strong> <em>13 Maintenance</em></dt>
+<dd><p>MNT is a special packet type reserved for the use of network
 maintenance programs.  Normal NCPs should simply discard any MNT
 packets they receive.  MNT packets are an escape mechanism to allow
 special programs to send packets that are guaranteed not to get
 confused with normal packets.  MNT packets are forwarded by bridges
 although usually one would not be depending on this.
-</p>
-<p><b>10 RUT Routing Information</b>
-</p>
-<p>RUT is a special packet type broadcast by bridges to inform other
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-RUT"></a>Packet: <strong>RUT</strong> <em>10 Routing Information</em></dt>
+<dd><p>RUT is a special packet type broadcast by bridges to inform other
 nodes of the bridge&rsquo;s ability to forward packets between subnets.
 The source address is the network address of the bridge on the
 subnet on which the RUT was broadcast.  The destination address is zero.
@@ -1583,7 +1704,8 @@ The byte count is a multiple of 4, and the data field contains a series
 of pairs of 16-bit bytes: a subnet number and the &quot;cost&quot; of getting to
 that subnet via this bridge.  The packet number and acknowledgement
 fields are not used and should contain zero.  See (routing) for the details.
-</p>
+</p></dd></dl>
+
 <a name="Connection-States"></a>
 <h3 class="section">4.7 Connection States</h3>
 
@@ -1604,34 +1726,29 @@ out-of-order.
 <i>connection state</i>.  Full understanding of these states depends
 on the descriptions of packet-types above.  The state can be one of:
 </p>
-<dl compact="compact">
-<dt><tt>Open</tt></dt>
-<dd><p>The connection exists and data may be transferred.
-</p>
-</dd>
-<dt><tt>Closed</tt></dt>
-<dd><p>The channel does not have an associated connection.  Either it
+<ul>
+<li> Open
+The connection exists and data may be transferred.
+
+</li><li> Closed
+The channel does not have an associated connection.  Either it
 never had one or it has received or transmitted a CLS packet,
 which destroyed the connection.
-</p>
-</dd>
-<dt><tt>Listening</tt></dt>
-<dd><p>The channel does not have an associated connection, but it has a contact
+
+</li><li> Listening
+The channel does not have an associated connection, but it has a contact
 name (usually contained in a LSN packet) for which it is listening.
-</p>
-</dd>
-<dt><tt>RFC Received</tt></dt>
-<dd><p>A <i>Listening</i> channel enters this state when an RFC arrives.
+
+</li><li> RFC Received
+A <i>Listening</i> channel enters this state when an RFC arrives.
 It can become <i>Open</i> if the user process <i>accepts</i> the request.
-</p>
-</dd>
-<dt><tt>RFC Sent</tt></dt>
-<dd><p>The user has transmitted an RFC.  The state will change to <i>Open</i> or
+
+</li><li> RFC Sent
+The user has transmitted an RFC.  The state will change to <i>Open</i> or
 <i>Closed</i> when the reply to the RFC comes back.
-</p>
-</dd>
-<dt><tt>Broadcast Sent</tt></dt>
-<dd><p>The user has transmitted a BRD.  In this state, the user process
+
+</li><li> Broadcast Sent
+The user has transmitted a BRD.  In this state, the user process
 is allowed to transmit additional BRD packets.  All incoming packets
 other than OPN&rsquo;s are made available for the user process to read,
 until the allowed buffering capacity is exceeded; further incoming packets
@@ -1641,25 +1758,21 @@ there are no queued input packets, a regular byte-stream connection is opened
 (the connection enters the <i>Open</i> state).
 Any OPN&rsquo;s from other hosts elicit a LOS reply as usual, as do any ANS&rsquo;s, CLS&rsquo;s,
 etc. received at this point.
-</p>
-</dd>
-<dt><tt>Lost</tt></dt>
-<dd><p>The connection has been broken by receiving a LOS packet.
-</p>
-</dd>
-<dt><tt>Incomplete Transmission</tt></dt>
-<dd><p>The connection has been broken because the other end has ceased
+
+</li><li> Lost
+The connection has been broken by receiving a LOS packet.
+
+</li><li> Incomplete Transmission
+The connection has been broken because the other end has ceased
 to transmit and to respond to SNS.  Either the network or the foreign
 host is down.  (This can also happen if the local host goes down for
 a while and then is revived, if its clock runs in the meantime.)
-</p>
-</dd>
-<dt><tt>Foreign</tt></dt>
-<dd><p>The channel is talking some foreign protocol, whose packets are encapsulated
+
+</li><li> Foreign
+The channel is talking some foreign protocol, whose packets are encapsulated
 in UNC packets.  As far as Chaosnet is concerned there is no connection.
 See (foreign-protocols) for the details.
-</p></dd>
-</dl>
+</li></ul>
 
 <a name="Higher_002dLevel-Protocols"></a>
 <h2 class="chapter">5 Higher-Level Protocols</h2>
@@ -1867,8 +1980,8 @@ with a suitable header, naming the user that sent the message.  The standard
 for such headers, not currently adhered to by all hosts, is one line formatted
 as in the following example:
 </p>
-<div class="lisp">
-<pre class="lisp">Moon@MIT-MC 6/15/81 02:20:17
+<div class="example">
+<pre class="example">Moon@MIT-MC 6/15/81 02:20:17
 </pre></div>
 
 <p>Automatic reply to the sender can be implemented by searching for the first
@@ -2230,59 +2343,59 @@ device registers:
 All read/write bits are initialized to zero on power-up.
 Identified by their masks, these are:
 </p><dl compact="compact">
-<dt><tt>&quot;     1&quot;</tt></dt>
+<dt><tt>1</tt></dt>
 <dd><p>Timer Interrupt Enable (read/write).  Enables interrupts from the interval
 timer present in some versions of the interface (not described here).
 </p></dd>
-<dt><tt>&quot;     2&quot;</tt></dt>
+<dt><tt>2</tt></dt>
 <dd><p>Loop Back (read/write).  If this bit is 1, the cable and transceiver are
 not used and the interface is looped back to itself.  This is for maintenance.
 </p></dd>
-<dt><tt>&quot;     4&quot;</tt></dt>
+<dt><tt>4</tt></dt>
 <dd><p>Spy (read/write).  If this bit is 1, the interface will receive all packets
 regardless of their destination.  This is for maintenance and network monitoring.
 </p></dd>
-<dt><tt>&quot;    10&quot;</tt></dt>
+<dt><tt>10</tt></dt>
 <dd><p>Clear Receiver (write only).  Writing a 1 into this bit clears Receive Done 
 and enables the receiver to receive another packet.
 </p></dd>
-<dt><tt>&quot;    20&quot;</tt></dt>
+<dt><tt>20</tt></dt>
 <dd><p>Receive Interrupt Enable (read/write).  If Receive Done and Receive Interrupt Enable
 are both 1, the computer is interrupted.
 </p></dd>
-<dt><tt>&quot;    40&quot;</tt></dt>
+<dt><tt>40</tt></dt>
 <dd><p>Transmit Interrupt Enable (read/write).  If Transmit Done and Transmit Interrupt Enable
 are both 1, the computer is interrupted.
 </p></dd>
-<dt><tt>&quot;   100&quot;</tt></dt>
+<dt><tt>100</tt></dt>
 <dd><p>Transmit Abort (read only).  This bit is 1 if the last transmission was aborted,
 by a collision or because the receiver was busy.
 </p></dd>
-<dt><tt>&quot;   200&quot;</tt></dt>
+<dt><tt>200</tt></dt>
 <dd><p>Transmit Done (read only).  This bit is set to 1 when a transmission is
 completed or aborted, and cleared to 0 when a word is written into the outgoing
 packet buffer.
 </p></dd>
-<dt><tt>&quot;   400&quot;</tt></dt>
+<dt><tt>400</tt></dt>
 <dd><p>Clear Transmitter (write only).  Writing a 1 into this bit stops the transmitter
 and sets Transmit Done.  This is for maintenance.
 </p></dd>
-<dt><tt>&quot; 17000&quot;</tt></dt>
+<dt><tt>17000</tt></dt>
 <dd><p>Lost Count (read only).  These 4 bits contain a count of the number of packets
 which would have been received if the incoming packet buffer had not been busy.
 Setting Clear Receiver resets the lost count to 0.
 </p></dd>
-<dt><tt>&quot; 20000&quot;</tt></dt>
+<dt><tt>20000</tt></dt>
 <dd><p>Reset (write only).  Writing a 1 into this bit completely resets the interface,
 just as at power up and Unibus Initialize.
 </p></dd>
-<dt><tt>&quot; 40000&quot;</tt></dt>
+<dt><tt>40000</tt></dt>
 <dd><p>CRC Error (read only).  If this bit is 1 the receiver&rsquo;s cyclic redundancy
 checksum indicates an error.  This bit is only valid at two times: when the incoming packet
 buffer contains a fresh packet, and when the packet has been completely read out
 of the packet buffer.
 </p></dd>
-<dt><tt>&quot;100000&quot;</tt></dt>
+<dt><tt>100000</tt></dt>
 <dd><p>Receive Done (read only).  A 1 in this bit indicates that the incoming packet
 buffer contains a packet.
 </p></dd>

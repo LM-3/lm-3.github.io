@@ -11,6 +11,7 @@
 <meta name="Generator" content="makeinfo">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="#Top" rel="start" title="Top">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="dir.html#Top" rel="up" title="(dir)">
 <style type="text/css">
 <!--
@@ -83,9 +84,668 @@ ul.no-bullet {list-style: none}
 
 
 
+
 <a name="Top"></a>
 <a name="Lisp-Machine-Manual"></a>
 <h1 class="top">Lisp Machine Manual</h1>
+
+<a name="SEC_Contents"></a>
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="no-bullet">
+  <li><a name="toc-Introduction" href="#Introduction">1 Introduction</a>
+  <ul class="no-bullet">
+    <li><a name="toc-General-Information" href="#General-Information">1.1 General Information</a></li>
+    <li><a name="toc-Structure-of-the-Manual" href="#Structure-of-the-Manual">1.2 Structure of the Manual</a></li>
+    <li><a name="toc-Notational-Conventions-and-Helpful-Notes" href="#Notational-Conventions-and-Helpful-Notes">1.3 Notational Conventions and Helpful Notes</a></li>
+    <li><a name="toc-Common-Lisp-Support" href="#Common-Lisp-Support">1.4 Common Lisp Support</a></li>
+  </ul></li>
+  <li><a name="toc-Primitive-Object-Types" href="#Primitive-Object-Types">2 Primitive Object Types</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Data-Types" href="#Data-Types">2.1 Data Types</a></li>
+    <li><a name="toc-Data-Type-Predicates" href="#Data-Type-Predicates">2.2 Data Type Predicates</a></li>
+    <li><a name="toc-Type-Specifiers" href="#Type-Specifiers">2.3 Type Specifiers</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Standard-Type-Specifiers" href="#Standard-Type-Specifiers">2.3.1 Standard Type Specifiers</a></li>
+      <li><a name="toc-User_002dDefined-Type-Specifiers" href="#User_002dDefined-Type-Specifiers">2.3.2 User-Defined Type Specifiers</a></li>
+      <li><a name="toc-Testing-Types-with-Type-Specifiers" href="#Testing-Types-with-Type-Specifiers">2.3.3 Testing Types with Type Specifiers</a></li>
+      <li><a name="toc-Coercion-with-Type-Specifiers" href="#Coercion-with-Type-Specifiers">2.3.4 Coercion with Type Specifiers</a></li>
+      <li><a name="toc-Comparing-Type-Specifiers" href="#Comparing-Type-Specifiers">2.3.5 Comparing Type Specifiers</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a name="toc-Evaluation" href="#Evaluation">3 Evaluation</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Variables" href="#Variables">3.1 Variables</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Variables-and-Bindings" href="#Variables-and-Bindings">3.1.1 Variables and Bindings</a></li>
+      <li><a name="toc-Setting-Variables" href="#Setting-Variables">3.1.2 Setting Variables</a></li>
+      <li><a name="toc-Variable-Binding-Constructs" href="#Variable-Binding-Constructs">3.1.3 Variable Binding Constructs</a></li>
+      <li><a name="toc-Defining-Global-Variables" href="#Defining-Global-Variables">3.1.4 Defining Global Variables</a></li>
+      <li><a name="toc-The-Global-Binding" href="#The-Global-Binding">3.1.5 The Global Binding</a></li>
+    </ul></li>
+    <li><a name="toc-Generalized-Variables" href="#Generalized-Variables">3.2 Generalized Variables</a>
+    <ul class="no-bullet">
+      <li><a name="toc-setf" href="#setf">3.2.1 setf</a></li>
+      <li><a name="toc-locf" href="#locf">3.2.2 locf</a></li>
+    </ul></li>
+    <li><a name="toc-Functions" href="#Functions">3.3 Functions</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Lambda_002dList-Keywords" href="#Lambda_002dList-Keywords">3.3.1 Lambda-List Keywords</a></li>
+      <li><a name="toc-Local-Functions" href="#Local-Functions">3.3.2 Local Functions</a></li>
+    </ul></li>
+    <li><a name="toc-Some-Functions-and-Special-Forms" href="#Some-Functions-and-Special-Forms">3.4 Some Functions and Special Forms</a></li>
+    <li><a name="toc-Declarations" href="#Declarations">3.5 Declarations</a></li>
+    <li><a name="toc-Tail-Recursion" href="#Tail-Recursion">3.6 Tail Recursion</a></li>
+    <li><a name="toc-Multiple-Values" href="#Multiple-Values">3.7 Multiple Values</a></li>
+    <li><a name="toc-Evaluation-and-Function-Calling-Errors" href="#Evaluation-and-Function-Calling-Errors">3.8 Evaluation and Function Calling Errors</a></li>
+  </ul></li>
+  <li><a name="toc-Flow-of-Control" href="#Flow-of-Control">4 Flow of Control</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Compound-Statements" href="#Compound-Statements">4.1 Compound Statements</a></li>
+    <li><a name="toc-Conditionals" href="#Conditionals">4.2 Conditionals</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Comparison-Predicates" href="#Comparison-Predicates">4.2.1 Comparison Predicates</a></li>
+    </ul></li>
+    <li><a name="toc-Iteration" href="#Iteration">4.3 Iteration</a></li>
+    <li><a name="toc-Static-Non_002dLocal-Exits" href="#Static-Non_002dLocal-Exits">4.4 Static Non-Local Exits</a></li>
+    <li><a name="toc-Tags-and-Gotos" href="#Tags-and-Gotos">4.5 Tags and Gotos</a></li>
+    <li><a name="toc-Dynamic-Non_002dLocal-Exits" href="#Dynamic-Non_002dLocal-Exits">4.6 Dynamic Non-Local Exits</a></li>
+    <li><a name="toc-Mapping" href="#Mapping">4.7 Mapping</a></li>
+  </ul></li>
+  <li><a name="toc-Manipulating-List-Structure" href="#Manipulating-List-Structure">5 Manipulating List Structure</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Conses" href="#Conses">5.1 Conses</a></li>
+    <li><a name="toc-Lists" href="#Lists">5.2 Lists</a></li>
+    <li><a name="toc-Cons-Cells-as-Trees" href="#Cons-Cells-as-Trees">5.3 Cons Cells as Trees</a></li>
+    <li><a name="toc-Cdr_002dCoding" href="#Cdr_002dCoding">5.4 Cdr-Coding</a></li>
+    <li><a name="toc-Tables" href="#Tables">5.5 Tables</a></li>
+    <li><a name="toc-Lists-as-Tables" href="#Lists-as-Tables">5.6 Lists as Tables</a></li>
+    <li><a name="toc-Lists-as-Sets" href="#Lists-as-Sets">5.7 Lists as Sets</a></li>
+    <li><a name="toc-Association-Lists" href="#Association-Lists">5.8 Association Lists</a></li>
+    <li><a name="toc-Stack-Lists" href="#Stack-Lists">5.9 Stack Lists</a></li>
+    <li><a name="toc-Property-Lists" href="#Property-Lists">5.10 Property Lists</a></li>
+    <li><a name="toc-Hash-Tables" href="#Hash-Tables">5.11 Hash Tables</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Hash-Table-Functions" href="#Hash-Table-Functions">5.11.1 Hash Table Functions</a></li>
+      <li><a name="toc-Hash-Table-Operations" href="#Hash-Table-Operations">5.11.2 Hash Table Operations</a></li>
+      <li><a name="toc-Hash-Tables-and-the-Garbage-Collector" href="#Hash-Tables-and-the-Garbage-Collector">5.11.3 Hash Tables and the Garbage Collector</a></li>
+      <li><a name="toc-Hash-Primitive" href="#Hash-Primitive">5.11.4 Hash Primitive</a></li>
+    </ul></li>
+    <li><a name="toc-Resources" href="#Resources">5.12 Resources</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Defining-Resources" href="#Defining-Resources">5.12.1 Defining Resources</a></li>
+      <li><a name="toc-Allocating-Resource-Objects" href="#Allocating-Resource-Objects">5.12.2 Allocating Resource Objects</a></li>
+      <li><a name="toc-Accessing-the-Resource-Data-Structure" href="#Accessing-the-Resource-Data-Structure">5.12.3 Accessing the Resource Data Structure</a></li>
+      <li><a name="toc-Fast-Pseudo_002dResources" href="#Fast-Pseudo_002dResources">5.12.4 Fast Pseudo-Resources</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a name="toc-Symbols" href="#Symbols">6 Symbols</a>
+  <ul class="no-bullet">
+    <li><a name="toc-The-Value-Cell" href="#The-Value-Cell">6.1 The Value Cell</a></li>
+    <li><a name="toc-The-Function-Cell" href="#The-Function-Cell">6.2 The Function Cell</a></li>
+    <li><a name="toc-The-Property-List" href="#The-Property-List">6.3 The Property List</a></li>
+    <li><a name="toc-The-Print-Name" href="#The-Print-Name">6.4 The Print Name</a></li>
+    <li><a name="toc-The-Package-Cell" href="#The-Package-Cell">6.5 The Package Cell</a></li>
+    <li><a name="toc-Creating-Symbols" href="#Creating-Symbols">6.6 Creating Symbols</a></li>
+  </ul></li>
+  <li><a name="toc-Numbers" href="#Numbers">7 Numbers</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Numeric-Predicates" href="#Numeric-Predicates">7.1 Numeric Predicates</a></li>
+    <li><a name="toc-Numeric-Comparisons" href="#Numeric-Comparisons">7.2 Numeric Comparisons</a></li>
+    <li><a name="toc-Arithmetic" href="#Arithmetic">7.3 Arithmetic</a></li>
+    <li><a name="toc-Complex-Number-Functions" href="#Complex-Number-Functions">7.4 Complex Number Functions</a></li>
+    <li><a name="toc-Transcendental-Functions" href="#Transcendental-Functions">7.5 Transcendental Functions</a></li>
+    <li><a name="toc-Numeric-Type-Conversions" href="#Numeric-Type-Conversions">7.6 Numeric Type Conversions</a></li>
+    <li><a name="toc-Floating-Point-Numbers" href="#Floating-Point-Numbers">7.7 Floating Point Numbers</a></li>
+    <li><a name="toc-Logical-Operations-on-Numbers" href="#Logical-Operations-on-Numbers">7.8 Logical Operations on Numbers</a></li>
+    <li><a name="toc-Byte-Manipulation-Functions" href="#Byte-Manipulation-Functions">7.9 Byte Manipulation Functions</a></li>
+    <li><a name="toc-Random-Numbers" href="#Random-Numbers">7.10 Random Numbers</a></li>
+    <li><a name="toc-Information-on-Numeric-Precision" href="#Information-on-Numeric-Precision">7.11 Information on Numeric Precision</a></li>
+    <li><a name="toc-Arithmetic-Ignoring-Overflow" href="#Arithmetic-Ignoring-Overflow">7.12 Arithmetic Ignoring Overflow</a></li>
+    <li><a name="toc-24_002dBit-Arithmetic" href="#g_t24_002dBit-Arithmetic">7.13 24-Bit Arithmetic</a></li>
+    <li><a name="toc-Double_002dPrecision-Arithmetic" href="#Double_002dPrecision-Arithmetic">7.14 Double-Precision Arithmetic</a></li>
+  </ul></li>
+  <li><a name="toc-Arrays" href="#Arrays">8 Arrays</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Array-Types" href="#Array-Types">8.1 Array Types</a></li>
+    <li><a name="toc-Extra-Features-of-Arrays" href="#Extra-Features-of-Arrays">8.2 Extra Features of Arrays</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Displaced-Arrays" href="#Displaced-Arrays">8.2.1 Displaced Arrays</a></li>
+    </ul></li>
+    <li><a name="toc-Constructing-Arrays" href="#Constructing-Arrays">8.3 Constructing Arrays</a></li>
+    <li><a name="toc-Accessing-Array-Elements" href="#Accessing-Array-Elements">8.4 Accessing Array Elements</a></li>
+    <li><a name="toc-Getting-Information-About-an-Array" href="#Getting-Information-About-an-Array">8.5 Getting Information About an Array</a></li>
+    <li><a name="toc-Changing-the-Size-of-an-Array" href="#Changing-the-Size-of-an-Array">8.6 Changing the Size of an Array</a></li>
+    <li><a name="toc-Arrays-Overlaid-With-Lists" href="#Arrays-Overlaid-With-Lists">8.7 Arrays Overlaid With Lists</a></li>
+    <li><a name="toc-Adding-to-the-End-of-an-Array" href="#Adding-to-the-End-of-an-Array">8.8 Adding to the End of an Array</a></li>
+    <li><a name="toc-Copying-an-Array" href="#Copying-an-Array">8.9 Copying an Array</a></li>
+    <li><a name="toc-Bit-Array-Functions" href="#Bit-Array-Functions">8.10 Bit Array Functions</a></li>
+    <li><a name="toc-Order-of-Array-Elements" href="#Order-of-Array-Elements">8.11 Order of Array Elements</a></li>
+    <li><a name="toc-Matrices-and-Systems-of-Linear-Equations" href="#Matrices-and-Systems-of-Linear-Equations">8.12 Matrices and Systems of Linear Equations</a></li>
+    <li><a name="toc-Planes" href="#Planes">8.13 Planes</a></li>
+    <li><a name="toc-Maclisp-Array-Compatibility" href="#Maclisp-Array-Compatibility">8.14 Maclisp Array Compatibility</a></li>
+  </ul></li>
+  <li><a name="toc-Generic-Sequence-Functions" href="#Generic-Sequence-Functions">9 Generic Sequence Functions</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Primitive-Sequence-Operations" href="#Primitive-Sequence-Operations">9.1 Primitive Sequence Operations</a></li>
+    <li><a name="toc-Simple-Sequence-Operations" href="#Simple-Sequence-Operations">9.2 Simple Sequence Operations</a></li>
+    <li><a name="toc-Mapping-On-Sequences" href="#Mapping-On-Sequences">9.3 Mapping On Sequences</a></li>
+    <li><a name="toc-Operating-on-Selected-Elements" href="#Operating-on-Selected-Elements">9.4 Operating on Selected Elements</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Removing-Elements-from-Sequences" href="#Removing-Elements-from-Sequences">9.4.1 Removing Elements from Sequences</a></li>
+      <li><a name="toc-Substitution-Functions" href="#Substitution-Functions">9.4.2 Substitution Functions</a></li>
+      <li><a name="toc-Searching-for-Elements" href="#Searching-for-Elements">9.4.3 Searching for Elements</a></li>
+    </ul></li>
+    <li><a name="toc-Comparison-Functions" href="#Comparison-Functions">9.5 Comparison Functions</a></li>
+    <li><a name="toc-Sorting-and-Merging" href="#Sorting-and-Merging">9.6 Sorting and Merging</a></li>
+  </ul></li>
+  <li><a name="toc-Characters-and-Strings" href="#Characters-and-Strings">10 Characters and Strings</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Characters" href="#Characters">10.1 Characters</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Components-of-a-Character" href="#Components-of-a-Character">10.1.1 Components of a Character</a></li>
+      <li><a name="toc-Constructing-Character-Objects" href="#Constructing-Character-Objects">10.1.2 Constructing Character Objects</a></li>
+      <li><a name="toc-The-Character-Set" href="#The-Character-Set">10.1.3 The Character Set</a></li>
+      <li><a name="toc-Classifying-Characters" href="#Classifying-Characters">10.1.4 Classifying Characters</a></li>
+      <li><a name="toc-Comparing-Characters" href="#Comparing-Characters">10.1.5 Comparing Characters</a></li>
+      <li><a name="toc-Character-Names" href="#Character-Names">10.1.6 Character Names</a></li>
+    </ul></li>
+    <li><a name="toc-Conversion-to-Upper-or-Lower-Case" href="#Conversion-to-Upper-or-Lower-Case">10.2 Conversion to Upper or Lower Case</a></li>
+    <li><a name="toc-Basic-String-Operations" href="#Basic-String-Operations">10.3 Basic String Operations</a></li>
+    <li><a name="toc-String-Searching" href="#String-Searching">10.4 String Searching</a></li>
+    <li><a name="toc-Maclisp_002dCompatible-Functions" href="#Maclisp_002dCompatible-Functions">10.5 Maclisp-Compatible Functions</a></li>
+  </ul></li>
+  <li><a name="toc-Functions-1" href="#Functions-1">11 Functions</a>
+  <ul class="no-bullet">
+    <li><a name="toc-What-Is-a-Function_003f" href="#What-Is-a-Function_003f">11.1 What Is a Function?</a></li>
+    <li><a name="toc-Function-Specs" href="#Function-Specs">11.2 Function Specs</a></li>
+    <li><a name="toc-Simple-Function-Definitions" href="#Simple-Function-Definitions">11.3 Simple Function Definitions</a></li>
+    <li><a name="toc-User-Operations-on-Functions" href="#User-Operations-on-Functions">11.4 User Operations on Functions</a></li>
+    <li><a name="toc-Kinds-of-Functions" href="#Kinds-of-Functions">11.5 Kinds of Functions</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Interpreted-Functions" href="#Interpreted-Functions">11.5.1 Interpreted Functions</a></li>
+      <li><a name="toc-Lambda-Macros" href="#Lambda-Macros">11.5.2 Lambda Macros</a></li>
+      <li><a name="toc-Compiled-Functions" href="#Compiled-Functions">11.5.3 Compiled Functions</a></li>
+      <li><a name="toc-Other-Kinds-of-Functions" href="#Other-Kinds-of-Functions">11.5.4 Other Kinds of Functions</a></li>
+      <li><a name="toc-Special-Forms-and-Functions" href="#Special-Forms-and-Functions">11.5.5 Special Forms and Functions</a></li>
+    </ul></li>
+    <li><a name="toc-Function_002dDefining-Special-Forms" href="#Function_002dDefining-Special-Forms">11.6 Function-Defining Special Forms</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Maclisp-Lexprs" href="#Maclisp-Lexprs">11.6.1 Maclisp Lexprs</a></li>
+    </ul></li>
+    <li><a name="toc-How-Programs-Manipulate-Function-Specs" href="#How-Programs-Manipulate-Function-Specs">11.7 How Programs Manipulate Function Specs</a></li>
+    <li><a name="toc-How-Programs-Examine-Functions" href="#How-Programs-Examine-Functions">11.8 How Programs Examine Functions</a></li>
+    <li><a name="toc-Encapsulations" href="#Encapsulations">11.9 Encapsulations</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Rename_002dWithin-Encapsulations" href="#Rename_002dWithin-Encapsulations">11.9.1 Rename-Within Encapsulations</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a name="toc-Closures" href="#Closures">12 Closures</a>
+  <ul class="no-bullet">
+    <li><a name="toc-What-a-Closure-Is" href="#What-a-Closure-Is">12.1 What a Closure Is</a></li>
+    <li><a name="toc-Examples-of-the-Use-of-Closures" href="#Examples-of-the-Use-of-Closures">12.2 Examples of the Use of Closures</a></li>
+    <li><a name="toc-Closure_002dManipulating-Functions" href="#Closure_002dManipulating-Functions">12.3 Closure-Manipulating Functions</a></li>
+    <li><a name="toc-Entities" href="#Entities">12.4 Entities</a></li>
+  </ul></li>
+  <li><a name="toc-Stack-Groups" href="#Stack-Groups">13 Stack Groups</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Resuming-of-Stack-Groups" href="#Resuming-of-Stack-Groups">13.1 Resuming of Stack Groups</a></li>
+    <li><a name="toc-Stack-Group-States" href="#Stack-Group-States">13.2 Stack Group States</a></li>
+    <li><a name="toc-Stack-Group-Functions" href="#Stack-Group-Functions">13.3 Stack Group Functions</a></li>
+    <li><a name="toc-Analyzing-Stack-Frames" href="#Analyzing-Stack-Frames">13.4 Analyzing Stack Frames</a></li>
+    <li><a name="toc-Input_002fOutput-in-Stack-Groups" href="#Input_002fOutput-in-Stack-Groups">13.5 Input/Output in Stack Groups</a></li>
+    <li><a name="toc-An-Example-of-Stack-Groups" href="#An-Example-of-Stack-Groups">13.6 An Example of Stack Groups</a></li>
+  </ul></li>
+  <li><a name="toc-Locatives" href="#Locatives">14 Locatives</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Cells-and-Locatives" href="#Cells-and-Locatives">14.1 Cells and Locatives</a></li>
+    <li><a name="toc-Functions-That-Operate-on-Locatives" href="#Functions-That-Operate-on-Locatives">14.2 Functions That Operate on Locatives</a></li>
+    <li><a name="toc-Mixing-Locatives-with-Lists" href="#Mixing-Locatives-with-Lists">14.3 Mixing Locatives with Lists</a></li>
+  </ul></li>
+  <li><a name="toc-Subprimitives" href="#Subprimitives">15 Subprimitives</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Data-Types-1" href="#Data-Types-1">15.1 Data Types</a></li>
+    <li><a name="toc-Forwarding" href="#Forwarding">15.2 Forwarding</a></li>
+    <li><a name="toc-Pointer-Manipulation" href="#Pointer-Manipulation">15.3 Pointer Manipulation</a></li>
+    <li><a name="toc-Special-Memory-Referencing" href="#Special-Memory-Referencing">15.4 Special Memory Referencing</a></li>
+    <li><a name="toc-Storage-Layout-Definitions" href="#Storage-Layout-Definitions">15.5 Storage Layout Definitions</a></li>
+    <li><a name="toc-Analyzing-Structures" href="#Analyzing-Structures">15.6 Analyzing Structures</a></li>
+    <li><a name="toc-Creating-Objects" href="#Creating-Objects">15.7 Creating Objects</a></li>
+    <li><a name="toc-Copying-Data" href="#Copying-Data">15.8 Copying Data</a></li>
+    <li><a name="toc-Returning-Storage" href="#Returning-Storage">15.9 Returning Storage</a></li>
+    <li><a name="toc-Locking-Subprimitive" href="#Locking-Subprimitive">15.10 Locking Subprimitive</a></li>
+    <li><a name="toc-CADR-I_002fO-Device-Subprimitives" href="#CADR-I_002fO-Device-Subprimitives">15.11 CADR I/O Device Subprimitives</a></li>
+    <li><a name="toc-Lambda-I_002fO_002dDevice-Subprimitives" href="#Lambda-I_002fO_002dDevice-Subprimitives">15.12 Lambda I/O-Device Subprimitives</a></li>
+    <li><a name="toc-Function_002dCalling-Subprimitives" href="#Function_002dCalling-Subprimitives">15.13 Function-Calling Subprimitives</a></li>
+    <li><a name="toc-Special_002dBinding-Subprimitive" href="#Special_002dBinding-Subprimitive">15.14 Special-Binding Subprimitive</a></li>
+    <li><a name="toc-The-Paging-System" href="#The-Paging-System">15.15 The Paging System</a></li>
+    <li><a name="toc-Closure-Subprimitives" href="#Closure-Subprimitives">15.16 Closure Subprimitives</a></li>
+    <li><a name="toc-Distiguishing-Processor-Types" href="#Distiguishing-Processor-Types">15.17 Distiguishing Processor Types</a></li>
+    <li><a name="toc-Microcode-Variables" href="#Microcode-Variables">15.18 Microcode Variables</a></li>
+    <li><a name="toc-Microcode-Meters" href="#Microcode-Meters">15.19 Microcode Meters</a></li>
+    <li><a name="toc-Miscellaneous-Subprimitives" href="#Miscellaneous-Subprimitives">15.20 Miscellaneous Subprimitives</a></li>
+  </ul></li>
+  <li><a name="toc-Areas" href="#Areas">16 Areas</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Area-Functions-and-Variables" href="#Area-Functions-and-Variables">16.1 Area Functions and Variables</a></li>
+    <li><a name="toc-Interesting-Areas" href="#Interesting-Areas">16.2 Interesting Areas</a></li>
+    <li><a name="toc-Errors-Pertaining-to-Areas" href="#Errors-Pertaining-to-Areas">16.3 Errors Pertaining to Areas</a></li>
+  </ul></li>
+  <li><a name="toc-The-Compiler" href="#The-Compiler">17 The Compiler</a>
+  <ul class="no-bullet">
+    <li><a name="toc-The-Basic-Operations-of-the-Compiler" href="#The-Basic-Operations-of-the-Compiler">17.1 The Basic Operations of the Compiler</a></li>
+    <li><a name="toc-How-to-Invoke-the-Compiler" href="#How-to-Invoke-the-Compiler">17.2 How to Invoke the Compiler</a></li>
+    <li><a name="toc-Input-to-the-Compiler" href="#Input-to-the-Compiler">17.3 Input to the Compiler</a></li>
+    <li><a name="toc-Compile_002dTime-Properties-of-Symbols" href="#Compile_002dTime-Properties-of-Symbols">17.4 Compile-Time Properties of Symbols</a></li>
+    <li><a name="toc-Using-Compiler-Warnings" href="#Using-Compiler-Warnings">17.5 Using Compiler Warnings</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Controlling-Compiler-Warnings" href="#Controlling-Compiler-Warnings">17.5.1 Controlling Compiler Warnings</a></li>
+      <li><a name="toc-Recording-Warnings" href="#Recording-Warnings">17.5.2 Recording Warnings</a></li>
+    </ul></li>
+    <li><a name="toc-Compiler-Source_002dLevel-Optimizers" href="#Compiler-Source_002dLevel-Optimizers">17.6 Compiler Source-Level Optimizers</a></li>
+    <li><a name="toc-Maclisp-Compatibility" href="#Maclisp-Compatibility">17.7 Maclisp Compatibility</a></li>
+    <li><a name="toc-Putting-Data-in-QFASL-Files" href="#Putting-Data-in-QFASL-Files">17.8 Putting Data in QFASL Files</a></li>
+    <li><a name="toc-Analyzing-QFASL-Files" href="#Analyzing-QFASL-Files">17.9 Analyzing QFASL Files</a></li>
+  </ul></li>
+  <li><a name="toc-Macros" href="#Macros">18 Macros</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Introduction-to-Macros" href="#Introduction-to-Macros">18.1 Introduction to Macros</a></li>
+    <li><a name="toc-Aids-for-Defining-Macros" href="#Aids-for-Defining-Macros">18.2 Aids for Defining Macros</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Defmacro" href="#Defmacro">18.2.1 Defmacro</a></li>
+      <li><a name="toc-Backquote" href="#Backquote">18.2.2 Backquote</a></li>
+    </ul></li>
+    <li><a name="toc-Local-Macro-Definitions" href="#Local-Macro-Definitions">18.3 Local Macro Definitions</a></li>
+    <li><a name="toc-Substitutable-Functions" href="#Substitutable-Functions">18.4 Substitutable Functions</a></li>
+    <li><a name="toc-Hints-to-Macro-Writers" href="#Hints-to-Macro-Writers">18.5 Hints to Macro Writers</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Name-Conflicts" href="#Name-Conflicts">18.5.1 Name Conflicts</a></li>
+      <li><a name="toc-Block_002dName-Conflicts" href="#Block_002dName-Conflicts">18.5.2 Block-Name Conflicts</a></li>
+      <li><a name="toc-Macros-Expanding-into-Many-Forms" href="#Macros-Expanding-into-Many-Forms">18.5.3 Macros Expanding into Many Forms</a></li>
+      <li><a name="toc-Macros-that-Surround-Code" href="#Macros-that-Surround-Code">18.5.4 Macros that Surround Code</a></li>
+      <li><a name="toc-Multiple-and-Out_002dof_002dOrder-Evaluation" href="#Multiple-and-Out_002dof_002dOrder-Evaluation">18.5.5 Multiple and Out-of-Order Evaluation</a></li>
+      <li><a name="toc-Nesting-Macros" href="#Nesting-Macros">18.5.6 Nesting Macros</a></li>
+      <li><a name="toc-Functions-Used-During-Expansion" href="#Functions-Used-During-Expansion">18.5.7 Functions Used During Expansion</a></li>
+    </ul></li>
+    <li><a name="toc-Aids-for-Debugging-Macros" href="#Aids-for-Debugging-Macros">18.6 Aids for Debugging Macros</a></li>
+    <li><a name="toc-Displacing-Macro-Calls" href="#Displacing-Macro-Calls">18.7 Displacing Macro Calls</a></li>
+    <li><a name="toc-Functions-to-Expand-Macros" href="#Functions-to-Expand-Macros">18.8 Functions to Expand Macros</a></li>
+    <li><a name="toc-Definitions-of-Macros" href="#Definitions-of-Macros">18.9 Definitions of Macros</a></li>
+    <li><a name="toc-Extending-setf-and-locf" href="#Extending-setf-and-locf">18.10 Extending setf and locf</a></li>
+  </ul></li>
+  <li><a name="toc-The-LOOP-Iteration-Macro" href="#The-LOOP-Iteration-Macro">19 The LOOP Iteration Macro</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Introduction-1" href="#Introduction-1">19.1 Introduction</a></li>
+    <li><a name="toc-Clauses" href="#Clauses">19.2 Clauses</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Iteration_002dDriving-Clauses" href="#Iteration_002dDriving-Clauses">19.2.1 Iteration-Driving Clauses</a></li>
+      <li><a name="toc-Bindings" href="#Bindings">19.2.2 Bindings</a></li>
+      <li><a name="toc-Entrance-and-Exit" href="#Entrance-and-Exit">19.2.3 Entrance and Exit</a></li>
+      <li><a name="toc-Side-Effects" href="#Side-Effects">19.2.4 Side Effects</a></li>
+      <li><a name="toc-Values" href="#Values">19.2.5 Values</a></li>
+      <li><a name="toc-Endtests" href="#Endtests">19.2.6 Endtests</a></li>
+      <li><a name="toc-Aggregated-Boolean-Tests" href="#Aggregated-Boolean-Tests">19.2.7 Aggregated Boolean Tests</a></li>
+      <li><a name="toc-Conditionalization" href="#Conditionalization">19.2.8 Conditionalization</a></li>
+      <li><a name="toc-Miscellaneous-Other-Clauses" href="#Miscellaneous-Other-Clauses">19.2.9 Miscellaneous Other Clauses</a></li>
+    </ul></li>
+    <li><a name="toc-Loop-Synonyms" href="#Loop-Synonyms">19.3 Loop Synonyms</a></li>
+    <li><a name="toc-Destructuring" href="#Destructuring">19.4 Destructuring</a></li>
+    <li><a name="toc-The-Iteration-Framework" href="#The-Iteration-Framework">19.5 The Iteration Framework</a></li>
+    <li><a name="toc-Iteration-Paths" href="#Iteration-Paths">19.6 Iteration Paths</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Pre_002dDefined-Paths" href="#Pre_002dDefined-Paths">19.6.1 Pre-Defined Paths</a>
+      <ul class="no-bullet">
+        <li><a name="toc-The-Interned_002dSymbols-Path" href="#The-Interned_002dSymbols-Path">19.6.1.1 The Interned-Symbols Path</a></li>
+        <li><a name="toc-The-Hash_002dElements-Path" href="#The-Hash_002dElements-Path">19.6.1.2 The Hash-Elements Path</a></li>
+        <li><a name="toc-Sequence-Iteration" href="#Sequence-Iteration">19.6.1.3 Sequence Iteration</a></li>
+      </ul></li>
+      <li><a name="toc-Defining-Paths" href="#Defining-Paths">19.6.2 Defining Paths</a>
+      <ul class="no-bullet">
+        <li><a name="toc-Path-Definition-Example" href="#Path-Definition-Example">19.6.2.1 Path Definition Example</a></li>
+      </ul></li>
+    </ul></li>
+  </ul></li>
+  <li><a name="toc-Defstruct" href="#Defstruct">20 Defstruct</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Introduction-to-Structure-Macros" href="#Introduction-to-Structure-Macros">20.1 Introduction to Structure Macros</a></li>
+    <li><a name="toc-How-to-Use-Defstruct" href="#How-to-Use-Defstruct">20.2 How to Use Defstruct</a></li>
+    <li><a name="toc-Options-to-Defstruct" href="#Options-to-Defstruct">20.3 Options to Defstruct</a></li>
+    <li><a name="toc-Using-the-Constructor-and-Alterant" href="#Using-the-Constructor-and-Alterant">20.4 Using the Constructor and Alterant</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Constructors" href="#Constructors">20.4.1 Constructors</a></li>
+      <li><a name="toc-By_002dPosition-Constructors" href="#By_002dPosition-Constructors">20.4.2 By-Position Constructors</a></li>
+      <li><a name="toc-Alterant-Macros" href="#Alterant-Macros">20.4.3 Alterant Macros</a></li>
+    </ul></li>
+    <li><a name="toc-Byte-Fields" href="#Byte-Fields">20.5 Byte Fields</a></li>
+    <li><a name="toc-Grouped-Arrays" href="#Grouped-Arrays">20.6 Grouped Arrays</a></li>
+    <li><a name="toc-Named-Structures" href="#Named-Structures">20.7 Named Structures</a></li>
+    <li><a name="toc-Common-Lisp-Defstruct" href="#Common-Lisp-Defstruct">20.8 Common Lisp Defstruct</a></li>
+    <li><a name="toc-The-si_003adefstruct_002ddescription-Structure" href="#The-si_003adefstruct_002ddescription-Structure">20.9 The si:defstruct-description Structure</a></li>
+    <li><a name="toc-Extensions-to-Defstruct" href="#Extensions-to-Defstruct">20.10 Extensions to Defstruct</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Example" href="#Example">20.10.1 Example</a></li>
+      <li><a name="toc-Options-to-si_003adefstruct_002ddefine_002dtype" href="#Options-to-si_003adefstruct_002ddefine_002dtype">20.10.2 Options to si:defstruct-define-type</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a name="toc-Objects_002c-Message-Passing_002c-and-Flavors" href="#Objects_002c-Message-Passing_002c-and-Flavors">21 Objects, Message Passing, and Flavors</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Objects" href="#Objects">21.1 Objects</a></li>
+    <li><a name="toc-Modularity" href="#Modularity">21.2 Modularity</a></li>
+    <li><a name="toc-Generic-Operations" href="#Generic-Operations">21.3 Generic Operations</a></li>
+    <li><a name="toc-Generic-Operations-in-Lisp" href="#Generic-Operations-in-Lisp">21.4 Generic Operations in Lisp</a></li>
+    <li><a name="toc-Simple-Use-of-Flavors" href="#Simple-Use-of-Flavors">21.5 Simple Use of Flavors</a></li>
+    <li><a name="toc-Mixing-Flavors" href="#Mixing-Flavors">21.6 Mixing Flavors</a></li>
+    <li><a name="toc-Flavor-Functions" href="#Flavor-Functions">21.7 Flavor Functions</a></li>
+    <li><a name="toc-Defflavor-Options" href="#Defflavor-Options">21.8 Defflavor Options</a></li>
+    <li><a name="toc-Flavor-Families" href="#Flavor-Families">21.9 Flavor Families</a></li>
+    <li><a name="toc-Vanilla-Flavor" href="#Vanilla-Flavor">21.10 Vanilla Flavor</a></li>
+    <li><a name="toc-Method-Combination" href="#Method-Combination">21.11 Method Combination</a></li>
+    <li><a name="toc-Implementation-of-Flavors" href="#Implementation-of-Flavors">21.12 Implementation of Flavors</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Order-of-Definition" href="#Order-of-Definition">21.12.1 Order of Definition</a></li>
+      <li><a name="toc-Changing-a-Flavor" href="#Changing-a-Flavor">21.12.2 Changing a Flavor</a></li>
+    </ul></li>
+    <li><a name="toc-Useful-Editor-Commands" href="#Useful-Editor-Commands">21.13 Useful Editor Commands</a></li>
+    <li><a name="toc-Property-List-Operations" href="#Property-List-Operations">21.14 Property List Operations</a></li>
+    <li><a name="toc-Printing-Flavor-Instances-Readably" href="#Printing-Flavor-Instances-Readably">21.15 Printing Flavor Instances Readably</a></li>
+    <li><a name="toc-Copying-Instances" href="#Copying-Instances">21.16 Copying Instances</a></li>
+  </ul></li>
+  <li><a name="toc-The-I_002fO-System" href="#The-I_002fO-System">22 The I/O System</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Input-Functions" href="#Input-Functions">22.1 Input Functions</a>
+    <ul class="no-bullet">
+      <li><a name="toc-String-Input-Functions" href="#String-Input-Functions">22.1.1 String Input Functions</a></li>
+      <li><a name="toc-Character_002dLevel-Input-Functions" href="#Character_002dLevel-Input-Functions">22.1.2 Character-Level Input Functions</a></li>
+      <li><a name="toc-Maclisp-Compatibility-Input-Functions" href="#Maclisp-Compatibility-Input-Functions">22.1.3 Maclisp Compatibility Input Functions</a></li>
+      <li><a name="toc-Interactive-Input-with-Prompting" href="#Interactive-Input-with-Prompting">22.1.4 Interactive Input with Prompting</a></li>
+    </ul></li>
+    <li><a name="toc-Output-Functions" href="#Output-Functions">22.2 Output Functions</a></li>
+    <li><a name="toc-I_002fO-Streams" href="#I_002fO-Streams">22.3 I/O Streams</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Standard-Streams" href="#Standard-Streams">22.3.1 Standard Streams</a></li>
+      <li><a name="toc-Standard-Input-Stream-Operations" href="#Standard-Input-Stream-Operations">22.3.2 Standard Input Stream Operations</a></li>
+      <li><a name="toc-Standard-Output-Stream-Operations" href="#Standard-Output-Stream-Operations">22.3.3 Standard Output Stream Operations</a></li>
+      <li><a name="toc-Asking-Streams-What-They-Can-Do" href="#Asking-Streams-What-They-Can-Do">22.3.4 Asking Streams What They Can Do</a></li>
+      <li><a name="toc-Operations-for-Interactive-Streams" href="#Operations-for-Interactive-Streams">22.3.5 Operations for Interactive Streams</a></li>
+      <li><a name="toc-Cursor-Positioning-Stream-Operations" href="#Cursor-Positioning-Stream-Operations">22.3.6 Cursor Positioning Stream Operations</a></li>
+      <li><a name="toc-Operations-for-Efficient-Pretty_002dPrinting" href="#Operations-for-Efficient-Pretty_002dPrinting">22.3.7 Operations for Efficient Pretty-Printing</a></li>
+      <li><a name="toc-Random-Access-File-Operations" href="#Random-Access-File-Operations">22.3.8 Random Access File Operations</a></li>
+      <li><a name="toc-Buffered-Stream-Operations" href="#Buffered-Stream-Operations">22.3.9 Buffered Stream Operations</a></li>
+      <li><a name="toc-Obtaining-Streams-to-Use" href="#Obtaining-Streams-to-Use">22.3.10 Obtaining Streams to Use</a></li>
+      <li><a name="toc-String-I_002fO-Streams" href="#String-I_002fO-Streams">22.3.11 String I/O Streams</a></li>
+      <li><a name="toc-Implementing-Streams" href="#Implementing-Streams">22.3.12 Implementing Streams</a></li>
+      <li><a name="toc-Implementing-Streams-with-Flavors" href="#Implementing-Streams-with-Flavors">22.3.13 Implementing Streams with Flavors</a></li>
+      <li><a name="toc-Implementing-Streams-Without-Flavors" href="#Implementing-Streams-Without-Flavors">22.3.14 Implementing Streams Without Flavors</a></li>
+    </ul></li>
+    <li><a name="toc-Formatted-Output" href="#Formatted-Output">22.4 Formatted Output</a>
+    <ul class="no-bullet">
+      <li><a name="toc-The-Format-Function" href="#The-Format-Function">22.4.1 The Format Function</a></li>
+      <li><a name="toc-The-Output-Subsystem" href="#The-Output-Subsystem">22.4.2 The Output Subsystem</a></li>
+    </ul></li>
+    <li><a name="toc-Rubout-Handling" href="#Rubout-Handling">22.5 Rubout Handling</a></li>
+  </ul></li>
+  <li><a name="toc-Expression-Input-and-Output" href="#Expression-Input-and-Output">23 Expression Input and Output</a>
+  <ul class="no-bullet">
+    <li><a name="toc-What-the-Printer-Produces" href="#What-the-Printer-Produces">23.1 What the Printer Produces</a></li>
+    <li><a name="toc-Options-that-Control-Printing" href="#Options-that-Control-Printing">23.2 Options that Control Printing</a></li>
+    <li><a name="toc-What-The-Reader-Accepts" href="#What-The-Reader-Accepts">23.3 What The Reader Accepts</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Sharp_002dsign-Constructs" href="#Sharp_002dsign-Constructs">23.3.1 Sharp-sign Constructs</a></li>
+    </ul></li>
+    <li><a name="toc-Expression-Output-Functions" href="#Expression-Output-Functions">23.4 Expression Output Functions</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Pretty_002dPrinting-Output-Functions" href="#Pretty_002dPrinting-Output-Functions">23.4.1 Pretty-Printing Output Functions</a></li>
+      <li><a name="toc-Non_002dStream-Printing-Functions" href="#Non_002dStream-Printing-Functions">23.4.2 Non-Stream Printing Functions</a></li>
+    </ul></li>
+    <li><a name="toc-Expression-Input-Functions" href="#Expression-Input-Functions">23.5 Expression Input Functions</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Non_002dStream-Parsing-Functions" href="#Non_002dStream-Parsing-Functions">23.5.1 Non-Stream Parsing Functions</a></li>
+      <li><a name="toc-Input-Error-Conditions" href="#Input-Error-Conditions">23.5.2 Input Error Conditions</a></li>
+    </ul></li>
+    <li><a name="toc-The-Readtable" href="#The-Readtable">23.6 The Readtable</a></li>
+    <li><a name="toc-Read_002dMacro-Characters" href="#Read_002dMacro-Characters">23.7 Read-Macro Characters</a></li>
+    <li><a name="toc-The-_003aread-and-_003aprint-Stream-Operations" href="#The-_003aread-and-_003aprint-Stream-Operations">23.8 The :read and :print Stream Operations</a></li>
+  </ul></li>
+  <li><a name="toc-Naming-of-Files" href="#Naming-of-Files">24 Naming of Files</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Pathnames" href="#Pathnames">24.1 Pathnames</a></li>
+    <li><a name="toc-Pathname-Components" href="#Pathname-Components">24.2 Pathname Components</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Raw-Components-and-Interchange-Components" href="#Raw-Components-and-Interchange-Components">24.2.1 Raw Components and Interchange Components</a></li>
+      <li><a name="toc-Pathname-Component-Operations" href="#Pathname-Component-Operations">24.2.2 Pathname Component Operations</a></li>
+      <li><a name="toc-Canonical-Types" href="#Canonical-Types">24.2.3 Canonical Types</a></li>
+    </ul></li>
+    <li><a name="toc-Defaults-and-Merging" href="#Defaults-and-Merging">24.3 Defaults and Merging</a></li>
+    <li><a name="toc-Pathname-Functions" href="#Pathname-Functions">24.4 Pathname Functions</a></li>
+    <li><a name="toc-Generic-Pathnames" href="#Generic-Pathnames">24.5 Generic Pathnames</a></li>
+    <li><a name="toc-Pathname-Operations" href="#Pathname-Operations">24.6 Pathname Operations</a></li>
+    <li><a name="toc-Host-File-Systems-Supported" href="#Host-File-Systems-Supported">24.7 Host File Systems Supported</a>
+    <ul class="no-bullet">
+      <li><a name="toc-ITS" href="#ITS">24.7.1 ITS</a></li>
+      <li><a name="toc-TOPS_002d20-_0028Twenex_0029_002c-Tenex_002c-and-VMS_002e" href="#TOPS_002d20-_0028Twenex_0029_002c-Tenex_002c-and-VMS_002e">24.7.2 TOPS-20 (Twenex), Tenex, and VMS.</a></li>
+      <li><a name="toc-Unix-and-Multics-Pathnames" href="#Unix-and-Multics-Pathnames">24.7.3 Unix and Multics Pathnames</a></li>
+      <li><a name="toc-Lisp-Machine-File-Systems" href="#Lisp-Machine-File-Systems">24.7.4 Lisp Machine File Systems</a></li>
+      <li><a name="toc-Logical-Pathnames" href="#Logical-Pathnames">24.7.5 Logical Pathnames</a></li>
+      <li><a name="toc-Editor-Buffer-Pathnames" href="#Editor-Buffer-Pathnames">24.7.6 Editor Buffer Pathnames</a></li>
+    </ul></li>
+    <li><a name="toc-Hosts" href="#Hosts">24.8 Hosts</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Parsing-Hostnames" href="#Parsing-Hostnames">24.8.1 Parsing Hostnames</a></li>
+      <li><a name="toc-Host-Object-Operations" href="#Host-Object-Operations">24.8.2 Host Object Operations</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a name="toc-Accessing-Files" href="#Accessing-Files">25 Accessing Files</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Opening-and-Closing-File-Streams" href="#Opening-and-Closing-File-Streams">25.1 Opening and Closing File Streams</a></li>
+    <li><a name="toc-File-Stream-Operations" href="#File-Stream-Operations">25.2 File Stream Operations</a></li>
+    <li><a name="toc-Manipulating-Files" href="#Manipulating-Files">25.3 Manipulating Files</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Loading-Files" href="#Loading-Files">25.3.1 Loading Files</a></li>
+    </ul></li>
+    <li><a name="toc-Pathname-Operations-That-Access-Files" href="#Pathname-Operations-That-Access-Files">25.4 Pathname Operations That Access Files</a></li>
+    <li><a name="toc-File-Attribute-Lists" href="#File-Attribute-Lists">25.5 File Attribute Lists</a></li>
+    <li><a name="toc-Accessing-Directories" href="#Accessing-Directories">25.6 Accessing Directories</a></li>
+    <li><a name="toc-Errors-in-Accessing-Files" href="#Errors-in-Accessing-Files">25.7 Errors in Accessing Files</a></li>
+    <li><a name="toc-File-Servers" href="#File-Servers">25.8 File Servers</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Errors-in-Communication-with-File-Servers" href="#Errors-in-Communication-with-File-Servers">25.8.1 Errors in Communication with File Servers</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a name="toc-The-Chaosnet" href="#The-Chaosnet">26 The Chaosnet</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Chaosnet-Overview" href="#Chaosnet-Overview">26.1 Chaosnet Overview</a></li>
+    <li><a name="toc-Conns" href="#Conns">26.2 Conns</a></li>
+    <li><a name="toc-Opening-and-Closing-Connections" href="#Opening-and-Closing-Connections">26.3 Opening and Closing Connections</a>
+    <ul class="no-bullet">
+      <li><a name="toc-User_002dSide" href="#User_002dSide">26.3.1 User-Side</a></li>
+      <li><a name="toc-Server_002dSide" href="#Server_002dSide">26.3.2 Server-Side</a></li>
+    </ul></li>
+    <li><a name="toc-Stream-Input-and-Output" href="#Stream-Input-and-Output">26.4 Stream Input and Output</a></li>
+    <li><a name="toc-Packet-Input-and-Output" href="#Packet-Input-and-Output">26.5 Packet Input and Output</a></li>
+    <li><a name="toc-Connection-Interrupts" href="#Connection-Interrupts">26.6 Connection Interrupts</a></li>
+    <li><a name="toc-Chaosnet-Errors" href="#Chaosnet-Errors">26.7 Chaosnet Errors</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Local-Problems" href="#Local-Problems">26.7.1 Local Problems</a></li>
+      <li><a name="toc-Problems-Involving-Other-Machines_0027-Actions" href="#Problems-Involving-Other-Machines_0027-Actions">26.7.2 Problems Involving Other Machines&rsquo; Actions</a></li>
+    </ul></li>
+    <li><a name="toc-Information-and-Control" href="#Information-and-Control">26.8 Information and Control</a></li>
+    <li><a name="toc-Higher_002dLevel-Protocols" href="#Higher_002dLevel-Protocols">26.9 Higher-Level Protocols</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Status" href="#Status">26.9.1 Status</a></li>
+      <li><a name="toc-Routing-Information" href="#Routing-Information">26.9.2 Routing Information</a></li>
+      <li><a name="toc-Telnet-and-Supdup" href="#Telnet-and-Supdup">26.9.3 Telnet and Supdup</a></li>
+      <li><a name="toc-File-Access" href="#File-Access">26.9.4 File Access</a></li>
+      <li><a name="toc-Mail" href="#Mail">26.9.5 Mail</a></li>
+      <li><a name="toc-Send" href="#Send">26.9.6 Send</a></li>
+      <li><a name="toc-Name" href="#Name">26.9.7 Name</a></li>
+      <li><a name="toc-Time" href="#Time">26.9.8 Time</a></li>
+      <li><a name="toc-Time-Server-Control" href="#Time-Server-Control">26.9.9 Time Server Control</a></li>
+      <li><a name="toc-Uptime" href="#Uptime">26.9.10 Uptime</a></li>
+      <li><a name="toc-Internet-Gateway" href="#Internet-Gateway">26.9.11 Internet Gateway</a></li>
+      <li><a name="toc-Host-Table" href="#Host-Table">26.9.12 Host Table</a></li>
+      <li><a name="toc-Dover" href="#Dover">26.9.13 Dover</a></li>
+      <li><a name="toc-Remote-Disk" href="#Remote-Disk">26.9.14 Remote Disk</a></li>
+      <li><a name="toc-The-Eval-Server" href="#The-Eval-Server">26.9.15 The Eval Server</a></li>
+    </ul></li>
+    <li><a name="toc-Using-Higher-Level-Protocols" href="#Using-Higher-Level-Protocols">26.10 Using Higher Level Protocols</a></li>
+  </ul></li>
+  <li><a name="toc-Packages" href="#Packages">27 Packages</a>
+  <ul class="no-bullet">
+    <li><a name="toc-The-Current-Package" href="#The-Current-Package">27.1 The Current Package</a></li>
+    <li><a name="toc-Package-Prefixes" href="#Package-Prefixes">27.2 Package Prefixes</a></li>
+    <li><a name="toc-Home-Packages-of-Symbols" href="#Home-Packages-of-Symbols">27.3 Home Packages of Symbols</a></li>
+    <li><a name="toc-Keywords" href="#Keywords">27.4 Keywords</a></li>
+    <li><a name="toc-Inheritance-between-Name-Spaces" href="#Inheritance-between-Name-Spaces">27.5 Inheritance between Name Spaces</a></li>
+    <li><a name="toc-Packages-and-Interning" href="#Packages-and-Interning">27.6 Packages and Interning</a></li>
+    <li><a name="toc-Shadowing-and-Name-Conflicts" href="#Shadowing-and-Name-Conflicts">27.7 Shadowing and Name Conflicts</a></li>
+    <li><a name="toc-Styles-of-Using-Packages" href="#Styles-of-Using-Packages">27.8 Styles of Using Packages</a></li>
+    <li><a name="toc-Package-Naming" href="#Package-Naming">27.9 Package Naming</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Local-Nicknames-for-Packages" href="#Local-Nicknames-for-Packages">27.9.1 Local Nicknames for Packages</a></li>
+    </ul></li>
+    <li><a name="toc-Defining-Packages" href="#Defining-Packages">27.10 Defining Packages</a></li>
+    <li><a name="toc-Operating-on-All-the-Symbols-in-a-Package" href="#Operating-on-All-the-Symbols-in-a-Package">27.11 Operating on All the Symbols in a Package</a></li>
+    <li><a name="toc-Packages-as-Lisp-Objects" href="#Packages-as-Lisp-Objects">27.12 Packages as Lisp Objects</a></li>
+    <li><a name="toc-Common-Lisp-and-Packages" href="#Common-Lisp-and-Packages">27.13 Common Lisp and Packages</a></li>
+    <li><a name="toc-Initialization-of-the-Package-System" href="#Initialization-of-the-Package-System">27.14 Initialization of the Package System</a></li>
+    <li><a name="toc-Initial-Packages" href="#Initial-Packages">27.15 Initial Packages</a></li>
+    <li><a name="toc-Multiple-Instantiations-of-a-Program" href="#Multiple-Instantiations-of-a-Program">27.16 Multiple Instantiations of a Program</a></li>
+  </ul></li>
+  <li><a name="toc-Maintaining-Large-Systems" href="#Maintaining-Large-Systems">28 Maintaining Large Systems</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Defining-a-System" href="#Defining-a-System">28.1 Defining a System</a></li>
+    <li><a name="toc-Transformations" href="#Transformations">28.2 Transformations</a></li>
+    <li><a name="toc-Making-a-System" href="#Making-a-System">28.3 Making a System</a></li>
+    <li><a name="toc-Adding-New-Keywords-to-make_002dsystem" href="#Adding-New-Keywords-to-make_002dsystem">28.4 Adding New Keywords to make-system</a></li>
+    <li><a name="toc-Adding-New-Options-for-defsystem" href="#Adding-New-Options-for-defsystem">28.5 Adding New Options for defsystem</a></li>
+    <li><a name="toc-More-Esoteric-Transformations" href="#More-Esoteric-Transformations">28.6 More Esoteric Transformations</a></li>
+    <li><a name="toc-Common-Lisp-Modules" href="#Common-Lisp-Modules">28.7 Common Lisp Modules</a></li>
+    <li><a name="toc-The-Patch-Facility" href="#The-Patch-Facility">28.8 The Patch Facility</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Defining-a-System-1" href="#Defining-a-System-1">28.8.1 Defining a System</a></li>
+      <li><a name="toc-Loading-Patches" href="#Loading-Patches">28.8.2 Loading Patches</a></li>
+      <li><a name="toc-Making-Patches" href="#Making-Patches">28.8.3 Making Patches</a></li>
+      <li><a name="toc-Private-Patches" href="#Private-Patches">28.8.4 Private Patches</a></li>
+      <li><a name="toc-System-Status" href="#System-Status">28.8.5 System Status</a></li>
+      <li><a name="toc-Patch-Files" href="#Patch-Files">28.8.6 Patch Files</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a name="toc-Processes" href="#Processes">29 Processes</a>
+  <ul class="no-bullet">
+    <li><a name="toc-The-Scheduler" href="#The-Scheduler">29.1 The Scheduler</a></li>
+    <li><a name="toc-Locks" href="#Locks">29.2 Locks</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Process-Queues" href="#Process-Queues">29.2.1 Process Queues</a></li>
+    </ul></li>
+    <li><a name="toc-Creating-a-Process" href="#Creating-a-Process">29.3 Creating a Process</a></li>
+    <li><a name="toc-Process-Generic-Operations" href="#Process-Generic-Operations">29.4 Process Generic Operations</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Process-Attributes" href="#Process-Attributes">29.4.1 Process Attributes</a></li>
+      <li><a name="toc-Run-and-Arrest-Reasons" href="#Run-and-Arrest-Reasons">29.4.2 Run and Arrest Reasons</a></li>
+      <li><a name="toc-Bashing-the-Process" href="#Bashing-the-Process">29.4.3 Bashing the Process</a></li>
+    </ul></li>
+    <li><a name="toc-Process-Flavors" href="#Process-Flavors">29.5 Process Flavors</a></li>
+    <li><a name="toc-Other-Process-Functions" href="#Other-Process-Functions">29.6 Other Process Functions</a></li>
+  </ul></li>
+  <li><a name="toc-Errors-and-Debugging" href="#Errors-and-Debugging">30 Errors and Debugging</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Conditions" href="#Conditions">30.1 Conditions</a></li>
+    <li><a name="toc-Handling-Conditions" href="#Handling-Conditions">30.2 Handling Conditions</a></li>
+    <li><a name="toc-Standard-Condition-Flavors" href="#Standard-Condition-Flavors">30.3 Standard Condition Flavors</a></li>
+    <li><a name="toc-Condition-Operations" href="#Condition-Operations">30.4 Condition Operations</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Condition-Operations-for-the-Debugger" href="#Condition-Operations-for-the-Debugger">30.4.1 Condition Operations for the Debugger</a></li>
+    </ul></li>
+    <li><a name="toc-Signaling-Conditions" href="#Signaling-Conditions">30.5 Signaling Conditions</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Convenience-Functions-for-Signaling" href="#Convenience-Functions-for-Signaling">30.5.1 Convenience Functions for Signaling</a></li>
+      <li><a name="toc-Creating-Condition-Instances" href="#Creating-Condition-Instances">30.5.2 Creating Condition Instances</a></li>
+      <li><a name="toc-Signaling-a-Condition-Instance" href="#Signaling-a-Condition-Instance">30.5.3 Signaling a Condition Instance</a></li>
+    </ul></li>
+    <li><a name="toc-Proceeding" href="#Proceeding">30.6 Proceeding</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Proceeding-and-the-Debugger" href="#Proceeding-and-the-Debugger">30.6.1 Proceeding and the Debugger</a></li>
+      <li><a name="toc-How-Signalers-Provide-Proceed-Types" href="#How-Signalers-Provide-Proceed-Types">30.6.2 How Signalers Provide Proceed Types</a></li>
+      <li><a name="toc-Nonlocal-Proceed-Types" href="#Nonlocal-Proceed-Types">30.6.3 Nonlocal Proceed Types</a></li>
+    </ul></li>
+    <li><a name="toc-The-Debugger" href="#The-Debugger">30.7 The Debugger</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Entering-the-Debugger" href="#Entering-the-Debugger">30.7.1 Entering the Debugger</a></li>
+      <li><a name="toc-How-to-Use-the-Debugger" href="#How-to-Use-the-Debugger">30.7.2 How to Use the Debugger</a></li>
+      <li><a name="toc-_0022Debugger-Commands_0022" href="#g_t_0022Debugger-Commands_0022">30.7.3 &quot;Debugger Commands&quot;</a></li>
+      <li><a name="toc-_0022Summary-of-Commands_0022" href="#g_t_0022Summary-of-Commands_0022">30.7.4 &quot;Summary of Commands&quot;</a></li>
+      <li><a name="toc-Deexposed-Windows-and-Background-Processes" href="#Deexposed-Windows-and-Background-Processes">30.7.5 Deexposed Windows and Background Processes</a></li>
+      <li><a name="toc-Debugging-after-a-Warm-Boot" href="#Debugging-after-a-Warm-Boot">30.7.6 Debugging after a Warm Boot</a></li>
+    </ul></li>
+    <li><a name="toc-Tracing-Function-Execution" href="#Tracing-Function-Execution">30.8 Tracing Function Execution</a></li>
+    <li><a name="toc-Breakon" href="#Breakon">30.9 Breakon</a></li>
+    <li><a name="toc-Advising-a-Function" href="#Advising-a-Function">30.10 Advising a Function</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Designing-the-Advice" href="#Designing-the-Advice">30.10.1 Designing the Advice</a></li>
+      <li><a name="toc-_003aaround-Advice" href="#g_t_003aaround-Advice">30.10.2 :around Advice</a></li>
+      <li><a name="toc-Advising-One-Function-Within-Another" href="#Advising-One-Function-Within-Another">30.10.3 Advising One Function Within Another</a></li>
+    </ul></li>
+    <li><a name="toc-Stepping-Through-an-Evaluation" href="#Stepping-Through-an-Evaluation">30.11 Stepping Through an Evaluation</a></li>
+    <li><a name="toc-Evalhook" href="#Evalhook">30.12 Evalhook</a></li>
+    <li><a name="toc-The-MAR" href="#The-MAR">30.13 The MAR</a></li>
+  </ul></li>
+  <li><a name="toc-How-to-Read-Assembly-Language" href="#How-to-Read-Assembly-Language">31 How to Read Assembly Language</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Introduction-2" href="#Introduction-2">31.1 Introduction</a></li>
+    <li><a name="toc-A-More-Advanced-Example" href="#A-More-Advanced-Example">31.2 A More Advanced Example</a></li>
+    <li><a name="toc-The-Rest-of-the-Instructions" href="#The-Rest-of-the-Instructions">31.3 The Rest of the Instructions</a></li>
+    <li><a name="toc-Function-Entry" href="#Function-Entry">31.4 Function Entry</a></li>
+    <li><a name="toc-Special-Class-IV-Instructions" href="#Special-Class-IV-Instructions">31.5 Special Class IV Instructions</a></li>
+  </ul></li>
+  <li><a name="toc-Querying-the-User" href="#Querying-the-User">32 Querying the User</a></li>
+  <li><a name="toc-Initializations" href="#Initializations">33 Initializations</a>
+  <ul class="no-bullet">
+    <li><a name="toc-System-Initialization-Lists" href="#System-Initialization-Lists">33.1 System Initialization Lists</a></li>
+    <li><a name="toc-Programming-Initializations" href="#Programming-Initializations">33.2 Programming Initializations</a></li>
+  </ul></li>
+  <li><a name="toc-Dates-and-Times" href="#Dates-and-Times">34 Dates and Times</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Getting-and-Setting-the-Time" href="#Getting-and-Setting-the-Time">34.1 Getting and Setting the Time</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Elapsed-Time-in-60ths-of-a-Second" href="#Elapsed-Time-in-60ths-of-a-Second">34.1.1 Elapsed Time in 60ths of a Second</a></li>
+      <li><a name="toc-Elapsed-Time-in-Microseconds" href="#Elapsed-Time-in-Microseconds">34.1.2 Elapsed Time in Microseconds</a></li>
+    </ul></li>
+    <li><a name="toc-Printing-Dates-and-Times" href="#Printing-Dates-and-Times">34.2 Printing Dates and Times</a></li>
+    <li><a name="toc-Reading-Dates-and-Times" href="#Reading-Dates-and-Times">34.3 Reading Dates and Times</a></li>
+    <li><a name="toc-Reading-and-Printing-Time-Intervals" href="#Reading-and-Printing-Time-Intervals">34.4 Reading and Printing Time Intervals</a></li>
+    <li><a name="toc-Time-Conversions" href="#Time-Conversions">34.5 Time Conversions</a></li>
+    <li><a name="toc-Internal-Functions" href="#Internal-Functions">34.6 Internal Functions</a></li>
+  </ul></li>
+  <li><a name="toc-Miscellaneous-Useful-Functions" href="#Miscellaneous-Useful-Functions">35 Miscellaneous Useful Functions</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Documentation" href="#Documentation">35.1 Documentation</a></li>
+    <li><a name="toc-Hardcopy" href="#Hardcopy">35.2 Hardcopy</a></li>
+    <li><a name="toc-Metering" href="#Metering">35.3 Metering</a></li>
+    <li><a name="toc-Poking-Around-in-the-Lisp-World" href="#Poking-Around-in-the-Lisp-World">35.4 Poking Around in the Lisp World</a></li>
+    <li><a name="toc-Utility-Programs" href="#Utility-Programs">35.5 Utility Programs</a></li>
+    <li><a name="toc-The-Lisp-Listen-Loop" href="#The-Lisp-Listen-Loop">35.6 The Lisp Listen Loop</a></li>
+    <li><a name="toc-The-Garbage-Collector" href="#The-Garbage-Collector">35.7 The Garbage Collector</a></li>
+    <li><a name="toc-Logging-In" href="#Logging-In">35.8 Logging In</a></li>
+    <li><a name="toc-Dribble-Files" href="#Dribble-Files">35.9 Dribble Files</a></li>
+    <li><a name="toc-Version-Information" href="#Version-Information">35.10 Version Information</a></li>
+    <li><a name="toc-Booting-and-Disk-Partitions" href="#Booting-and-Disk-Partitions">35.11 Booting and Disk Partitions</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Manipulating-the-Label" href="#Manipulating-the-Label">35.11.1 Manipulating the Label</a></li>
+      <li><a name="toc-Updating-Software" href="#Updating-Software">35.11.2 Updating Software</a></li>
+      <li><a name="toc-Saving-Personal-Software" href="#Saving-Personal-Software">35.11.3 Saving Personal Software</a></li>
+      <li><a name="toc-Copying-Bands" href="#Copying-Bands">35.11.4 Copying Bands</a></li>
+    </ul></li>
+    <li><a name="toc-Site-Options-and-Host-Table" href="#Site-Options-and-Host-Table">35.12 Site Options and Host Table</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Updating-Site-Information" href="#Updating-Site-Information">35.12.1 Updating Site Information</a></li>
+      <li><a name="toc-Accessing-Site-Options" href="#Accessing-Site-Options">35.12.2 Accessing Site Options</a></li>
+      <li><a name="toc-The-LMLOCS-File" href="#The-LMLOCS-File">35.12.3 The LMLOCS File</a></li>
+    </ul></li>
+  </ul></li>
+</ul>
+</div>
 
 
 <a name="Introduction"></a>

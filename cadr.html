@@ -11,6 +11,7 @@
 <meta name="Generator" content="makeinfo">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="#Top" rel="start" title="Top">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="dir.html#Top" rel="up" title="(dir)">
 <style type="text/css">
 <!--
@@ -48,9 +49,110 @@ ul.no-bullet {list-style: none}
 <h1 class="settitle" align="center">CADR</h1>
 
 
+
 <a name="Top"></a>
 <a name="CADR"></a>
 <h1 class="top">CADR</h1>
+
+<a name="SEC_Contents"></a>
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="no-bullet">
+  <li><a name="toc-Overview" href="#Overview">1 Overview</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Notational-Conventions" href="#Notational-Conventions">Notational Conventions</a></li>
+  </ul></li>
+  <li><a name="toc-Data-Paths" href="#Data-Paths">2 Data Paths</a></li>
+  <li><a name="toc-Sources" href="#Sources">3 Sources</a></li>
+  <li><a name="toc-Destinations" href="#Destinations">4 Destinations</a></li>
+  <li><a name="toc-The-ALU-Instruction" href="#The-ALU-Instruction">5 The ALU Instruction</a></li>
+  <li><a name="toc-The-BYTE-Instruction" href="#The-BYTE-Instruction">6 The BYTE Instruction</a></li>
+  <li><a name="toc-Control" href="#Control">7 Control</a></li>
+  <li><a name="toc-The-DISPATCH-Instruction" href="#The-DISPATCH-Instruction">8 The DISPATCH Instruction</a></li>
+  <li><a name="toc-The-JUMP-Instruction" href="#The-JUMP-Instruction">9 The JUMP Instruction</a></li>
+  <li><a name="toc-Program-Modification" href="#Program-Modification">10 Program Modification</a></li>
+  <li><a name="toc-Clocks" href="#Clocks">11 Clocks</a></li>
+  <li><a name="toc-Accessing-Memory" href="#Accessing-Memory">12 Accessing Memory</a></li>
+  <li><a name="toc-The-Instruction_002dStream-Feature" href="#The-Instruction_002dStream-Feature">13 The Instruction-Stream Feature</a></li>
+  <li><a name="toc-Multiplication_002c-Division_002c-and-the-Q-register" href="#Multiplication_002c-Division_002c-and-the-Q-register">14 Multiplication, Division, and the Q register</a></li>
+  <li><a name="toc-The-Bus-Interface" href="#The-Bus-Interface">15 The Bus Interface</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Spy-Feature" href="#Spy-Feature">Spy Feature</a></li>
+    <li><a name="toc-Two_002dMachine-Lashup" href="#Two_002dMachine-Lashup">Two-Machine Lashup</a></li>
+    <li><a name="toc-Error-Status" href="#Error-Status">Error Status</a></li>
+    <li><a name="toc-Interrupts" href="#Interrupts">Interrupts</a></li>
+    <li><a name="toc-Unibus-Map" href="#Unibus-Map">Unibus Map</a></li>
+  </ul></li>
+  <li><a name="toc-The-Xbus" href="#The-Xbus">16 The Xbus</a>
+  <ul class="no-bullet">
+    <li><a name="toc-XBUS-Signal-review_003a" href="#XBUS-Signal-review_003a">XBUS Signal review:</a></li>
+  </ul></li>
+  <li><a name="toc-Error-Checking" href="#Error-Checking">17 Error Checking</a></li>
+  <li><a name="toc-Self-Bootstrapping" href="#Self-Bootstrapping">18 Self Bootstrapping</a></li>
+  <li><a name="toc-Interrupts-and-Sequence-Breaks" href="#Interrupts-and-Sequence-Breaks">19 Interrupts and Sequence Breaks</a></li>
+  <li><a name="toc-The-Statistics-Counter" href="#The-Statistics-Counter">20 The Statistics Counter</a></li>
+  <li><a name="toc-The-Diagnostic-Interface" href="#The-Diagnostic-Interface">21 The Diagnostic Interface</a></li>
+  <li><a name="toc-The-Disk-Controller" href="#The-Disk-Controller">22 The Disk Controller</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Interface-Registers" href="#Interface-Registers">Interface Registers</a></li>
+    <li><a name="toc-Disk-Structure" href="#Disk-Structure">Disk Structure</a></li>
+    <li><a name="toc-Formatting" href="#Formatting">Formatting</a></li>
+    <li><a name="toc-Debugging" href="#Debugging">Debugging</a></li>
+  </ul></li>
+  <li><a name="toc-Instruction-formats" href="#Instruction-formats">23 Instruction formats</a></li>
+  <li><a name="toc-The-CONSLP-Assembler" href="#The-CONSLP-Assembler">24 The CONSLP Assembler</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Localities" href="#Localities">24.1 Localities</a></li>
+    <li><a name="toc-Location-Tags-and-Symbols" href="#Location-Tags-and-Symbols">24.2 Location Tags and Symbols</a></li>
+    <li><a name="toc-Instructions" href="#Instructions">24.3 Instructions</a></li>
+    <li><a name="toc-Literals" href="#Literals">24.4 Literals</a></li>
+    <li><a name="toc-Byte-Specifications" href="#Byte-Specifications">24.5 Byte Specifications</a></li>
+    <li><a name="toc-Dispatch-Tables" href="#Dispatch-Tables">24.6 Dispatch Tables</a></li>
+    <li><a name="toc-Standard-Operation-Codes" href="#Standard-Operation-Codes">24.7 Standard Operation Codes</a></li>
+    <li><a name="toc-ALU-Operations" href="#ALU-Operations">24.8 ALU Operations</a></li>
+    <li><a name="toc-BYTE-operations" href="#BYTE-operations">24.9 BYTE operations</a></li>
+    <li><a name="toc-DISPATCH-Operations" href="#DISPATCH-Operations">24.10 DISPATCH Operations</a></li>
+    <li><a name="toc-JUMP-Operations" href="#JUMP-Operations">24.11 JUMP Operations</a></li>
+    <li><a name="toc-Functional-Sources" href="#Functional-Sources">24.12 Functional Sources</a></li>
+    <li><a name="toc-Functional-Destinations" href="#Functional-Destinations">24.13 Functional Destinations</a></li>
+    <li><a name="toc-Operations-Common-to-All-Instructions" href="#Operations-Common-to-All-Instructions">24.14 Operations Common to All Instructions</a></li>
+    <li><a name="toc-Expression-Programs-in-CONSLP" href="#Expression-Programs-in-CONSLP">24.15 Expression Programs in CONSLP</a></li>
+    <li><a name="toc-Miscellaneous-Pseudo_002dOperations" href="#Miscellaneous-Pseudo_002dOperations">24.16 Miscellaneous Pseudo-Operations</a></li>
+    <li><a name="toc-CADR-Features-and-Programming-Examples" href="#CADR-Features-and-Programming-Examples">24.17 CADR Features and Programming Examples</a></li>
+    <li><a name="toc-Timing-_002d-The-N-Bit-and-the-POPJ-Bit" href="#Timing-_002d-The-N-Bit-and-the-POPJ-Bit">24.18 Timing - The N Bit and the POPJ Bit</a></li>
+    <li><a name="toc-Byte-Manipulation" href="#Byte-Manipulation">24.19 Byte Manipulation</a></li>
+    <li><a name="toc-The-Instruction-Stream" href="#The-Instruction-Stream">24.20 The Instruction Stream</a></li>
+    <li><a name="toc-The-SPC-Stack" href="#The-SPC-Stack">24.21 The SPC Stack</a></li>
+    <li><a name="toc-The-PDL-BUFFER-Memory" href="#The-PDL-BUFFER-Memory">24.22 The PDL BUFFER Memory</a></li>
+  </ul></li>
+  <li><a name="toc-Unibus-and-Xbus-address-mapping" href="#Unibus-and-Xbus-address-mapping">25 Unibus and Xbus address mapping</a>
+  <ul class="no-bullet">
+    <li><a name="toc-The-unibus-map" href="#The-unibus-map">The unibus map</a></li>
+    <li><a name="toc-The-16_002dbit-parallel-I_002fO-register_002e" href="#The-16_002dbit-parallel-I_002fO-register_002e">The 16-bit parallel I/O register.</a></li>
+    <li><a name="toc-Serial-I_002fO_002e" href="#Serial-I_002fO_002e">Serial I/O.</a></li>
+    <li><a name="toc-Timers_002e" href="#Timers_002e">Timers.</a></li>
+    <li><a name="toc-Keyboard_002e" href="#Keyboard_002e">Keyboard.</a></li>
+    <li><a name="toc-Mouse_002e" href="#Mouse_002e">Mouse.</a></li>
+    <li><a name="toc-Speaker_002e" href="#Speaker_002e">Speaker.</a></li>
+    <li><a name="toc-I_002fO-board-status-register_002e" href="#I_002fO-board-status-register_002e">I/O board status register.</a></li>
+    <li><a name="toc-Chaos-Interface_002e" href="#Chaos-Interface_002e">Chaos Interface.</a></li>
+    <li><a name="toc-Table-of-all-unibus-addresses-used_002e" href="#Table-of-all-unibus-addresses-used_002e">Table of all unibus addresses used.</a></li>
+  </ul></li>
+  <li><a name="toc-Programming-Documentation-on-the-I_002fO-Board" href="#Programming-Documentation-on-the-I_002fO-Board">26 Programming Documentation on the I/O Board</a>
+  <ul class="no-bullet">
+    <li><a name="toc-General_002dPurpose-I_002fO" href="#General_002dPurpose-I_002fO">General-Purpose I/O</a></li>
+    <li><a name="toc-Clocks-1" href="#Clocks-1">Clocks</a></li>
+    <li><a name="toc-Command_002fStatus-register-_0028CSR_0029" href="#Command_002fStatus-register-_0028CSR_0029">Command/Status register (CSR)</a></li>
+    <li><a name="toc-Keyboard" href="#Keyboard">Keyboard</a></li>
+    <li><a name="toc-Mouse" href="#Mouse">Mouse</a></li>
+    <li><a name="toc-Chaos-Net" href="#Chaos-Net">Chaos Net</a></li>
+    <li><a name="toc-Keyboard-Protocol" href="#Keyboard-Protocol">Keyboard Protocol</a></li>
+  </ul></li>
+  <li><a name="toc-Errata" href="#Errata">27 Errata</a></li>
+</ul>
+</div>
 
 
 <a name="Overview"></a>
@@ -399,8 +501,8 @@ Note that the bits are permuted in such a way as to make the logical operations
 come out with the same opcodes as used by the Lisp BOOLE function.
 Names in square brackets are the CONSLP mnemonics for the operations.
 </p>
-<div class="smallexample">
-<pre class="smallexample">        <b>Boolean (IR&lt;7&gt;=1)</b>             <b>Arithmetic (IR&lt;7&gt;=0)</b>
+<div class="example">
+<pre class="example">        <b>Boolean (IR&lt;7&gt;=1)</b>             <b>Arithmetic (IR&lt;7&gt;=0)</b>
 IR&lt;6-3&gt;                         <b>Carry in = 1</b>                <b>Carry in = 0</b>
  0      ZEROS   [SETZ]          -1                      0
  1      M&amp;A     [AND]           (M&amp;A)-1                 M&amp;A
@@ -432,20 +534,19 @@ is specified by the MR bit as either zero or equal to the contents of the ROTATE
 The length of the mask field used for replacement is specified in the LENGTH MINUS 1
 field.  The four states of the SR and MR bits yield the following operations:
 </p>
-<pre class="verbatim">MR=0_SR=0___Not useful__________(This is a subset of other modes.)
-
-MR=0_SR=1___LOAD BYTE___________PDP-10 LDB instruction
+<table>
+<tr><td width="15%">MR=0 SR=0</td><td width="15%">Not useful</td><td width="70%">(This is a subset of other modes.)</td></tr>
+<tr><td width="15%">MR=0 SR=1</td><td width="15%">LOAD BYTE</td><td width="70%">PDP-10 LDB instruction
 (except the unmasked bits are from the A source).
 A byte of arbitrary position from the M source is right-justified
-in the output.
-
-MR=1_SR=0___SELECTIVE DEPOSIT___The masked field from the M source is used to
-replace the same length and position byte in the word from the A source.
-
-MR=1_SR=1___DEPOSIT BYTE________PDP-10 DPB instruction.
+in the output.</td></tr>
+<tr><td width="15%">MR=1 SR=0</td><td width="15%">SELECTIVE DEPOSIT</td><td width="70%">The masked field from the M source is used to
+replace the same length and position byte in the word from the A source.</td></tr>
+<tr><td width="15%">MR=1 SR=1</td><td width="15%">DEPOSIT BYTE</td><td width="70%">PDP-10 DPB instruction.
 A right-justified byte from the M source
-is used to replace a byte of arbitrary position in the word from the A source.
-</pre>
+is used to replace a byte of arbitrary position in the word from the A source.</td></tr>
+</table>
+
 <p>The BYTE instruction automatically makes the output of the byte extractor
 available by forcing the output bus select code to 0 (byte extractor output).
 </p>
@@ -593,17 +694,15 @@ The cycle that would have executed that instruction is wasted.
 
 <p>The P and R bits are decoded as follows:
 </p>
-<pre class="verbatim">P=0_R=0_____BRANCH_________Normal program transfer.
+<table>
+<tr><td width="15%">P=0 R=0</td><td width="15%">BRANCH</td><td width="70%">Normal program transfer.</td></tr>
+<tr><td width="15%">P=1 R=0</td><td width="15%">CALL</td><td width="70%">Save the correct return address on the SPC
+stack, and jump to the new PC address.</td></tr>
+<tr><td width="15%">P=0 R=1</td><td width="15%">RETURN</td><td width="70%">Ignore new PC; instead pop PC off the SPC stack.</td></tr>
+<tr><td width="15%">P=1 R=1</td><td width="15%">FALLTHROUGH</td><td width="70%">In a DISPATCH instruction, do not dispatch.</td></tr>
+<tr><td width="15%"></td><td width="15%">I-MEM WRITE</td><td width="70%">In a JUMP instruction, write into the instruction memory, and do not jump.</td></tr>
+</table>
 
-P=1_R=0_____CALL___________Save the correct return address on the SPC
-stack, and jump to the new PC address.
-
-P=0_R=1_____RETURN_________Ignore new PC; instead pop PC off the SPC stack.
-
-P=1_R=1_____FALL_THROUGH___In a DISPATCH instruction, do not dispatch.
-
-____________I-MEM_WRITE____In a JUMP instruction, write into the instruction memory, and do not jump.
-</pre>
 <p>The BRANCH transfer type is the normal program transfer, without saving
 a return address.
 </p>
@@ -2798,7 +2897,7 @@ The input radix for numbers is 8 (octal), except that a trailing decimal
 point forces radix 10 (decimal).
 </p>
 <a name="Localities"></a>
-<h2 class="chapter">25 Localities</h2>
+<h3 class="section">24.1 Localities</h3>
 
 <p>A program can specify data to be loaded into the instruction,
 dispatch, A, and M memories.
@@ -2813,7 +2912,7 @@ the LOCALITY pseudo-op is used:
 </pre></div>
 
 <a name="Location-Tags-and-Symbols"></a>
-<h2 class="chapter">26 Location Tags and Symbols</h2>
+<h3 class="section">24.2 Location Tags and Symbols</h3>
 
 <p>When an atomic symbol is encountered in the instruction
 stream being assembled, it is taken to be a location tag (label).
@@ -2852,7 +2951,7 @@ conditional on the context in which it appears).
 Expression programs are discussed in a later section.
 </p>
 <a name="Instructions"></a>
-<h2 class="chapter">27 Instructions</h2>
+<h3 class="section">24.3 Instructions</h3>
 
 <p>In general, CONSLP assembles a list into a data
 item by evaluating all the elements of the list and adding
@@ -2934,7 +3033,7 @@ We assume the convention described above for A and M memory tags.
 </pre></div>
 
 <a name="Literals"></a>
-<h2 class="chapter">28 Literals</h2>
+<h3 class="section">24.4 Literals</h3>
 
 <p>CONSLP provides a facility for specifying literals in the A and M memories.
 The constructs
@@ -2956,7 +3055,7 @@ as constant sources of zeros).  Similarly the -1 constant is made to refer
 to location 3 of the appropriate memory.
 </p>
 <a name="Byte-Specifications"></a>
-<h2 class="chapter">29 Byte Specifications</h2>
+<h3 class="section">24.5 Byte Specifications</h3>
 
 <p>Rather than requiring the user to calculate the
 rotation count and length (minus 1) fields for BYTE and DISPATCH
@@ -3174,7 +3273,7 @@ different formats.  For example:
 </pre></div>
 
 <a name="Dispatch-Tables"></a>
-<h2 class="chapter">30 Dispatch Tables</h2>
+<h3 class="section">24.6 Dispatch Tables</h3>
 
 <p>When assembling into the dispatch memory (i.e. (LOCALITY D-MEM))
 it is necessary to use two special pseudo-operations,
@@ -3240,7 +3339,7 @@ is a constant in all of the dispatch table entries; it is otherwise
 identical to the DISPATCH op-code.
 </p>
 <a name="Standard-Operation-Codes"></a>
-<h2 class="chapter">31 Standard Operation Codes</h2>
+<h3 class="section">24.7 Standard Operation Codes</h3>
 
 <p>CONSLP supplies a large number of initial symbols
 for various operations, particularly for the various conditional
@@ -3249,7 +3348,7 @@ standard ones is naturally encouraged.  (These symbols are defined
 in the file LISPM; CONSYM &gt;.)
 </p>
 <a name="ALU-Operations"></a>
-<h2 class="chapter">32 ALU Operations</h2>
+<h3 class="section">24.8 ALU Operations</h3>
 
 <p>The standard ALU operations supplied by CONSLP are:
 </p>
@@ -3295,16 +3394,20 @@ and division are explained in detail in a later section.
 <p>The output bus selector field defaults to 1 (output bus
 gets ALU output).  The other two choices must be specified explicitly:
 </p>
-<pre class="verbatim">        OUTPUT-SELECTOR-RIGHTSHIFT-1
+<div class="example">
+<pre class="example">        OUTPUT-SELECTOR-RIGHTSHIFT-1
         OUTPUT-SELECTOR-LEFTSHIFT-1
-</pre>
+</pre></div>
+
 <p>The Q control field of an ALU instruction
 may be specified by using one of these symbols:
 </p>
-<pre class="verbatim">        SHIFT-Q-LEFT    shift Q left (shifts inverse of ALU&lt;31&gt; into Q&lt;0&gt;)
+<div class="example">
+<pre class="example">        SHIFT-Q-LEFT    shift Q left (shifts inverse of ALU&lt;31&gt; into Q&lt;0&gt;)
         SHIFT-Q-RIGHT   shift Q right (shifts ALU&lt;0&gt; into Q&lt;31&gt;)
         LOAD-Q          load Q from output bus
-</pre>
+</pre></div>
+
 <p>If none of these is present, the default is to do nothing to Q.
 (Instead of writing LOAD-Q, one may write Q-R in the destination
 portion of the instruction. This does not mean that Q is a functional
@@ -3317,7 +3420,7 @@ operations have ALU-CARRY-IN-ONE
 as part of their definitions, so it is not necessary to specify it explicitly.
 </p>
 <a name="BYTE-operations"></a>
-<h2 class="chapter">33 BYTE operations</h2>
+<h3 class="section">24.9 BYTE operations</h3>
 
 <p>If a byte specifier is present in an instruction
 and the op-code is not explicitly forced to be JUMP or DISPATCH,
@@ -3348,15 +3451,17 @@ For example:
 </pre></div>
 
 <a name="DISPATCH-Operations"></a>
-<h2 class="chapter">34 DISPATCH Operations</h2>
+<h3 class="section">24.10 DISPATCH Operations</h3>
 
 <p>Four op-codes are defined in CONSLP for dispatching:
 </p>
-<pre class="verbatim">        DISPATCH
+<div class="example">
+<pre class="example">        DISPATCH
         DISPATCH-CALL
         DISPATCH-XCT-NEXT
         DISPATCH-CALL-XCT-NEXT
-</pre>
+</pre></div>
+
 <p>These are provided purely for cosmetic purposes, since the actual dispatch
 action is controlled by the dispatch table.  CONSLP makes no attempt
 to check that the &quot;correct&quot; op-code is used with a given dispatch table.
@@ -3388,17 +3493,20 @@ FOO may then use the READ-I-ARG functional source to pick up and act on the argu
 is specified by the symbol WRITE-DISPATCH-RAM.
 </p>
 <a name="JUMP-Operations"></a>
-<h2 class="chapter">35 JUMP Operations</h2>
+<h3 class="section">24.11 JUMP Operations</h3>
 
 <p>CONSLP defines a large number of names for the various JUMP
 operations.  These are all built out of a logical progression of pieces:
 </p>
-<pre class="verbatim">        &lt;type&gt;  &lt;condition&gt;  &lt;xct next&gt;
-</pre>
+<div class="example">
+<pre class="example">        &lt;type&gt;  &lt;condition&gt;  &lt;xct next&gt;
+</pre></div>
+
 <p>The &lt;type&gt; may be either JUMP, CALL, or POPJ, meaning that no bits, the
 P bit, or the R bit is set.  The &lt;condition&gt; may be one of the following:
 </p>
-<pre class="verbatim">        IF-BIT-SET
+<div class="example">
+<pre class="example">        IF-BIT-SET
         IF-BIT-CLEAR
         EQUAL
         NOT-EQUAL
@@ -3412,7 +3520,8 @@ P bit, or the R bit is set.  The &lt;condition&gt; may be one of the following:
         IF-NO-PAGE-FAULT-OR-INTERRUPT
         IF-PAGE-FAULT-OR-INTERRUPT-OR-SEQUENCE-BREAK
         IF-NO-PAGE-FAULT-OR-INTERRUPT-OR-SEQUENCE-BREAK
-</pre>
+</pre></div>
+
 <p>If omitted, the &lt;condition&gt; is assumed to be &quot;always&quot;.
 The &lt;xct_next&gt;, if present, is XCT-NEXT; its absence denotes the presence of the N bit,
 which inhibits the instruction after the jump if the jump is successful.
@@ -3420,7 +3529,8 @@ The three parts are connected by &quot;-&quot;.
 </p>
 <p>Examples of these operations:
 </p>
-<pre class="verbatim">        CALL-LESS-THAN
+<div class="example">
+<pre class="example">        CALL-LESS-THAN
         JUMP-LESS-THAN-XCT-NEXT
         CALL
         POPJ-IF-BIT-SET
@@ -3428,7 +3538,8 @@ The three parts are connected by &quot;-&quot;.
         CALL-IF-BIT-CLEAR-XCT-NEXT
         JUMP-XCT-NEXT
         POPJ-XCT-NEXT
-</pre>
+</pre></div>
+
 <p>The POPJ-XCT-NEXT operation is not to be confused with POPJ-AFTER-NEXT,
 which may be used in <b>any</b> instruction to set the POPJ bit.
 </p>
@@ -3438,12 +3549,13 @@ Jump instructions which test a bit should have an M source and a byte specifier
 for a 1-bit byte to test.
 </p>
 <a name="Functional-Sources"></a>
-<h2 class="chapter">36 Functional Sources</h2>
+<h3 class="section">24.12 Functional Sources</h3>
 
 <p>The following names are supplied by CONSLP for the various
 functional sources:
 </p>
-<pre class="verbatim"> 0      READ-I-ARG                      The dispatch constant
+<div class="example">
+<pre class="example"> 0      READ-I-ARG                      The dispatch constant
  1      MICRO-STACK-PNTR-AND-DATA       SPCPTR and SPC contents
         MICRO-STACK-POINTER             Byte specifier for bits &lt;28-24&gt;
         MICRO-STACK-DATA                Byte specifier for bits &lt;18-0&gt;
@@ -3461,15 +3573,17 @@ functional sources:
 11      MEMORY-MAP-DATA                 MAP[MD]
 12      MEMORY-DATA                     MD
 13      LOCATION-COUNTER                LC
-</pre>
+</pre></div>
+
 <a name="Functional-Destinations"></a>
-<h2 class="chapter">37 Functional Destinations</h2>
+<h3 class="section">24.13 Functional Destinations</h3>
 
 <p>The following names are provided by CONSLP for functional
 destinations.  Note that some of them are the same names used for
 sources; CONSLP distinguishes usage by context.
 </p>
-<pre class="verbatim"> 1      LOCATION-COUNTER                LC
+<div class="example">
+<pre class="example"> 1      LOCATION-COUNTER                LC
  2      INTERRUPT-CONTROL               Interrupt Control Register
 10      C-PDL-BUFFER-POINTER            Pdl location addressed by PDL POINTER
 11      C-PDL-BUFFER-POINTER-PUSH       Push data onto pdl, increment PDL POINTER
@@ -3487,14 +3601,15 @@ sources; CONSLP distinguishes usage by context.
 31      MEMORY-DATA-START-READ          MD, initiate read cycle
 32      MEMORY-DATA-START-WRITE         MD, initiate write cycle
 33      MEMORY-DATA-WRITE-MAP           MD, MAP[MD] &lt;- VMA
-</pre>
+</pre></div>
+
 <p>The symbol Q-R may also be used as a destination; it causes
 an ALU instruction to have its Q control field to be set to &quot;load Q from
 ALU output&quot;; this is equivalent to specifying LOAD-Q in the instruction.
 Do not use the output bus shifter in connection with Q-R as a destination!
 </p>
 <a name="Operations-Common-to-All-Instructions"></a>
-<h2 class="chapter">38 Operations Common to All Instructions</h2>
+<h3 class="section">24.14 Operations Common to All Instructions</h3>
 
 <p>The symbol for the POPJ bit is POPJ-AFTER-NEXT.
 </p>
@@ -3503,7 +3618,7 @@ LOW-PC-BIT-SELECTS-HALF-WD.  (This feature
 is described in greater detail in an earlier and a later section.)
 </p>
 <a name="Expression-Programs-in-CONSLP"></a>
-<h2 class="chapter">39 Expression Programs in CONSLP</h2>
+<h3 class="section">24.15 Expression Programs in CONSLP</h3>
 
 <p>Wherever an expression may be used in CONSLP, the following
 arcane forms may be used.  In particular, the value of a symbol is
@@ -3685,7 +3800,7 @@ to the ones actually used in CONSLP):
 </pre></div>
 
 <a name="Miscellaneous-Pseudo_002dOperations"></a>
-<h2 class="chapter">40 Miscellaneous Pseudo-Operations</h2>
+<h3 class="section">24.16 Miscellaneous Pseudo-Operations</h3>
 
 <p>Several identical words may be assembled consecutively
 by saying:
@@ -3705,7 +3820,7 @@ by saying:
 in the skipped-over locations with constants.
 </p>
 <a name="CADR-Features-and-Programming-Examples"></a>
-<h2 class="chapter">41 CADR Features and Programming Examples</h2>
+<h3 class="section">24.17 CADR Features and Programming Examples</h3>
 
 <p>In this section the various features of the CADR machine
 are examined and discussed in detail.  An attempt is made to
@@ -3715,7 +3830,7 @@ is intended.  Short programming examples using each feature
 are presented.
 </p>
 <a name="Timing-_002d-The-N-Bit-and-the-POPJ-Bit"></a>
-<h2 class="chapter">42 Timing - The N Bit and the POPJ Bit</h2>
+<h3 class="section">24.18 Timing - The N Bit and the POPJ Bit</h3>
 
 <p>Because CADR fetches the next instruction at the same time
 it is executing the current one, by the time the effect of a JUMP
@@ -3788,7 +3903,7 @@ executing FOO and BAR.  Effectively it is in two &quot;jump point&quot; loops
 at the same time!
 </p>
 <a name="Byte-Manipulation"></a>
-<h2 class="chapter">43 Byte Manipulation</h2>
+<h3 class="section">24.19 Byte Manipulation</h3>
 
 <p>By using M location 2 (by convention a source of zeros)
 with a BYTE instruction, one can clear any bit or field of bits
@@ -3839,12 +3954,12 @@ end of the word, by the following trick:
 </pre></div>
 
 <a name="The-Instruction-Stream"></a>
-<h2 class="chapter">44 The Instruction Stream</h2>
+<h3 class="section">24.20 The Instruction Stream</h3>
 
 <p>&lt;&lt;Some new stuff should be written for this&gt;&gt;
 </p>
 <a name="The-SPC-Stack"></a>
-<h2 class="chapter">45 The SPC Stack</h2>
+<h3 class="section">24.21 The SPC Stack</h3>
 
 <p>The SPC stack is 32 locations long, each location containing
 19 bits (plus parity).  It is indexed by SPCPTR, a 5-bit up/down counter.
@@ -3906,7 +4021,7 @@ or underflow.  It is the responsibility of the programmer to
 avoid nesting subroutines to a depth greater than 32.
 </p>
 <a name="The-PDL-BUFFER-Memory"></a>
-<h2 class="chapter">46 The PDL BUFFER Memory</h2>
+<h3 class="section">24.22 The PDL BUFFER Memory</h3>
 
 <p>The PDL BUFFER is intended to be used as a special-purpose
 cache in the Lisp machine to contain the top portion of the Lisp pushdown stack.
@@ -3944,7 +4059,7 @@ the function exit code decides whether to pull some stack back in from
 main memory.
 </p>
 <a name="Unibus-and-Xbus-address-mapping"></a>
-<h2 class="chapter">47 Unibus and Xbus address mapping</h2>
+<h2 class="chapter">25 Unibus and Xbus address mapping</h2>
 
 <p>This file is supposed to document Unibus addresses used in the Lisp machine.
     Also see section on Xbus addresses after Unibus.
@@ -4302,7 +4417,7 @@ Scheme chip interface registers:
 16	 W	Writing causes an external interrupt
 </pre>
 <a name="Programming-Documentation-on-the-I_002fO-Board"></a>
-<h2 class="chapter">48 Programming Documentation on the I/O Board</h2>
+<h2 class="chapter">26 Programming Documentation on the I/O Board</h2>
 
 <a name="General_002dPurpose-I_002fO"></a>
 <h3 class="unnumberedsec">General-Purpose I/O</h3>
@@ -4506,7 +4621,7 @@ are:
 amplifier) to a speaker, and can be used to make noise.
 </p>
 <a name="Errata"></a>
-<h2 class="chapter">49 Errata</h2>
+<h2 class="chapter">27 Errata</h2>
 
 <p>This is a list of currently known errors and changes that differ from
 the original CADR paper (<samp>AI: LMDOC; CADR 164</samp>).  As I find more
