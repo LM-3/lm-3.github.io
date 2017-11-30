@@ -736,6 +736,7 @@ ul.no-bullet {list-style: none}
       <li><a name="toc-Updating-Software" href="#Updating-Software">35.11.2 Updating Software</a></li>
       <li><a name="toc-Saving-Personal-Software" href="#Saving-Personal-Software">35.11.3 Saving Personal Software</a></li>
       <li><a name="toc-Copying-Bands" href="#Copying-Bands">35.11.4 Copying Bands</a></li>
+      <li><a name="toc-Cold-Load-Bands" href="#Cold-Load-Bands">35.11.5 Cold Load Bands</a></li>
     </ul></li>
     <li><a name="toc-Site-Options-and-Host-Table" href="#Site-Options-and-Host-Table">35.12 Site Options and Host Table</a>
     <ul class="no-bullet">
@@ -53786,6 +53787,177 @@ It compares the two bands and complains about any differences.
 partitions on your machine, you can make them current for booting using
 <code>set-current-band</code>.
 </p>
+<a name="Cold-Load-Bands"></a>
+<h4 class="subsection">35.11.5 Cold Load Bands</h4>
+
+<div class="lisp">
+<pre class="lisp">;; Boot 78.48 and bring it up to latest (as of March, 30th 2017, it is
+;; System 78.52).
+(si:set-sys-host &quot;server&quot; ':unix 0404)
+(login 'ams 'server)
+
+(load &quot;server://tree//site//site.lisp&quot;)
+(fs:define-sys-logical-device)
+
+(dolist (x '(
+	     ;; This is for when we have made a 78.0 COLD band and
+	     ;; need to run (load-patches).
+	     &quot;sys:patch;system-78-1&quot;
+	     &quot;sys:patch;system-78-2&quot;
+	     &quot;sys:patch;system-78-3&quot;
+	     &quot;sys:patch;system-78-4&quot;
+	     &quot;sys:patch;system-78-5&quot;
+	     &quot;sys:patch;system-78-6&quot;
+	     &quot;sys:patch;system-78-7&quot;
+	     &quot;sys:patch;system-78-8&quot;
+	     &quot;sys:patch;system-78-9&quot;
+	     &quot;sys:patch;system-78-10&quot;
+	     &quot;sys:patch;system-78-11&quot;
+	     &quot;sys:patch;system-78-12&quot;
+	     &quot;sys:patch;system-78-13&quot;
+	     &quot;sys:patch;system-78-14&quot;
+	     &quot;sys:patch;system-78-15&quot;
+	     &quot;sys:patch;system-78-16&quot;
+	     &quot;sys:patch;system-78-17&quot;
+	     &quot;sys:patch;system-78-18&quot;
+	     &quot;sys:patch;system-78-19&quot;
+	     &quot;sys:patch;system-78-20&quot;
+	     &quot;sys:patch;system-78-21&quot;
+	     &quot;sys:patch;system-78-22&quot;
+	     &quot;sys:patch;system-78-23&quot;
+	     &quot;sys:patch;system-78-24&quot;
+	     &quot;sys:patch;system-78-25&quot;
+	     &quot;sys:patch;system-78-26&quot;
+	     &quot;sys:patch;system-78-27&quot;
+	     &quot;sys:patch;system-78-28&quot;
+	     &quot;sys:patch;system-78-29&quot;
+	     &quot;sys:patch;system-78-30&quot;
+	     &quot;sys:patch;system-78-31&quot;
+	     &quot;sys:patch;system-78-32&quot;
+	     &quot;sys:patch;system-78-33&quot;
+	     &quot;sys:patch;system-78-34&quot;
+	     &quot;sys:patch;system-78-35&quot;
+	     &quot;sys:patch;system-78-36&quot;
+	     &quot;sys:patch;system-78-37&quot;
+	     &quot;sys:patch;system-78-38&quot;
+	     &quot;sys:patch;system-78-39&quot;
+	     &quot;sys:patch;system-78-40&quot;
+	     &quot;sys:patch;system-78-41&quot;
+	     &quot;sys:patch;system-78-42&quot;
+	     &quot;sys:patch;system-78-43&quot;
+	     &quot;sys:patch;system-78-44&quot;
+	     &quot;sys:patch;system-78-45&quot;
+	     &quot;sys:patch;system-78-46&quot;
+	     &quot;sys:patch;system-78-47&quot;
+	     &quot;sys:patch;system-78-48&quot;
+	     &quot;sys:patch;system-78-49&quot;
+	     &quot;sys:patch;system-78-50&quot;
+	     &quot;sys:patch;system-78-51&quot;
+	     &quot;sys:patch;system-78-52&quot;
+	     ;; Y2K fixes.
+	     &quot;sys:patch;system-78-49&quot;
+	     &quot;sys:patch;system-78-50&quot;
+	     ;; Make ASSIGN-ALTERNATE read symbol into current package.
+	     &quot;sys:patch;system-78-51&quot;
+	     ;; Add SEND, GETF, WHEN and UNLESS.
+	     &quot;sys:patch;system-78-52&quot;
+	     ))
+  (qc-file x))
+(load-patches)
+
+;; Save current system, and make it current...
+(qc-file &quot;sys:site;site&quot;)
+(qc-file &quot;sys:site;hsttbl&quot;)
+(qc-file &quot;sys:site;lmlocs&quot;)
+(si:update-site-configuration-info)
+(si:disk-save 2)
+(set-current-band 2)
+
+;; Recompile world, microcode, and other bits.
+(qc-file &quot;sys:sys2;defmac lisp&quot;)
+(qc-file &quot;sys:sys2;lmmac lisp&quot;)
+(qc-file &quot;sys:sys2;struct lisp&quot;)
+(qc-file &quot;sys:sys2;setf lisp&quot;)
+
+;; Compile RTC and read-table.
+(qc-file &quot;sys:io;rtc lisp&quot;)
+(load &quot;sys:io;rtc&quot;)
+(si:rtc-file &quot;sys:io;rdtbl lisp&quot;)
+
+(si:recompile-world 'no-increment-patch)
+
+(fs:define-sys-logical-device)
+(si:update-site-configuration-info)
+
+;; Compile ucode and prom.
+(pkg-load 'ua)
+(ua:assemble &quot;sys:ucadr;ucadr lisp&quot;) ; Enter 1511 (841.) as version.
+(ua:assemble &quot;sys:ucadr;promh lisp&quot;) ; Enter 11 (9.) as version.
+
+;; Creating a cold load band
+(load &quot;sys:cold;coldpk&quot;)
+(load &quot;sys:cold;coldut&quot;)
+(load &quot;sys:cold;coldld&quot;)
+(cold:load-parameters)
+(make-system 'cold 'compile)
+(cold:make-cold 3)
+
+;; If you get the error &quot;SYM:SITE-NAME is unbound, use value of
+;; SYS:SITE-NAME instead&quot;, answer yes.
+
+;; If you get the error &quot;COLD:ARRAY-INDEX-ORDER is unbound&quot;, type m-C and
+;; return the value NIL.
+
+;; To boot the cold load, find a unused LOD partition and make it
+;; active and reboot.  You can also use DISK-RESTORE to try out the
+;; new COLD LOD.
+
+(print-disk-label)
+(set-current-band 3)
+
+;; Now you can do QLD, and DISK-SAVE.  When you have cold booted the
+;; new fresh LOD band, you can run (load-patches) to bring it back up
+;; to 78.52.
+</pre></div>
+
+<dl>
+<dt><a name="index-recompile_002dworld"></a>Function: <strong>recompile-world</strong> <em>&amp;rest keywords</em></dt>
+<dd><p><code>recompile-world</code> is a rather ad-hoc tool for recompiling all
+of the Lisp Machine system packages.  It works by calling the <code>pkg-load</code>
+facility (see (pkg-load-fun)).
+It will find all files that need recompiling from any of the packages:
+</p>
+<div class="lisp">
+<pre class="lisp">system-internals format compiler
+chaos supdup peek eine
+</pre></div>
+
+<p><i>keywords</i> is a list of keywords; usually it is empty.
+The useful keywords are:
+</p>
+<dl compact="compact">
+<dt><code>load</code></dt>
+<dd><p>After compiling, load in any files which are not loaded.
+</p></dd>
+<dt><code>noconfirm</code></dt>
+<dd><p>Don&rsquo;t ask for confirmation for each package.
+</p></dd>
+<dt><code>selective</code></dt>
+<dd><p>Ask for confirmation for each file.
+</p></dd>
+</dl>
+
+<p>Any of the other keywords accepted by <code>pkg-load</code> will also work.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-qld"></a>Function: <strong>qld</strong> <em>&amp;optional restart-p</em></dt>
+<dd><p><code>qld</code> is used to generate a new Lisp Machine system after
+the cold-load is loaded in.  If you don&rsquo;t know how to use this,
+you don&rsquo;t need it.  If <code>restart-p</code> is non-<code>nil</code>, then
+it ignores that it has done anything, and starts from scratch.
+</p></dd></dl>
+
 <a name="Site-Options-and-Host-Table"></a>
 <h3 class="section">35.12 Site Options and Host Table</h3>
 <a name="index-site-options"></a>
