@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Lisp Machine Manual</title>
 
@@ -16,16 +16,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -34,10 +34,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -45,7 +44,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <h1 class="settitle" align="center">Lisp Machine Manual</h1>
 
 
@@ -5450,6 +5449,7 @@ actually treated as a <code>tagbody</code>, so that it may contain <code>go</cod
 </pre></div>
 <div class="lisp">
 <pre class="lisp">
+
 (do ((z list (cdr z)) <tt>; z starts as <code>list</code> and is cdr'd each time.</tt>
      (y other-list)   <tt>; y starts as <code>other-list</code>, and is unchanged by the do.</tt>
      (x)	      <tt>; x starts as <code>nil</code> and is not changed by the <code>do</code>.</tt>
@@ -16271,7 +16271,7 @@ equivalent.
 </p></dd></dl>
 
 <dl>
-<dt><a name="index-_0040"></a>Macro: <strong>@</strong> <em>define</em></dt>
+<dt><a name="index-_0040define"></a>Macro: <strong>@define</strong></dt>
 <dd><p>This macro turns into <code>nil</code>, doing nothing.  It exists for the sake of the
 @ listing generation program, which uses it to declare names of special forms
 that define objects (such as functions) that @ should cross-reference.
@@ -22858,6 +22858,7 @@ A typical call to <code>define-command</code> would look like:
 
 </pre><pre class="lisp">Expanding into:
 </pre><pre class="lisp">
+
 (progn (setf (aref dispatch-table #\meta-&lt;)
 	     'move-to-top)
        (push 'move-to-top *command-name-list*)
@@ -23635,6 +23636,7 @@ get the combined lists which you return.  The forms returned by the
 <div class="lisp">
 <pre class="lisp">An example of a <code>define-setf-method</code> that uses <code>get-setf-method</code> is that for <code>ldb</code>:
 </pre><pre class="lisp">
+
 (define-setf-method ldb (bytespec int)
   (multiple-value-bind 
 	  (temps vals stores store-form access-form)
@@ -26331,6 +26333,7 @@ alterant will now operate as follows:
 </pre></div>
 <div class="lisp">
 <pre class="lisp">
+
 (make-phone-book-entry
    :name &quot;Fred Derf&quot;
    :address &quot;259 Octal St.&quot;
@@ -29265,6 +29268,7 @@ that allows <code>:list</code> methods and untyped methods:
 
 </pre><pre class="lisp">yielding the combined method
 </pre><pre class="lisp">
+
 (defmethod (foo :combined :win) (&amp;rest args)
   (list
     (apply #'(:method foo :list :win) args)
@@ -47405,6 +47409,7 @@ is superior to <code>check-arg</code> for this reason.
 <div class="lisp">
 <pre class="lisp">Examples:
 </pre><pre class="lisp">
+
 (check-arg foo stringp &quot;a string&quot;)
 
 (check-arg h
@@ -53844,6 +53849,7 @@ up in this alist to find out what directories to use there.
 <div class="lisp">
 <pre class="lisp">Here is what is used at MIT:
 </pre><pre class="lisp">
+
 (defsite :mit
   ...
   (:sys-host-translation-alist
@@ -54086,6 +54092,7 @@ should have an element for each Lisp Machine, of this form:
 
 </pre><pre class="lisp">The general pattern is
 </pre><pre class="lisp">
+
 (<i>host-full-name</i> <i>pretty-name</i>
  <i>location-string</i>
  (<i>building</i> <i>floor</i>) <i>associated-machine</i> <i>site-options</i>) 
