@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Lisp Machine Manual</title>
 
@@ -16,16 +16,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style: oblique}
+kbd {font-style:oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -34,9 +34,10 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -44,7 +45,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en">
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 <h1 class="settitle" align="center">Lisp Machine Manual</h1>
 
 
@@ -5450,7 +5451,6 @@ actually treated as a <code>tagbody</code>, so that it may contain <code>go</cod
 </pre></div>
 <div class="lisp">
 <pre class="lisp">
-
 (do ((z list (cdr z)) <tt>; z starts as <code>list</code> and is cdr'd each time.</tt>
      (y other-list)   <tt>; y starts as <code>other-list</code>, and is unchanged by the do.</tt>
      (x)	      <tt>; x starts as <code>nil</code> and is not changed by the <code>do</code>.</tt>
@@ -14529,8 +14529,48 @@ automatically perform character set conversion when text files
 are read or written.  The details of the mapping are explained in
 (character-set-differences).
 </p>
-
-<div align="center">The Lisp Machine Character Set
+<pre class="verbatim">000 center-dot (@centerDot{})             040 space       100 @@           140 `
+001 down arrow (@downArrow{})             041 !           101 A           141 a
+002 alpha (@alpha{})                  042 &quot;           102 B           142 b
+003 beta (@beta{})                   043 #           103 C           143 c
+004 and-sign (@andSign{})               044 $           104 D           144 d
+005 not-sign (@notSign{})               045 %           105 E           145 e
+006 epsilon (@epsilon{})                046 &amp;           106 F           146 f
+007 pi (@pi{})                     047 '           107 G           147 g
+010 lambda ((ctl-h))                 050 (           110 H           150 h
+011 gamma (@gamma{})                  051 )           111 I           151 i
+012 delta (@delta{})                  052 *           112 J           152 j
+013 uparrow (@uparrow{})                053 +           113 K           153 k
+014 plus-minus (@plusMinus{})             054 ,           114 L           154 l
+015 circle-plus ((ctl-m))            055 -           115 M           155 m
+016 infinity (@infinity{})               056 .           116 N           156 n
+017 partial delta (@partialDelta{})          057 /           117 O           157 o
+020 left horseshoe (@leftHorseshoe{})         060 0           120 P           160 p
+021 right horseshoe (@delta{})        061 1           121 Q           161 q
+022 up horseshoe (@upHorseshoe{})           062 2           122 R           162 r
+023 down horseshoe (@downHorseshoe{})         063 3           123 S           163 s
+024 universal quantifier (@universalQuantifier{})   064 4           124 T           164 t
+025 existential quantifier (@existentialQuantifier{}) 065 5           125 U           165 u
+026 circle-X (@circleX{})               066 6           126 V           166 v
+027 double-arrow (@doubleArrow{})           067 7           127 W           167 w
+030 left arrow (@leftArrow{})             070 8           130 X           170 x
+031 right arrow (@rightArrow{})            071 9           131 Y           171 y
+032 not-equals (@notEquals{})             072 :           132 Z           172 z
+033 diamond (altmode) (@diamond{})      073 ;           133 [           173 @{
+034 less-or-equal (@lessOrEqual{})          074 &lt;           134 \           174 |
+035 greater-or-equal (@greaterOrEqual{})       075 =           135 ]           175 @}
+036 equivalence (@equivalence{})            076 &gt;           136 ^           176 ~
+037 or (@or{})                     077 ?           137 _           177 (ctl-qm)
+200 Null character     210 Overstrike    220 Stop-output   230 Roman-iv
+201 Break              211 Tab           221 Abort         231 Hand-up
+202 Clear              212 Line          222 Resume        232 Hand-down
+203 Call               213 Delete        223 Status        233 Hand-left
+204 Terminal escape    214 Page          224 End           234 Hand-right
+205 Macro/backnext     215 Return        225 Roman-i       235 System
+206 Help               216 Quote         226 Roman-ii      236 Network
+207 Rubout             217 Hold-output   227 Roman-iii
+237-377 reserved for the future
+</pre><div align="center">The Lisp Machine Character Set
 </div><div align="center">(all numbers in octal)
 </div>
 <a name="Classifying-Characters"></a>
@@ -16272,7 +16312,7 @@ equivalent.
 </p></dd></dl>
 
 <dl>
-<dt><a name="index-_0040define"></a>Macro: <strong>@define</strong></dt>
+<dt><a name="index-_0040"></a>Macro: <strong>@</strong> <em>define</em></dt>
 <dd><p>This macro turns into <code>nil</code>, doing nothing.  It exists for the sake of the
 @ listing generation program, which uses it to declare names of special forms
 that define objects (such as functions) that @ should cross-reference.
@@ -22859,7 +22899,6 @@ A typical call to <code>define-command</code> would look like:
 
 </pre><pre class="lisp">Expanding into:
 </pre><pre class="lisp">
-
 (progn (setf (aref dispatch-table #\meta-&lt;)
 	     'move-to-top)
        (push 'move-to-top *command-name-list*)
@@ -23637,7 +23676,6 @@ get the combined lists which you return.  The forms returned by the
 <div class="lisp">
 <pre class="lisp">An example of a <code>define-setf-method</code> that uses <code>get-setf-method</code> is that for <code>ldb</code>:
 </pre><pre class="lisp">
-
 (define-setf-method ldb (bytespec int)
   (multiple-value-bind 
 	  (temps vals stores store-form access-form)
@@ -26334,7 +26372,6 @@ alterant will now operate as follows:
 </pre></div>
 <div class="lisp">
 <pre class="lisp">
-
 (make-phone-book-entry
    :name &quot;Fred Derf&quot;
    :address &quot;259 Octal St.&quot;
@@ -29269,7 +29306,6 @@ that allows <code>:list</code> methods and untyped methods:
 
 </pre><pre class="lisp">yielding the combined method
 </pre><pre class="lisp">
-
 (defmethod (foo :combined :win) (&amp;rest args)
   (list
     (apply #'(:method foo :list :win) args)
@@ -47410,7 +47446,6 @@ is superior to <code>check-arg</code> for this reason.
 <div class="lisp">
 <pre class="lisp">Examples:
 </pre><pre class="lisp">
-
 (check-arg foo stringp &quot;a string&quot;)
 
 (check-arg h
@@ -54003,7 +54038,6 @@ up in this alist to find out what directories to use there.
 <div class="lisp">
 <pre class="lisp">Here is what is used at MIT:
 </pre><pre class="lisp">
-
 (defsite :mit
   ...
   (:sys-host-translation-alist
@@ -54246,7 +54280,6 @@ should have an element for each Lisp Machine, of this form:
 
 </pre><pre class="lisp">The general pattern is
 </pre><pre class="lisp">
-
 (<i>host-full-name</i> <i>pretty-name</i>
  <i>location-string</i>
  (<i>building</i> <i>floor</i>) <i>associated-machine</i> <i>site-options</i>) 

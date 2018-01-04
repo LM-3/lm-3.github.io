@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Lisp Machine Manual</title>
 
@@ -17,16 +17,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style: oblique}
+kbd {font-style:oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -35,9 +35,10 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -45,7 +46,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en">
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
 <h1 class="settitle" align="center">Lisp Machine Manual</h1>
 
 
@@ -1280,7 +1281,7 @@ of the function.  Thus, this is not a real problem.
 </p></dd></dl>
 
 <dl>
-<dt><a name="index-_0040define"></a>Macro: <strong>@define</strong></dt>
+<dt><a name="index-_0040"></a>Macro: <strong>@</strong> <em>define</em></dt>
 <dd><p>This macro turns into <code>nil</code>.  It exists for the sake of the
 @ listing generation program, which uses it to declare names of special forms
 which define objects (such as functions) which @ should cross-reference.
@@ -11133,48 +11134,48 @@ has both its Control and Meta bits on, prefix it with an Epsilon.
 To get an Alpha, Beta, Epsilon, or Equivalence into the string,
 quote it by prefixing it with an Equivalence.
 </p>
-<pre class="verbatim">@c 000 center-dot (@centerDot{})             040 space       100 @@           140 `
-@c 001 down arrow (@downArrow{})             041 !           101 A           141 a
-@c 002 alpha (@alpha{})                  042 &quot;           102 B           142 b
-@c 003 beta (@beta{})                   043 #           103 C           143 c
-@c 004 and-sign (@andSign{})               044 $           104 D           144 d
-@c 005 not-sign (@notSign{})               045 %           105 E           145 e
-@c 006 epsilon (@epsilon{})                046 &amp;           106 F           146 f
-@c 007 pi (@pi{})                     047 '           107 G           147 g
-@c 010 lambda (@lambda{})                 050 (           110 H           150 h
-@c 011 gamma (@delta{})                  051 )           111 I           151 i
-@c 012 delta (@delta{})                  052 *           112 J           152 j
-@c 013 uparrow (@uparrow{})                053 +           113 K           153 k
-@c 014 plus-minus (@plusMinus{})             054 ,           114 L           154 l
-@c 015 circle-plus (@delta{})            055 -           115 M           155 m
-@c 016 infinity (@infinity{})               056 .           116 N           156 n
-@c 017 partial delta (@partialDelta{})          057 /           117 O           157 o
-@c 020 left horseshoe (@leftHorseshoe{})         060 0           120 P           160 p
-@c 021 right horseshoe (@delta{})        061 1           121 Q           161 q
-@c 022 up horseshoe (@upHorseshoe{})           062 2           122 R           162 r
-@c 023 down horseshoe (@downHorseshoe{})         063 3           123 S           163 s
-@c 024 universal quantifier (@universalQuantifier{})   064 4           124 T           164 t
-@c 025 existential quantifier (@existentialQuantifier{}) 065 5           125 U           165 u
-@c 026 circle-X (@circleX{})               066 6           126 V           166 v
-@c 027 double-arrow (@doubleArrow{})           067 7           127 W           167 w
-@c 030 left arrow (@leftArrow{})             070 8           130 X           170 x
-@c 031 right arrow (@rightArrow{})            071 9           131 Y           171 y
-@c 032 not-equals (@notEquals{})             072 :           132 Z           172 z
-@c 033 diamond (altmode) ()      073 ;           133 [           173 @{
-@c 034 less-or-equal (@lessOrEqual{})          074 &lt;           134 \           174 |
-@c 035 greater-or-equal (@greaterOrEqual{})       075 =           135 ]           175 @}
-@c 036 equivalence (@equivalence{})            076 &gt;           136 ^           176 ~
-@c 037 or (@or{})                     077 ?           137 _           177 @circlePlus{}
-@c 200 null character             210 bs          240 switch to font 0
-@c 201 break                      211 tab         241 switch to font 1
-@c 202 clear                      212 line        242 switch to font 2
-@c 203 call                       213 vt          243 switch to font 3
-@c 204 escape (NOT altmode!)      214 form        244 switch to font 4
-@c 205 backnext                   215 return      245 switch to font 5
-@c 206 help                                       246 switch to font 6
-@c 207 rubout                                     247 switch to font 7
-@c 216-237 reserved for future special keys
-@c 250-377 reserved for future control operations
+<pre class="verbatim">000 center-dot (@centerDot{})             040 space       100 @@           140 `
+001 down arrow (@downArrow{})             041 !           101 A           141 a
+002 alpha (@alpha{})                  042 &quot;           102 B           142 b
+003 beta (@beta{})                   043 #           103 C           143 c
+004 and-sign (@andSign{})               044 $           104 D           144 d
+005 not-sign (@notSign{})               045 %           105 E           145 e
+006 epsilon (@epsilon{})                046 &amp;           106 F           146 f
+007 pi (@pi{})                     047 '           107 G           147 g
+010 lambda (@lambda{})                 050 (           110 H           150 h
+011 gamma (@delta{})                  051 )           111 I           151 i
+012 delta (@delta{})                  052 *           112 J           152 j
+013 uparrow (@uparrow{})                053 +           113 K           153 k
+014 plus-minus (@plusMinus{})             054 ,           114 L           154 l
+015 circle-plus (@delta{})            055 -           115 M           155 m
+016 infinity (@infinity{})               056 .           116 N           156 n
+017 partial delta (@partialDelta{})          057 /           117 O           157 o
+020 left horseshoe (@leftHorseshoe{})         060 0           120 P           160 p
+021 right horseshoe (@delta{})        061 1           121 Q           161 q
+022 up horseshoe (@upHorseshoe{})           062 2           122 R           162 r
+023 down horseshoe (@downHorseshoe{})         063 3           123 S           163 s
+024 universal quantifier (@universalQuantifier{})   064 4           124 T           164 t
+025 existential quantifier (@existentialQuantifier{}) 065 5           125 U           165 u
+026 circle-X (@circleX{})               066 6           126 V           166 v
+027 double-arrow (@doubleArrow{})           067 7           127 W           167 w
+030 left arrow (@leftArrow{})             070 8           130 X           170 x
+031 right arrow (@rightArrow{})            071 9           131 Y           171 y
+032 not-equals (@notEquals{})             072 :           132 Z           172 z
+033 diamond (altmode) (@diamond{})      073 ;           133 [           173 @{
+034 less-or-equal (@lessOrEqual{})          074 &lt;           134 \           174 |
+035 greater-or-equal (@greaterOrEqual{})       075 =           135 ]           175 @}
+036 equivalence (@equivalence{})            076 &gt;           136 ^           176 ~
+037 or (@or{})                     077 ?           137 _           177 @circlePlus{}
+200 null character             210 bs          240 switch to font 0
+201 break                      211 tab         241 switch to font 1
+202 clear                      212 line        242 switch to font 2
+203 call                       213 vt          243 switch to font 3
+204 escape (NOT altmode!)      214 form        244 switch to font 4
+205 backnext                   215 return      245 switch to font 5
+206 help                                       246 switch to font 6
+207 rubout                                     247 switch to font 7
+216-237 reserved for future special keys
+250-377 reserved for future control operations
 </pre><div align="center">The Lisp Machine Character Set
 </div>
 <a name="Printed-Representation"></a>
@@ -19173,7 +19174,7 @@ the result of the form <i>x</i> to the <code>logout-list</code>.
 <tr><td></td><td valign="top"><a href="#index-_003e_003d"><code>&gt;=</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Top_fn_symbol-11">@</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-_0040define"><code>@define</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_0040"><code>@</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Top_fn_symbol-12">\</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-_005c"><code>\</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
