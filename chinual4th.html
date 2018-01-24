@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Lisp Machine Manual</title>
 
@@ -16,16 +16,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -34,10 +34,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -45,7 +44,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <h1 class="settitle" align="center">Lisp Machine Manual</h1>
 
 
@@ -3253,6 +3252,7 @@ may be used in the body, and they have the same meaning.
 </pre></div>
 <div class="lisp">
 <pre class="lisp">
+
 (do ((z list (cdr z)) <tt>; z starts as <code>list</code> and is <i>cdr</i>'ed each time.</tt>
      (y other-list)   <tt>; y starts as <code>other-list</code>, and is unchanged by the do.</tt>
      (x)	      <tt>; x starts as <code>nil</code> and is not changed by the <code>do</code>.</tt>
@@ -10293,7 +10293,7 @@ further changes to <code>bar</code> will have no effect on <code>foo</code>.
 </p></dd></dl>
 
 <dl>
-<dt><a name="index-_0040"></a>Macro: <strong>@</strong> <em>define</em></dt>
+<dt><a name="index-_0040define"></a>Macro: <strong>@define</strong></dt>
 <dd><p>This macro turns into <code>nil</code>, doing nothing.  It exists for the sake of the
 &nbsp;listing generation program, which uses it to declare names of special forms
 which define objects (such as functions) that &nbsp;should cross-reference.
@@ -18304,6 +18304,7 @@ alterant will now operate as follows:
 </pre></div>
 <div class="lisp">
 <pre class="lisp">
+
 (make-phone-book-entry
    name &quot;Fred Derf&quot;
    address &quot;259 Octal St.&quot;
