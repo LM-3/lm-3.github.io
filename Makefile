@@ -2,7 +2,8 @@
 
 LM3_DOC ?= ../doc
 
-HTMLSRC = cadr.html amber.html chinual.html \
+HTMLSRC = cadr.html amber.html chinual.html wind.html \
+	wind1.1.html \
 	chinual2nd.html chinual4th.html chinual6th.html \
 	NFILE.html
 
