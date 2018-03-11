@@ -1,7 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Lisp Machine Manual</title>
 
 <meta name="description" content="Lisp Machine Manual">
@@ -9,7 +10,6 @@
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="#Top" rel="start" title="Top">
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="dir.html#Top" rel="up" title="(dir)">
@@ -40,6 +40,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
+<link rel="stylesheet" type="text/css" href="https://lm-3.github.io/static/texinfo.css">
 
 
 </head>
@@ -668,7 +669,7 @@ is (or would have been) <code>(aref bar 0)</code>&quot;.
 <p>A typical description of a Lisp function looks like this:
 </p>
 <dl>
-<dt><a name="index-_005fno_005findex"></a>Function: <strong>_no_index</strong> <em>function-name arg1 arg2 &amp;optional arg3 (arg4 <code>(foo 3)</code>)</em></dt>
+<dt><a name="index-function_002dname"></a>Function: <strong>function-name</strong> <em>arg1 arg2 &amp;optional arg3 (arg4 <code>(foo 3)</code>)</em></dt>
 <dd><p>The <code>function-name</code> function adds together <i>arg1</i> and <i>arg2</i>,
 and then multiplies the result by <i>arg3</i>.  If <i>arg3</i> is not provided,
 the multiplication isn&rsquo;t done.  <code>function-name</code> then returns a list
@@ -699,13 +700,13 @@ also contain &quot;<code>&amp;rest</code>&quot;, which is part of the same synta
 <p>The descriptions of special forms and macros look like this:
 </p>
 <dl>
-<dt><a name="index-_005fno_005findex-1"></a>Special Form: <strong>_no_index</strong> <em>do-three-times form</em></dt>
+<dt><a name="index-do_002dthree_002dtimes"></a>Special Form: <strong>do-three-times</strong> <em>form</em></dt>
 <dd><p>This evaluates <i>form</i> three times and returns the result of the third
 evaluation.
 </p></dd></dl>
 
 <dl>
-<dt><a name="index-_005fno_005findex-2"></a>Macro: <strong>_no_index</strong> <em>with-foo-bound-to-nil form...</em></dt>
+<dt><a name="index-with_002dfoo_002dbound_002dto_002dnil"></a>Macro: <strong>with-foo-bound-to-nil</strong> <em>form...</em></dt>
 <dd><p>This evaluates the <i>forms</i> with the symbol <code>foo</code> bound to <code>nil</code>.
 It expands as follows:
 </p><div class="lisp">
@@ -751,7 +752,7 @@ form.
 <p>This ridiculous special form exhibits all of the syntactic features:
 </p>
 <dl>
-<dt><a name="index-_005fno_005findex-3"></a>Special Form: <strong>_no_index</strong> <em>twiddle-frob [(frob option...)] {parameter value}...</em></dt>
+<dt><a name="index-twiddle_002dfrob"></a>Special Form: <strong>twiddle-frob</strong> <em>[(frob option...)] {parameter value}...</em></dt>
 <dd><p>This twiddles the parameters of <i>frob</i>, which defaults to <code>default-frob</code>
 if not specified.  Each <i>parameter</i> is the name of one of the adjustable parameters of
 a frob; each <i>value</i> is what value to set that parameter to.  Any number
@@ -771,7 +772,7 @@ are violated.
 are described in this style:
 </p>
 <dl>
-<dt><a name="index-flavor_002dname-on-_005fno_005findex"></a>Method on _no_index: <strong>flavor-name</strong> <em>message-name arg1 arg2 &amp;optional arg3</em></dt>
+<dt><a name="index-message_002dname-on-flavor_002dname"></a>Method on flavor-name: <strong>message-name</strong> <em>arg1 arg2 &amp;optional arg3</em></dt>
 <dd><p>This is the documentation of the effect of sending a message
 named <code>message-name</code>, with arguments <i>arg1</i>, <i>arg2</i>, and <i>arg3</i>,
 to an instance of flavor <code>flavor-name</code>.
@@ -780,7 +781,7 @@ to an instance of flavor <code>flavor-name</code>.
 <p>Descriptions of variables (&quot;special&quot; or &quot;global&quot; variables) look like this:
 </p>
 <dl>
-<dt><a name="index-_005fno_005findex-4"></a>Variable: <strong>_no_index</strong> <em>typical-variable</em></dt>
+<dt><a name="index-typical_002dvariable"></a>Variable: <strong>typical-variable</strong></dt>
 <dd><p>The variable <code>typical-variable</code> has a typical value....
 </p></dd></dl>
 
