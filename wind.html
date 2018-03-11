@@ -48,24 +48,9 @@ ul.no-bullet {list-style: none}
 <body lang="en">
 <h1 class="settitle" align="center">Introduction to Using the Window System</h1>
 
-<p>.headings off
-</p>
-<p>.headings on
-</p>
 
-<p>.setq manual-make-instance-fun &quot;section 20.7 of the Lisp Machine manual&quot;
-.setq stream-protocol &quot;section 21.5 of the Lisp Machine manual&quot;
-.setq character-set &quot;section 21.1 of the Lisp Machine manual&quot;
-.setq call-and-abort &quot;Operating the Lisp Machine&quot;
-.setq make-array-fun &quot;section 8.2 of the Lisp Machine manual&quot;
-.setq bitblt-fun &quot;section 8.7 of the Lisp Machine manual&quot;
-.setq terminal-io-var &quot;section 21.5.9 of the Lisp Machine manual&quot;
-.setq defresource-fun &quot;section 5.12 of the Lisp Machine manual&quot;
-.setq si:process-reset-method &quot;section 26.4.3 of the Lisp Machine manual&quot;
-.setq stream-copy-until-eof-fun &quot;section 21.4 of the Lisp Machine manual&quot;
-.setq progw-fun &quot;section 3.1 of the Lisp Machine manual&quot;
-.setq fs:pathname-string-for-wholine-method &quot;section 22.6 of the Lisp Machine manual&quot;
-</p>
+
+
 <br>
 <br>
 <div align="center"><h1 class="titlefont">Preface</h1>
@@ -96,7 +81,7 @@ authority for all questions.
 <p>Any comments, suggestions, or criticisms will be welcomed.  Please send
 Arpa network mail to BUG-LMMAN@MIT-MC.
 </p>
-<p>Those not on the Arpanet may send U.S. snail to
+<p>Those not on the Arpanet may send U.S. snail to
 </p>
 <div class="lisp">
 <pre class="lisp"><tt>Richard M. Stallman
@@ -108,7 +93,7 @@ Cambridge, Mass. 02139</tt>
 </div>
 <p>The Lisp Machine is a product of the efforts of many people too
 numerous to list here and of the former unique cooperative environment
-of the M.I.T. Artificial Intelligence Laboratory.  I believe that the
+of the M.I.T. Artificial Intelligence Laboratory.  I believe that the
 commercialization of computer software hinders the further development
 of systems such as described herein.  I consider proprietary software
 morally objectionable and plan to dedicate my career to promoting the
@@ -680,7 +665,7 @@ below by functionality.
 <p>There is a vague convention sometimes followed for naming flavors of
 windows.  Here the word <i>frobboz</i> is used to stand for any feature,
 attribute, or class of windows that would appear in a flavor name
-(e.g. <code>peek</code>, <code>lisp-listener</code>, or <code>delayed-redisplay-label</code>).
+(e.g. <code>peek</code>, <code>lisp-listener</code>, or <code>delayed-redisplay-label</code>).
 Naming conventions are different for <i>instantiable</i> flavors (which
 are complete and can support instances of themselves) and <i>mixin</i>
 flavors (which are incomplete and only supply one particular aspect of
@@ -764,8 +749,8 @@ especially involving mouse-sensitivity or automatic updating,
 it is time to consider creating your own windows (and your own
 window flavors, perhaps).
 </p>
-<p>.findex tv:make-window
-To create a window, use the functions <code>make-instance</code> or <code>instantiate-flavor</code>.
+<a name="index-tv_003amake_002dwindow"></a>
+<p>To create a window, use the functions <code>make-instance</code> or <code>instantiate-flavor</code>.
 (Old programs usually use <code>tv:make-window</code>, which is now equivalent to
 <code>make-instance</code> but was different in the past).
 </p>
@@ -813,8 +798,7 @@ The name of the window.
 </p>
 <a name="Visibility-and-Exposure-of-Windows"></a>
 <h2 class="chapter">2 Visibility and Exposure of Windows</h2>
-<p>.setq visibility-chapter chapter-number
-</p>
+
 <p>The most important piece of information about a window is whether it is
 actually <i>visible</i> on the screen.  A related but different piece of
 information is whether the window is <i>exposed</i>.  Understanding these basic
@@ -851,8 +835,7 @@ one is not.
 <a name="index-inferior-windows"></a>
 <a name="index-superior-window"></a>
 <a name="index-pane"></a>
-<p>.setq window-hierarchy section-page
-</p>
+
 <p>Several Lisp Machine system programs and application programs present
 the user with a window that is split up into several sections, which are
 usually called &quot;window panes&quot; or &quot;panes&quot;.  For example, the inspector
@@ -898,8 +881,7 @@ You can then edit the inferiors of whichever one you choose.
 </p>
 <a name="index-active-window"></a>
 <a name="index-screen-manager"></a>
-<p>.setq activation page
-So, what <code>Edit Screen</code> really does is to manipulate a set of inferiors
+<p>So, what <code>Edit Screen</code> really does is to manipulate a set of inferiors
 of some specific superior, which may or may not be a screen.  The
 set of inferiors that you are manipulating is called the <i>active
 inferiors</i> set; each inferior in this set is said to be <i>active</i>.
@@ -1019,8 +1001,7 @@ including <i>sheet</i> itself.
 <a name="Screens"></a>
 <h3 class="section">2.2 Screens</h3>
 <a name="index-screens"></a>
-<p>.setq screens section-page
-</p>
+
 <p>The topmost nodes of the window hierarchy are actually screens
 rather than windows, a screen being an instance of the flavor <code>tv:screen</code>.
 </p>
@@ -1181,9 +1162,8 @@ among other things, the flag controlling black-on-white mode.
 </p>
 <a name="Bit_002dSave-Arrays"></a>
 <h3 class="section">2.4 Bit-Save Arrays</h3>
-<p>.setq bit-save-array section-page
 <a name="index-bit_002dsave-array"></a>
-</p>
+
 <p>The pixel values that make up a window&rsquo;s screen image are called its <i>contents</i>.
 When a window is fully visible, its contents are displayed on a
 screen so that they can be seen.  When the window is not fully visible,
@@ -1317,9 +1297,8 @@ possible.
 <a name="index-exposed-window"></a>
 <a name="index-exposable-window"></a>
 <a name="index-visible-1"></a>
-<p>.setq exposure section-page
 <a name="index-screen-array"></a>
-</p>
+
 <p>This section discusses the concepts of screen arrays and of exposed
 windows.  These have to do with how the system decides where to put a
 window&rsquo;s contents (its pixels), how the notion of visibility on the
@@ -1547,14 +1526,15 @@ the <code>:expose</code> operation (the <i>inhibit-blinkers</i> argument).
 Returns a list of all exposable inferiors of this window or screen.
 .end_defmetamethod
 </p>
-<p>.defspec tv:with-sheet-deexposed (sheet) &amp;body body
-Executes the <i>body</i> with <i>sheet</i> deexposed.
+<dl>
+<dt><a name="index-tv_003awith_002dsheet_002ddeexposed"></a>Special Form: <strong>tv:with-sheet-deexposed</strong> <em>(sheet) &amp;body body</em></dt>
+<dd><p>Executes the <i>body</i> with <i>sheet</i> deexposed.
 If <i>sheet</i> had been exposed, it is reexposed when
 <i>body</i> exits.  Operations that change things about the window
 often make use of this to reduce the complicated case of an
 exposed window to the simpler case of a deexposed one.
-.end_defspec
-</p>
+</p></dd></dl>
+
 <p>.defmetamethod &quot;windows and screens&quot; :screen-array
 Returns the window or screen&rsquo;s screen array, or <code>nil</code>.
 .end_defmetamethod
@@ -1580,11 +1560,10 @@ The screen array, or <code>nil</code> if there is none.
 
 <a name="Ability-to-Output"></a>
 <h3 class="section">2.6 Ability to Output</h3>
-<p>.setq ability-to-output section-page
 <a name="index-output-hold"></a>
 <a name="index-holding-output"></a>
 <a name="index-output-hold-flag"></a>
-</p>
+
 <p>Whether a window is exposed usually controls whether output can be
 done on it.  In a deexposed window a flag called the <i>output hold
 flag</i> is normally 1.  This causes an <i>output hold exception</i> if an
@@ -1603,8 +1582,7 @@ output on the window.  This is <code>setf</code>&rsquo;able.
 </p></dd></dl>
 
 <a name="index-deexposed-typeout-action"></a>
-<p>.setq deexposed-typeout-action page
-When a process attempts to type out on a window which is deexposed and
+<p>When a process attempts to type out on a window which is deexposed and
 has its output hold flag set, what happens depends on the window&rsquo;s
 <i>deexposed typeout action</i>.  The deexposed typeout action can be any
 of certain keyword symbols, or it can be a list.  After the specified
@@ -1645,10 +1623,9 @@ allowing typeout to proceed immediately.  If the superior is the screen,
 the <code>:expose</code> option provides a very different user interface from the
 <code>:normal</code> option.
 
-<p>.setq deexposed-permit page
-</p></li><li> :permit &quot;deexposed typeout action&quot;
+</li><li> :permit &quot;deexposed typeout action&quot;
 This means to permit typeout even though the window is not exposed, as
-long as the window has a screen array; i.e., it may type out on its own
+long as the window has a screen array; i.e., it may type out on its own
 bit-save array even though it is not exposed.  The next time the window
 is exposed, the updated contents will be retrieved from the bit-save
 array.
@@ -1695,8 +1672,9 @@ Does not return until the window is exposed.
 (Some window flavors implement it differently).
 .end_defmetamethod
 </p>
-<p>.defspec tv:sheet-force-access (window) body
-<code>tv:sheet-force-access</code> allows you to do typeout on a window that has
+<dl>
+<dt><a name="index-tv_003asheet_002dforce_002daccess"></a>Special Form: <strong>tv:sheet-force-access</strong> <em>(window) body</em></dt>
+<dd><p><code>tv:sheet-force-access</code> allows you to do typeout on a window that has
 a screen array even if its output hold flag is set.  It works by turning
 off the output hold flag temporarily around the execution of the body.
 This is useful for drawing on a window while it is not visible.
@@ -1725,12 +1703,11 @@ it redisplays the window in its bit-save array if necessary.
     (send self ':redisplay 0 
 	  (tv:sheet-number-of-inside-lines))))
 </pre></div>
-<p>.end_defspec
-</p>
+</dd></dl>
+
 <a name="Window-Locking"></a>
 <h3 class="section">2.7 Window Locking</h3>
-<p>.setq window-locking section-page
-</p>
+
 <p>Each window or screen has a lock which is used to prevent two processes
 from operating on the window at once in a way that might cause
 inconsistent results.  Outputting on the window, activating or
@@ -1749,13 +1726,14 @@ the temporary windows are all deexposed.  The <code>:mouse-select</code> operati
 and some other things know how to deexpose temporary windows when necessary
 to cause a window to become unlocked.
 </p>
-<p>.defspec tv:lock-sheet (window-or-screen) &amp;rest body...
-Executes <i>body</i> with <i>window-or-screen</i> locked by this process.
+<dl>
+<dt><a name="index-tv_003alock_002dsheet"></a>Special Form: <strong>tv:lock-sheet</strong> <em>(window-or-screen) &amp;rest body...</em></dt>
+<dd><p>Executes <i>body</i> with <i>window-or-screen</i> locked by this process.
 Calls to <code>tv:lock-sheet</code> are found in wrappers for operations such as
 <code>:expose</code>, so you need not call it yourself, but you should be aware
 that it is being done.
-.end_defspec
-</p>
+</p></dd></dl>
+
 <p>.defmetainstvar &quot;windows and screens&quot; tv:lock
 The lock.  It is <code>nil</code> for an unlocked window, a process that has
 locked the window, or a list of covering temporary windows if this
@@ -1791,10 +1769,8 @@ you are likely to be susceptible to a timing error.
 
 <a name="Temporary-Windows"></a>
 <h3 class="section">2.8 Temporary Windows</h3>
-<p>.setq temporary-window page
-.setq temporary-windows page
 <a name="index-temporary-window"></a>
-</p>
+
 <p>Normally, when a window is exposed in an area of the screen where there
 are already some other exposed windows, the windows that used to be
 there are deexposed automatically by the window system.  This is
@@ -1875,11 +1851,10 @@ possible to deexpose <i>a</i> until <i>b</i> has been deexposed.
 </p>
 <a name="The-Screen-Manager"></a>
 <h3 class="section">2.9 The Screen Manager</h3>
-<p>.setq screen-manager section-page
 <a name="index-screen-manager-1"></a>
 <a name="index-autoexposure"></a>
 <a name="index-partially-visible-1"></a>
-</p>
+
 <p>Sometimes not all of the screen is in use by fully visible windows.
 This does not happen in elementary use of the Lisp Machine, since the
 initial windows in the system are all full-screen-sized, but if you
@@ -1920,8 +1895,7 @@ does not try to autoexpose such windows.  However, they can be
 partially visible like any other windows.
 </p>
 <a name="index-autoselection"></a>
-<p>.setq autoselection page
-The screen manager has one other job.  At the same time that it
+<p>The screen manager has one other job.  At the same time that it
 does autoexposure, it can also select a window if there isn&rsquo;t any
 selected window at the time.  This is called <i>autoselection</i>.  A
 window is a candidate for autoselection if it is an exposed inferior
@@ -1988,11 +1962,11 @@ faster, but does not work for windows that have inferiors.  You would use
 these mixins in windows without bit-save arrays, as a cheaper alternative
 to <code>tv:show-partially-visible-mixin</code>, to provide something
 better than blankness when the window ought to be partially visible.
-.vindex tv:12%-gray
-.vindex tv:25%-gray
-.vindex tv:33%-gray
-.vindex tv:50%-gray
-.vindex tv:75%-gray
+<a name="index-tv_003a12_0025_002dgray"></a>
+<a name="index-tv_003a25_0025_002dgray"></a>
+<a name="index-tv_003a33_0025_002dgray"></a>
+<a name="index-tv_003a50_0025_002dgray"></a>
+<a name="index-tv_003a75_0025_002dgray"></a>
 </p>
 <p>The precise kind of gray is controlled by the instance variable
 <code>tv:gray-array</code>, which comes with operations <code>:gray-array</code> and
@@ -2013,8 +1987,7 @@ available for <code>System</code> keys to select, but will not become partly
 visible if some other window is made smaller.
 .end_defflavor
 </p>
-<p>.setq deexposed-permit-in-background page
-Recall that if a deexposed window has its deexposed typeout action set
+<p>Recall that if a deexposed window has its deexposed typeout action set
 to <code>:permit</code>, output on the window can proceed but goes to the
 bit-save array rather than to the screen.  If the window is partially
 visible, such output could modify the visible parts of the window.
@@ -2033,8 +2006,7 @@ of a second.
 
 <a name="Priority-among-Windows-for-Exposure"></a>
 <h4 class="subsection">2.9.2 Priority among Windows for Exposure</h4>
-<p>.setq screen-manager-priority section-page
-</p>
+
 <p>Suppose there is a section of the screen in which there are no exposed
 windows, and more than one active, deexposed window could be exposed to
 fill this area, but the two could not both be exposed (because they
@@ -2177,27 +2149,27 @@ eventually get done.
 <p>When <code>tv:delaying-screen-management</code> forms are nested,
 only the outermost one will do any screen management when it is exited.
 </p>
-<p>.defspec tv:delaying-screen-management body...
-The body forms are evaluated sequentially with screen management delayed.
+<dl>
+<dt><a name="index-tv_003adelaying_002dscreen_002dmanagement"></a>Special Form: <strong>tv:delaying-screen-management</strong> <em>body...</em></dt>
+<dd><p>The body forms are evaluated sequentially with screen management delayed.
 The value of the last form is returned.
-.end_defspec
-</p>
-<p>.defspec tv:without-screen-management body...
-The body forms are evaluated seqentially with screen management delayed.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-tv_003awithout_002dscreen_002dmanagement"></a>Special Form: <strong>tv:without-screen-management</strong> <em>body...</em></dt>
+<dd><p>The body forms are evaluated seqentially with screen management delayed.
 Moreover, if the body completes normally, the queue entries put on by
 its execution are removed from the queue, on the assumption that the body
 has itself done all appropriate screen redisplay.  If the body terminates
 abnormally with a throw, the queued entries remain on the queue and
 are processed by the screen manager eventually.
-.end_defspec
-</p>
+</p></dd></dl>
+
 <a name="Selection"></a>
 <h2 class="chapter">3 Selection</h2>
-<p>.setq selection-chapter chapter-number
-.setq selection section-page
 <a name="index-selection"></a>
 <a name="index-selected-window"></a>
-</p>
+
 <p>At any time, keyboard input is directed to at most one window,
 designated by programs or by the system in response to user commands.
 This window is called the <i>selected</i> window.  A process trying to do
@@ -2265,10 +2237,9 @@ This is fine for the who line, but can lead to weird results in <code>Control-Ab
 So <i>you should use <code>tv:process-mixin</code> whenever it makes sense.</i>
 </p>
 <a name="index-deexposed-typein-action"></a>
-<p>.setq deexposed-typein-action page
 <a name="index-_003anormal-_0022deexposed-typein-action_0022"></a>
 <a name="index-_003anotify-_0022deexposed-typein-action_0022"></a>
-If a process tries to do input from a window whose input buffer is empty
+<p>If a process tries to do input from a window whose input buffer is empty
 and not selected, it cannot get any input and must wait.  (The input buffer
 is selected if this window, or any other window sharing the same input buffer,
 is the selected window).  The wait ends
@@ -2389,9 +2360,10 @@ where it controls where to put the window in the list of
 previously selected windows used by the <code>Terminal</code> and <code>System</code> commands.
 </p></dd></dl>
 
-<p>.defspec tv:window-call (window [exit-operation exit-args...]) body...
-.defspec1 tv:window-mouse-call (window [exit-operation exit-args...]) body...
-Execute <i>body</i> with <i>window</i> selected.  <code>tv:window-call</code> uses the
+<dl>
+<dt><a name="index-tv_003awindow_002dcall"></a>Special Form: <strong>tv:window-call</strong> <em>(window [exit-operation exit-args...]) body...</em></dt>
+<dt><a name="index-tv_003awindow_002dmouse_002dcall"></a>Special Form: <strong>tv:window-mouse-call</strong> <em>(window [exit-operation exit-args...]) body...</em></dt>
+<dd><p>Execute <i>body</i> with <i>window</i> selected.  <code>tv:window-call</code> uses the
 <code>:select</code> operation to do this, while <code>tv:window-mouse-call</code> uses
 the <code>:mouse-select</code> operation; that is how they differ.  On exit, they reselect the
 window that had been selected before, and send <i>window</i> a message
@@ -2403,13 +2375,12 @@ some other window is selected.
 <p>These constructs are no longer as useful as they once were.  For
 controlling selection among windows of a team, selection substitutes
 (see (selection-substitutes)) should be used now instead.
-.end_defspec
-</p>
+</p></dd></dl>
+
 <a name="Teams-of-Windows"></a>
 <h3 class="section">3.2 Teams of Windows</h3>
-<p>.setq window-teams section-page
 <a name="index-teams-of-windows"></a>
-</p>
+
 <p>The simple paradigm of selection is based on windows that are
 independent competitors for the user&rsquo;s input, such as a pair of Lisp
 listeners.  Another frequent situation is a to have a group of windows
@@ -2473,9 +2444,8 @@ alias for any editor windows inside it.)
 </p>
 <a name="The-System-Menu-Select-Option"></a>
 <h4 class="subsection">3.2.1 The System Menu Select Option</h4>
-<p>.setq select-menu section-page
 <a name="index-select-menu"></a>
-</p>
+
 <p>When the <code>Select</code> option in the system menu is used, it gets the list
 of alternatives to offer by sending each screen a
 <code>:selectable-windows</code> message.  This operation is normally defined to
@@ -2522,8 +2492,7 @@ A window can be autoselected only if its <code>:name-for-selection</code> is non
 </p>
 <a name="Selection-with-Terminal-and-System-Commands"></a>
 <h4 class="subsection">3.2.2 Selection with Terminal and System Commands</h4>
-<p>.setq previously-selected-windows-section section-page
-</p>
+
 <dl>
 <dt><a name="index-tv_003apreviously_002dselected_002dwindows"></a>Variable: <strong>tv:previously-selected-windows</strong></dt>
 <dd><p>This variable&rsquo;s value is an <code>art-q</code> array whose contents are all
@@ -2612,8 +2581,7 @@ remain distinguished.
 <a name="Selection-Substitutes"></a>
 <h3 class="section">3.3 Selection Substitutes</h3>
 <a name="index-selection-substitutes"></a>
-<p>.setq selection-substitutes section-page
-</p>
+
 <p>Every window has the ability to designate a &quot;selection substitute&quot;.
 If a window has a substitute, requests to select or deselect the
 original window will be passed along to the substitute.  The substitute
@@ -2678,19 +2646,21 @@ if the team is deselected and reselected at any time.
 </p>
 <p>To switch the selected pane temporarily, use
 </p>
-<p>.defspec tv:with-selection-substitute (window for-window) body...
-Executes <i>body</i> with <i>window</i> as the substitute for <i>for-window</i>.
+<dl>
+<dt><a name="index-tv_003awith_002dselection_002dsubstitute"></a>Special Form: <strong>tv:with-selection-substitute</strong> <em>(window for-window) body...</em></dt>
+<dd><p>Executes <i>body</i> with <i>window</i> as the substitute for <i>for-window</i>.
 On exit, it sets <i>for-window</i> back to whatever it used to be,
 and deexposes or deactivates <i>window</i> if appropriate.
-.end_defspec
-</p>
+</p></dd></dl>
+
 <p>Also useful is
 </p>
-<p>.defspec tv:preserve-substitute-status window body...
-Executes <i>body</i>, then selects <i>window</i> if <i>window</i> or its substitute
+<dl>
+<dt><a name="index-tv_003apreserve_002dsubstitute_002dstatus"></a>Special Form: <strong>tv:preserve-substitute-status</strong> <em>window body...</em></dt>
+<dd><p>Executes <i>body</i>, then selects <i>window</i> if <i>window</i> or its substitute
 had been selected to begin with.
-.end_defspec
-</p>
+</p></dd></dl>
+
 <p>.defmetamethod windows :remove-selection-substitute window-to-remove suggested-substitute
 Makes sure that <i>window-to-remove</i> is not this window&rsquo;s substitute,
 suggesting <i>suggested-substitute</i> (possibly <code>nil</code>) as a substitute
@@ -2769,9 +2739,8 @@ to deselecting it.
 </p>
 <a name="Windows-and-Processes"></a>
 <h3 class="section">3.5 Windows and Processes</h3>
-<p>.setq processes section-page
 <a name="index-processes"></a>
-</p>
+
 <p>A self-contained interactive system that has its own window(s) usually
 has its own process to drive the windows.  Peek, Zmacs, ZMail and the
 inspector all do this when invoked through the <code>System</code> key.  Usually
@@ -2884,9 +2853,7 @@ These are the processes that the <code>:kill</code> operation will kill.
 <code>tv:process-mixin</code> contributes a suitable method.
 .end_defmetamethod
 </p>
-<p>.need 1500
-.nopara
-These process-related operations are defined on <code>tv:select-mixin</code> so
+<p>These process-related operations are defined on <code>tv:select-mixin</code> so
 that they are always supported by the selected window.
 Since windows lacking <code>tv:process-mixin</code> do not explicitly remember a
 process, a heuristic is used to come up with a process to operate on:
@@ -2934,12 +2901,9 @@ try to output on it when it has output hold.  This flavor is what
 </p>
 <a name="Sizes-and-Positions"></a>
 <h2 class="chapter">4 Sizes and Positions</h2>
-<p>.setq sizes-chapter chapter-number
 <a name="index-size-of-window"></a>
 <a name="index-position-of-window"></a>
-.setq sizes-and-positions section-page
-.setq edges section-page
-</p>
+
 <p>This chapter is about examining and setting the sizes and positions of
 windows.  There are many different operations that let you express
 things in different forms that are convenient in varying applications.
@@ -3192,7 +3156,7 @@ one, after all error checking has been done.
 <p>This operation should not be called by users; to change the size, use
 <code>:set-size</code> or another higher-level operation, and the margin sizes
 should be managed by the flavors that are responsible for computing how
-big they should be (<code>tv:borders-mixin</code>, etc.).
+big they should be (<code>tv:borders-mixin</code>, etc.).
 </p>
 <p>However, this operation is a good place to add <code>:after</code> daemons to
 recompute other data structure or change the size of inferiors according
@@ -3297,10 +3261,8 @@ The edges are specified relative to <i>outer-sheet</i>&rsquo;s superior.
 
 <a name="Input"></a>
 <h2 class="chapter">5 Input</h2>
-<p>.setq input-chapter chapter-number
-.setq input section-page
 <a name="index-keyboard-input"></a>
-</p>
+
 <p>Windows can be given the ability to function as input streams (see
 (stream-protocol)).  This is implemented by the mixin
 <code>tv:stream-mixin</code>, which is a component of <code>tv:window</code>.  (Originally,
@@ -3324,8 +3286,7 @@ a single &quot;selected&quot; window the only window on which input operations c
 proceed, we enable the user to decide which process to direct his input to
 by selecting the corresponding window.
 </p>
-<p>.setq characters page
-</p>
+
 <p>Reading characters from a window normally returns a fixnum that
 represents a character in the Lisp Machine character set, possibly
 with extra bits that correspond to the <code>Control</code>, <code>Meta</code>,
@@ -3337,42 +3298,41 @@ Lisp Machine manual in (character-set).
 the following byte fields:
 </p>
 <ul class="no-bullet">
-<li>.vindex %%kbd-char
-</li><li> %%kbd-char
+<li> <a name="index-_0025_0025kbd_002dchar"></a>
+%%kbd-char
 A name for the byte field that contains the basic character.
 This is the low eight bits, and the contents are a character that
 can go in a string.
-.setq %%kbd-control-var page
-.vindex %%kbd-control
-</li><li> %%kbd-control
+</li><li> <a name="index-_0025_0025kbd_002dcontrol"></a>
+%%kbd-control
 A name for the byte field that contains the <code>Control</code> bit.
-.vindex %%kbd-meta
-</li><li> %%kbd-meta
+</li><li> <a name="index-_0025_0025kbd_002dmeta"></a>
+%%kbd-meta
 A name for the byte field that contains the <code>Meta</code> bit.
-.vindex %%kbd-super
-</li><li> %%kbd-super
+</li><li> <a name="index-_0025_0025kbd_002dsuper"></a>
+%%kbd-super
 A name for the byte field that contains the <code>Super</code> bit.
-.vindex %%kbd-hyper
-</li><li> %%kbd-hyper
+</li><li> <a name="index-_0025_0025kbd_002dhyper"></a>
+%%kbd-hyper
 A name for the byte field that contains the <code>Hyper</code> bit.
-.vindex %%kbd-control-meta
-</li><li> %%kbd-control-meta
+</li><li> <a name="index-_0025_0025kbd_002dcontrol_002dmeta"></a>
+%%kbd-control-meta
 A name for the four-bit byte field that contains
 the <code>Hyper</code>, <code>Super</code>, <code>Meta</code> and <code>Control</code> bits,
 in that order from most significant to least.
-.vindex %%kbd-mouse
-</li><li> %%kbd-mouse
+</li><li> <a name="index-_0025_0025kbd_002dmouse"></a>
+%%kbd-mouse
 A name for the byte field that is <code>1</code> if this is a &quot;mouse&quot; character,
 a character that reports a click of a mouse button rather than a
 pressing of a keyboard key.  (See (tv:kbd-mouse-buttons-mixin-flavor).)
 Note that mouse characters may contain <code>Control</code> bits, etc.
-.vindex %%kbd-mouse-button
-</li><li> %%kbd-mouse-button
+</li><li> <a name="index-_0025_0025kbd_002dmouse_002dbutton"></a>
+%%kbd-mouse-button
 A name for the byte field that, in a mouse character, records the number
 of the button that was clicked.  The left button is 0, the middle is 1,
 and the right is 2.
-.vindex %%kbd-mouse-n-clicks
-</li><li> %%kbd-mouse-n-clicks
+</li><li> <a name="index-_0025_0025kbd_002dmouse_002dn_002dclicks"></a>
+%%kbd-mouse-n-clicks
 A name for the byte field that, in a mouse character, records the number
 of times whichever button was clicked, minus 1.  It is 0 for a single
 click, 1 for a double click, etc.
@@ -3415,9 +3375,7 @@ character was typed.
 <a name="Input-Buffers"></a>
 <h3 class="section">5.1 Input Buffers</h3>
 <a name="index-input-buffer"></a>
-<p>.setq input-buffer section-page
-.setq shared-input-buffers section-page
-</p>
+
 <p>Every window that generates input or from which input is read must have
 an <i>input buffer</i> that holds characters that are typed by the user
 before any program reads the characters.  When you type a character, it
@@ -3523,8 +3481,7 @@ Return or set the window&rsquo;s input buffer.
 <a name="Blips"></a>
 <h3 class="section">5.2 Blips</h3>
 <a name="index-blip"></a>
-<p>.setq blips section-page
-Input need not be made of characters; lists are often used as well for
+<p>Input need not be made of characters; lists are often used as well for
 program-generated input, especially for representing mouse clicks in
 different kinds of mouse-sensitive areas.  &quot;Characters&quot; which are lists
 are called <i>blips</i>.  The car of the list is by convention a symbol
@@ -3666,7 +3623,7 @@ from the keyboard.
 
 </li><li> <a name="index-_003apass_002dthrough-_003arubout_002dhandler"></a>
 :pass-through <i>ch1</i> <i>ch2...</i>
-Treat the characters <i>ch1</i>, <i>ch2</i>, etc. as ordinary characters
+Treat the characters <i>ch1</i>, <i>ch2</i>, etc. as ordinary characters
 even if they would normally be special commands to the rubout-handler.
 
 </li><li> <a name="index-_003aprompt-_003arubout_002dhandler"></a>
@@ -3739,9 +3696,7 @@ buffer when the blip arrived will come back the next time a <code>:preemptable-r
 operation is used, so the user can keep typing his expression in.
 .end_defmethod
 </p>
-<p>.need 1500
-.nopara
-These obsolete functions are still used in some old code:
+<p>These obsolete functions are still used in some old code:
 </p>
 <dl>
 <dt><a name="index-kbd_002dtyi"></a>Function: <strong>kbd-tyi</strong></dt>
@@ -3761,8 +3716,7 @@ These obsolete functions are still used in some old code:
 <a name="I_002fO-Buffers"></a>
 <h3 class="section">5.4 I/O Buffers</h3>
 <a name="index-i_002fo-buffers"></a>
-<p>.setq io-buffer section-page
-</p>
+
 <p>An I/O buffer is an array of fixed size used as a ring buffer.
 Typically, characters are put into the buffer by one process and removed
 by another in FIFO order.  The process that is removing characters can
@@ -3793,8 +3747,7 @@ If the output pointer points at the slot after the input pointer,
 the buffer is considered full (in fact, one slot is still empty.  It
 cannot be used).
 </p>
-<p>.setq io-buffer-output-function page
-</p></li><li> tv:io-buffer-output-function
+</li><li> tv:io-buffer-output-function
 A function to be called when characters are removed, or <code>nil</code>.  It is
 called with the buffer and the character as arguments.  Its value should
 be a translated version of the character (this is usually the same as
@@ -3826,15 +3779,14 @@ The last process that put a character in this I/O buffer.
 </li><li> tv:io-buffer-last-output-process
 The last process that removed a character from this I/O buffer.
 
-<p>.setq io-buffer-record page
-</p></li><li> tv:io-buffer-record
+</li><li> tv:io-buffer-record
 An array that records the last <i>n</i> characters read from this
 I/O buffer, for some fixed <i>n</i>.  This array too is a ring buffer,
 but nothing is ever &quot;removed&quot; from it; after it is full, it contains
 the last <i>n</i> things stored into it.  The accessor
 <code>tv:io-buffer-record-pointer</code> gets the index of the last slot stored
 into.
-.findex tv:io-buffer-record-pointer
+<a name="index-tv_003aio_002dbuffer_002drecord_002dpointer"></a>
 </li></ul>
 
 <dl>
@@ -3903,8 +3855,7 @@ buffer.
 
 <a name="I_002fO-Buffers-and-Type-Ahead"></a>
 <h4 class="subsection">5.4.1 I/O Buffers and Type Ahead</h4>
-<p>.setq typeahead-explanation section-page
-</p>
+
 <p>We have said (see (input-buffer)) that keyboard input goes into
 the selected window&rsquo;s input buffer.  This is not precisely true.
 Program-generated input made with <code>:force-kbd-input</code> does go
@@ -4004,10 +3955,9 @@ The effect of this is hardware dependent.
 An alist which controls which characters are
 intercepted asynchronously when this window is selected.
 
-<p>.setq control-character-case page
-</p></li><li> <a name="index-_003adont_002dupcase_002dcontrol_002dcharacters-_0022input-buffer-plist_0022"></a>
+</li><li> <a name="index-_003adont_002dupcase_002dcontrol_002dcharacters-_0022input-buffer-plist_0022"></a>
 :dont-upcase-control-characters
-Non-<code>nil</code> prevents the <code>Control</code> (etc.)
+Non-<code>nil</code> prevents the <code>Control</code> (etc.)
 keys from causing special treatment of alphabetic case.
 Normally, typing <code>Control-Shift-A</code> produces the character
 <code>#\Control-/a</code> with a lower case &quot;a&quot;, while <code>Control-A</code>
@@ -4138,8 +4088,7 @@ taken care of the character.
 
 <a name="Asynchronously-Intercepted-Characters"></a>
 <h4 class="subsection">5.5.2 Asynchronously Intercepted Characters</h4>
-<p>.setq asynchronous-intercepted-characters section-page
-</p>
+
 <p>Each window that has <code>tv:stream-mixin</code> can define a set of
 characters to be intercepted asynchronously when that window is
 selected.  The interception is done through a different mechanism from
@@ -4252,9 +4201,7 @@ is passed as arguments <i>character</i>, <i>window</i>, and the
 <a name="index-global-asynchronous-characters"></a>
 <a name="index-Terminal-key"></a>
 <a name="index-System-key"></a>
-<p>.setq global-asynchronous-characters section-page
-.setq terminal-and-system page
-</p>
+
 <p>The <code>Terminal</code> and <code>System</code> keys are also intercepted
 asynchronously, but since their functions do not usually relate to the
 selected window, they are not controlled by the selected window&rsquo;s alist
@@ -4314,7 +4261,7 @@ should not use this option, since you do not want to interfere with the
 operation of the keyboard process.  The cost of creating a new process is quite low.
 </p>
 <p>If the <code>:typeahead</code> option is specified, then everything typed before
-the <code>Terminal</code> key will be shoved into the selected I/O buffer, i.e.
+the <code>Terminal</code> key will be shoved into the selected I/O buffer, i.e.
 it will be treated as typeahead to the currently selected window.  Use this
 option with commands that change the selected window, to ensure that the user&rsquo;s
 typed input goes where he expected it to when he typed it.
@@ -4450,10 +4397,8 @@ key names are:
 
 <a name="Output-of-Text"></a>
 <h2 class="chapter">6 Output of Text</h2>
-<p>.setq output section-page
-.setq output-chapter chapter-number
 <a name="index-output-of-text"></a>
-</p>
+
 <p>All windows can function as output streams, displaying the output as
 if on the screen of an ordinary display terminal.  The flavor
 <code>tv:minimum-window</code> implements the operations of the Lisp Machine
@@ -4501,9 +4446,8 @@ fonts (see (windows-tv:baseline-instvar)).
 </p>
 <a name="index-alu-function"></a>
 <a name="index-char_002daluf"></a>
-<p>.setq char-aluf page
 <a name="index-overstriking"></a>
-</p>
+
 <p>When a character is drawn, it is combined with the existing contents
 of the pixels of the window according to an <i>alu function</i>.  The
 different alu functions are described in (aluf).  When characters are
@@ -4531,11 +4475,9 @@ while drawing a character clears the character&rsquo;s pixels to zero.
 <a name="index-current-font"></a>
 <a name="index-character-width"></a>
 <a name="index-line-height"></a>
-<p>.setq char-width-and-line-height page
-.setq vsp page
 <a name="index-vsp"></a>
 <a name="index-vertical-spacing-_0028vsp_0029"></a>
-</p>
+
 <p>Every window has a <i>font map</i>.  A font map is an array of fonts in
 which characters on the window can be typed.  At any time, one of these
 is the window&rsquo;s <i>current font</i>; the operations that type out
@@ -4632,8 +4574,7 @@ the end-of-page condition as described above.  However, if the window&rsquo;s
 as a format effector and is displayed as &quot;<code>return</code>&quot; in a lozenge, like
 other special characters.
 </p>
-<p>.setq backspace-not-overprinting-flag-blurb page
-</p>
+
 <p>If the character being typed out is a <code>#\backspace</code>, the result depends
 on the value of the window&rsquo;s <i>backspace-not-overprinting-flag</i>.  If the
 flag is <code>0</code>, as is the default, the cursor position is moved left by one
@@ -4751,8 +4692,7 @@ on exit from this function.  But the value will be correct.
 
 <a name="Output-Exceptions"></a>
 <h3 class="section">6.3 Output Exceptions</h3>
-<p>.setq output-exceptions section-page
-</p>
+
 <p>Before doing output to a window, various exceptional conditions are
 checked for.  If an exceptional condition is discovered, a standard
 operation is invoked to handle it.  Redefining or adding daemons to
@@ -4777,8 +4717,8 @@ gone (usually because the window has been exposed).
 <p>.defmetamethod windows :handle-exceptions
 Performs the exception processing described by all the rest of this section.
 Exceptions are processed in this order:
-.break
-Output Hold, End-of-Page, <span class="roman">**MORE**</span>, and End-of-Line.
+</p>
+<p>Output Hold, End-of-Page, <span class="roman">**MORE**</span>, and End-of-Line.
 .end_defmetamethod
 </p>
 <a name="Output-Hold-and-End-of-Page-Exceptions"></a>
@@ -4826,12 +4766,10 @@ clear that line, and set the vertical position for the next
 <a name="g_t_002a_002aMORE_002a_002a-Exceptions"></a>
 <h4 class="subsection">6.3.2 **MORE** Exceptions</h4>
 
-<p>.setq more-processing page
-.setq more-flag page
-</p>
+
 <p>Next, if the window&rsquo;s <i>more flag</i> is set, a <i>more exception</i> happens.
 The more flag gets set when the cursor is moved to a new line
-(e.g. when a <code>#\return</code> is typed) and the cursor
+(e.g. when a <code>#\return</code> is typed) and the cursor
 position is thus made to be below the <i>more vpos</i> of the window.  (If
 <code>tv:more-processing-global-enable</code> is <code>nil</code>, this exception is
 suppressed and the more flag is turned off.)  The
@@ -4890,7 +4828,7 @@ output to be printed and then erased.
 <p>Note that the more flag is set only when the cursor moves to the next
 line, because a <code>#\return</code> is typed out, after a <code>:line-out</code>, or by the
 <code>:end-of-line-exception</code> handler described below.  It is not set when the
-cursor position of the window is explicitly set (e.g. with
+cursor position of the window is explicitly set (e.g. with
 <code>:set-cursorpos</code>); in fact, explicitly setting the cursor position clears
 the more flag.  The idea is that when typeout is being streamed out
 sequentially to the window, <i>more</i>-exceptions happen at the right times
@@ -4925,8 +4863,7 @@ when a <span class="roman">**MORE**</span> break happens.
 <a name="End-of-Line-Exceptions"></a>
 <h4 class="subsection">6.3.3 End of Line Exceptions</h4>
 
-<p>.setq right-margin-character-flag-blurb page
-</p>
+
 <p>Finally, if the cursor is at or near the end of the line so that there
 is no room to output the next character, an end-of-line exception
 happens.  The <code>:end-of-line-exception</code> operation is invoked to
@@ -4953,9 +4890,7 @@ to print it.  It can simply <code>:tyo</code> the character.
 <a name="index-continuation-of-lines"></a>
 <a name="index-wraparound_002c-horizontal"></a>
 <a name="index-horizontal-wraparound"></a>
-<p>.setq continuation page
-.setq wraparound page
-</p>
+
 <p>The way the cursor position goes to the next line when it reaches the
 right edge of the window is called <i>horizontal wraparound</i> or
 <i>continuation</i>.  You can make windows
@@ -5413,8 +5348,7 @@ If <i>more-p</i> is <code>nil</code>, turns off more processing (see
 (more-processing)); otherwise turns it on.
 .end_defmetamethod
 </p>
-<p>.setq vsp-operations page
-</p>
+
 <p>.defmetainitoption windows :vsp n-pixels
 Initializes the window&rsquo;s <i>vsp</i>.  It defaults to 2.
 .end_defmetainitoption
@@ -5503,8 +5437,7 @@ prints.  <i>n</i> defaults to 8.
 
 <a name="Fonts"></a>
 <h2 class="chapter">7 Fonts</h2>
-<p>.setq font-section section-page
-</p>
+
 <p>Having used the Lisp Machine for a while, you have probably noticed
 that characters can be typed out in any of a number of different
 typefaces.  Some text is printed in characters that are small or large,
@@ -5582,7 +5515,7 @@ name of a font may be used.
 <p><i>new-map</i> may also be a list of font specifiers, in which case the
 array is created from the list in the style of <code>fillarray</code>, with the
 last element of the list filling in the remaining elements of the array
-if any (the array is made at least 26. elements long, or long enough to
+if any (the array is made at least 26. elements long, or long enough to
 hold all the elements of the list).
 </p>
 <p>If <i>new-map</i> is <code>nil</code>, all the elements of the map are set to the
@@ -5688,8 +5621,7 @@ program will only work if the window that you are using is on the same
 kind of screen as the fonts you are using were designed for.
 </p>
 <a name="index-font-specifier"></a>
-<p>.setq font-specifier page
-</p>
+
 <p>To solve this problem, a program does not have to specify the actual
 font to be used.  Instead, it specifies a certain symbol that stands
 for a whole collection of fonts.  All of these fonts are the same
@@ -5721,8 +5653,7 @@ you can load the file yourself and create a color version of the font
 yourself (see (color:make-color-font-fun)).
 </p>
 <a name="index-font-purposes"></a>
-<p>.setq font-purposes page
-Since different users like to use different fonts, we provide a facility
+<p>Since different users like to use different fonts, we provide a facility
 called <i>font purposes</i>.  Wherever a font specifier is used, the
 program can specify a <i>purpose</i> keyword instead.  This means, &quot;use
 whatever font the user likes to use for this particular purpose&quot;.
@@ -5827,8 +5758,7 @@ system can&rsquo;t predict when you might, in the middle of a line, suddenly
 switch to the large font.
 </p>
 <a name="index-baseline"></a>
-<p>.setq font-baseline page
-</p>
+
 <p>Another attribute of a font is its <i>baseline</i>.  The baseline is a
 non-negative fixnum that is the number of raster lines between the top
 of each character and the base of the character.  (The &quot;base&quot; is
@@ -5856,8 +5786,7 @@ the bits of the character (although it usually does); it is just defined
 to be the amount by which the cursor should be moved.
 </p>
 <a name="index-left-kern"></a>
-<p>.setq font-left-kern page
-</p>
+
 <p>There is another attribute that is an attribute of each character
 separately; it is called the <i>left kern</i>.  Usually it is zero, but it
 can also be a positive or negative fixnum.  When the window system
@@ -6145,7 +6074,7 @@ black-and-white font.  The new font has all the same attributes as
 corresponding character in <i>bw-font</i>.  For each zero-valued pixel in
 <i>bw-font</i>, the pixel in the new font is zero as well.  For each
 one-valued pixel in <i>bw-font</i>, the pixel in the new font has value
-<i>color</i>.  The name of the new font is formed by appending &quot;color-&quot;,
+<i>color</i>.  The name of the new font is formed by appending &quot;color-&quot;,
 the print-name of the name of <i>bw-font</i>, and <i>suffix</i> together to
 form a string, and then interning that string in the <code>fonts</code> package.
 </p></dd></dl>
@@ -6174,8 +6103,7 @@ window.
 </p>
 <a name="Drawing-Graphics"></a>
 <h2 class="chapter">8 Drawing Graphics</h2>
-<p>.setq graphics-section section-page
-</p>
+
 <p>A window can be used to draw graphics (pictures).  There is a set of
 operations for drawing lines, circles, sectors, polygons, cubic splines,
 and so on, implemented by the flavor <code>tv:graphics-mixin</code>.  The
@@ -6219,9 +6147,7 @@ simply won&rsquo;t happen.
 </p>
 <a name="Alu-Functions"></a>
 <h3 class="section">8.1 Alu Functions</h3>
-<p>.setq aluf section-page
-.setq alu-functions section-page
-</p>
+
 <p>Most graphics operations take an <i>alu</i> argument, which controls how the
 bits of the graphic object being drawn are combined with the bits
 already present in the window.  In most cases this argument is optional
@@ -6542,8 +6468,9 @@ methods that provide the error checking that the subprimitives lack.
 <code>tv:prepare-sheet</code> special form.  An error is signaled if they are
 used elsewhere.
 </p>
-<p>.defspec tv:prepare-sheet body...
-Executes <i>body</i> in an environment in which it is safe to draw on the
+<dl>
+<dt><a name="index-tv_003aprepare_002dsheet"></a>Special Form: <strong>tv:prepare-sheet</strong> <em>body...</em></dt>
+<dd><p>Executes <i>body</i> in an environment in which it is safe to draw on the
 window.  <code>tv:prepare-sheet</code> waits until the window is not output-held
 or locked, and then opens all blinkers that could be on top of the
 window so that they will not interfere with the output (see
@@ -6555,8 +6482,8 @@ remain unlocked and the blinkers will remain open.
 you would mind being unable to do a <code>Control-Abort</code>.  It also <i>must</i>
 not wait for anything, since that would allow the blinkers to reappear
 and defeat the whole purpose of preparing the sheet.
-.end_defspec
-</p>
+</p></dd></dl>
+
 <p>The microcode subprimitives generally use coordinates relative to the
 outside edges of the window.  This is unlike the high-level
 interfaces, which use cursor positions, in which the margins of the
@@ -6637,7 +6564,7 @@ it is usually correct to use this font.
 </li></ul>
 
 <p>Here is an example from the <code>tv:graphics-mixin</code> flavor, changed by
-adding the <code>tv:</code> prefixes in the places where you would need them if you
+adding the <code>tv:</code> prefixes in the places where you would need them if you
 were to write this outside the <code>tv</code> package.
 </p>
 <div class="lisp">
@@ -6774,7 +6701,7 @@ in the other subprimitives.
 <dd><p>This function creates a two-dimensional bit-array useful for bitblting
 to and from windows.  It makes an array whose first dimension
 is at least <i>x</i> but is rounded up so that <code>bitblt</code>&rsquo;s restriction regarding
-multiples of 32. is met, whose second dimension is <i>y</i>, and whose
+multiples of 32. is met, whose second dimension is <i>y</i>, and whose
 type is the same type as that of the screen array of <i>window</i> (or the
 type it would be if <i>window</i> had a screen array).  <i>make-array-options</i>
 are passed along to <code>make-array</code> (see (make-array-fun)) when the
@@ -6783,11 +6710,9 @@ array is created, so you can control other parameters such as the area.
 
 <a name="Blinkers"></a>
 <h2 class="chapter">9 Blinkers</h2>
-<p>.setq blinkers-chapter chapter-number
-.setq blinkers section-page
 <a name="index-blinker"></a>
 <a name="index-following-blinker"></a>
-</p>
+
 <p>Each window can have any number of <i>blinkers</i>.  The kind of blinker
 that you see most often is a blinking rectangle the same size as the
 characters you are typing; this blinker shows you the cursor position of
@@ -6807,8 +6732,7 @@ All flavors of blinkers incorporate this one.
 </p>
 <a name="index-visibility-of-a-blinker"></a>
 <a name="index-half_002dperiod-of-a-blinker"></a>
-<p>.setq blinker-visibility page
-</p>
+
 <p>Blinkers need not actually blink; for example, the mouse arrow
 does not blink.  A blinker&rsquo;s <i>visibility</i> may be any of the following:
 </p>
@@ -6857,9 +6781,8 @@ visibilities of <code>:on</code> or <code>:off</code> are changed to <code>:blin
 Blinkers whose visibility is <code>t</code> or <code>nil</code> or <code>:blink</code> are not
 affected.
 </p>
-<p>.setq open-blinkers page
 <a name="index-opening-blinkers"></a>
-</p>
+
 <p>Blinkers are used to add visible ornaments to a window; a blinker is
 visible to the user, but while programs are examining and altering the
 contents of a window the blinkers all go away.  The way this works is
@@ -7068,8 +6991,9 @@ one is happening, but usually there is no need to know.  The
 output.  It is always called with interrupts disabled.
 .end_defmetamethod
 </p>
-<p>.defspec tv:with-blinker-ready do-not-open body...
-This macro is useful in writing methods of blinkers that change the
+<dl>
+<dt><a name="index-tv_003awith_002dblinker_002dready"></a>Special Form: <strong>tv:with-blinker-ready</strong> <em>do-not-open body...</em></dt>
+<dd><p>This macro is useful in writing methods of blinkers that change the
 size, position, shape or anything else that affects how the blinker
 appears.  It executes <i>body</i> after preparing to remove the blinker
 <code>self</code> from the screen.  If <i>do-not-open</i> is <code>nil</code>, the blinker is
@@ -7081,8 +7005,8 @@ of <i>body</i>.
 </p>
 <p>Once the blinker is opened, its instance variables may be set without
 special care.
-.end_defspec
-</p>
+</p></dd></dl>
+
 <dl>
 <dt><a name="index-tv_003aopen_002dblinker"></a>Function: <strong>tv:open-blinker</strong> <em>blinker</em></dt>
 <dd><p>Clears <i>blinker</i> off from the screen if it is currently drawn.  This
@@ -7106,8 +7030,7 @@ first one it finds (it is pretty useless to have more than one, anyway).
 
 <a name="Blinker-Flavors"></a>
 <h3 class="section">9.2 Blinker Flavors</h3>
-<p>.setq blinker-flavors section-page
-</p>
+
 <p>All the flavors in this section depend on <code>tv:blinker</code>.
 </p>
 <p>For other blinker flavors and related considerations for use
@@ -7302,10 +7225,8 @@ down from the blinker position (the rectangle&rsquo;s upper left corner).
 </p>
 <a name="The-Mouse"></a>
 <h2 class="chapter">10 The Mouse</h2>
-<p>.setq mouse section-page
-.setq mouse-chapter chapter-number
 <a name="index-mouse"></a>
-</p>
+
 <p>Programs and windows can use the mouse as an input device.  The
 functions, variables, and flavors described below allow you to use the
 mouse to do some simple things.  To get advanced mouse behavior in
@@ -7364,8 +7285,7 @@ own the mouse.
 </p></dd></dl>
 
 <a name="index-warping-the-mouse"></a>
-<p>.setq warp page
-</p>
+
 <p>Usually the mouse cursor moves only if the user moves the mouse.
 However, the program can move the mouse cursor, and change the logical
 position of the mouse, at any time.  This is called <i>warping</i> the
@@ -7380,11 +7300,10 @@ does not result in any inconsistency.
 <dd><p>Warps the mouse to be at positions <i>x</i>, <i>y</i> with respect to the mouse sheet.
 </p></dd></dl>
 
-<p>.setq mouse-process page
 <a name="index-mouse-process"></a>
 <a name="index-owning-the-mouse"></a>
 <a name="index-tracking-the-mouse"></a>
-</p>
+
 <p><i>Tracking</i> the mouse means examining the hardware
 mouse interface, noting how the mouse is moving, and adjusting the
 mouse cursor position and the mouse blinker accordingly.
@@ -7435,11 +7354,10 @@ button, the window is selected.
 </p>
 <p>The state of the <code>Control</code>, <code>Meta</code>, <code>Super</code> and <code>Hyper</code> keys at
 the time of the click is included in the character, in the
-<code>%%kbd-control</code>, etc., fields (see (%%kbd-control-var)).
+<code>%%kbd-control</code>, etc., fields (see (%%kbd-control-var)).
 .end_defflavor
 </p>
-<p>.setq mouse-blip page
-.defflavor tv:list-mouse-buttons-mixin
+<p>.defflavor tv:list-mouse-buttons-mixin
 This is just like <code>tv:kbd-mouse-buttons-mixin</code> except that a blip
 goes in the input buffer rather than just an encoded click.  The blip
 looks like:
@@ -7455,7 +7373,7 @@ window the mouse was over (this is useful primarily if several windows
 are sharing the same input buffer).
 </p>
 <p>The state of the <code>Control</code>, <code>Meta</code>, <code>Super</code> and <code>Hyper</code> keys
-is included in the encoded click, in the <code>%%kbd-control</code>, etc., fields.
+is included in the encoded click, in the <code>%%kbd-control</code>, etc., fields.
 .end_defflavor
 </p>
 <p>The following subtle point may explain some difficulties you may have
@@ -7548,7 +7466,7 @@ it vanishes.
 .end_defflavor
 </p>
 <p>.definitoption tv:hysteretic-window-mixin :hysteresis n-pixels
-Sets the initial value of the hysteresis, in pixels.  It defaults to 25.
+Sets the initial value of the hysteresis, in pixels.  It defaults to 25.
 (decimal).
 .end_definitoption
 </p>
@@ -7559,14 +7477,13 @@ Examine or set the hysteresis of the window.
 </p>
 <a name="Grabbing-the-Mouse"></a>
 <h4 class="subsection">10.2.1 Grabbing the Mouse</h4>
-<p>.setq grabbing-mouse section-page
 <a name="index-grabbing-the-mouse"></a>
-</p>
+
 <p>Normally mouse clicks and motion are interpreted by a window that owns
 the mouse.  Some applications, such as <code>Edit Screen</code>, use the mouse
 for choosing a window to be operated on.  Then it is necessary to make
 sure that control of the mouse remains with the program that is doing
-this (e.g. <code>Edit Screen</code>) rather than going to whatever window the
+this (e.g. <code>Edit Screen</code>) rather than going to whatever window the
 user wants to choose.  This is done by <i>grabbing the mouse</i>.
 </p>
 <p>When the mouse is grabbed, the mouse process gets told that no window
@@ -7576,8 +7493,9 @@ and your process can now watch the position and the buttons by using
 <code>tv:mouse-x</code> and <code>tv:mouse-y</code>, and the
 variables and functions described below.
 </p>
-<p>.defspec tv:with-mouse-grabbed
-A <code>tv:with-mouse-grabbed</code> special form just has a body:
+<dl>
+<dt><a name="index-tv_003awith_002dmouse_002dgrabbed"></a>Special Form: <strong>tv:with-mouse-grabbed</strong></dt>
+<dd><p>A <code>tv:with-mouse-grabbed</code> special form just has a body:
 </p>
 <div class="lisp">
 <pre class="lisp">   (tv:with-mouse-grabbed
@@ -7585,8 +7503,8 @@ A <code>tv:with-mouse-grabbed</code> special form just has a body:
 </pre></div>
 
 <p>The forms inside are evaluated with the mouse grabbed.
-.end_defspec
-</p>
+</p></dd></dl>
+
 <dl>
 <dt><a name="index-tv_003amouse_002dlast_002dbuttons"></a>Variable: <strong>tv:mouse-last-buttons</strong></dt>
 <dd><p>This variable contains a mask describing the mouse buttons, as of the last time
@@ -7714,9 +7632,8 @@ or <code>nil</code> if the user aborted.
 
 <a name="Usurping-the-Mouse"></a>
 <h4 class="subsection">10.2.2 Usurping the Mouse</h4>
-<p>.setq usurping-mouse section-page
 <a name="index-usurping-the-mouse"></a>
-</p>
+
 <p>For high real-time performance, you can <i>usurp</i> the mouse.  Then the
 mouse process steps aside and lets you do everything related to
 tracking the mouse until you return control of it.  The variables
@@ -7724,8 +7641,9 @@ tracking the mouse until you return control of it.  The variables
 usurped.  The mouse blinker disappears, and if you want any visual
 indication of the mouse to appear, you have to do it yourself.
 </p>
-<p>.defspec tv:with-mouse-usurped
-A <code>tv:with-mouse-usurped</code> special form just has a body:
+<dl>
+<dt><a name="index-tv_003awith_002dmouse_002dusurped"></a>Special Form: <strong>tv:with-mouse-usurped</strong></dt>
+<dd><p>A <code>tv:with-mouse-usurped</code> special form just has a body:
 </p>
 <div class="lisp">
 <pre class="lisp">   (tv:with-mouse-usurped
@@ -7733,8 +7651,8 @@ A <code>tv:with-mouse-usurped</code> special form just has a body:
 </pre></div>
 
 <p>The forms inside are evaluated with the mouse usurped.
-.end_defspec
-</p>
+</p></dd></dl>
+
 <dl>
 <dt><a name="index-tv_003amouse_002dinput"></a>Function: <strong>tv:mouse-input</strong> <em>&amp;optional (wait-flag <code>t</code>)</em></dt>
 <dd><p>Waits until something happens with the mouse, and then returns saying what
@@ -7905,8 +7823,7 @@ process.  Used by <code>:mouse-click</code> methods.
 
 <a name="Mouse-Blinkers"></a>
 <h3 class="section">10.4 Mouse Blinkers</h3>
-<p>.setq mouse-blinkers section-page
-</p>
+
 <p>At any time one blinker is the mouse blinker, which follows the motion
 of the mouse.  It is not always the same blinker.  Each window can set
 up the kind of mouse blinker it wants or change the blinker, as long as
@@ -8071,8 +7988,7 @@ through the entire display.
 </p>
 <a name="Scrolling-Protocol"></a>
 <h4 class="subsection">10.5.1 Scrolling Protocol</h4>
-<p>.setq scroll-protocol section-page
-</p>
+
 <p>There are several ways the mouse can be used to scroll a window.  Each
 is implemented by a mixin.  They all communicate with the window using
 the same protocol.  For the sake of this protocol, the contents of the
@@ -8082,8 +7998,7 @@ of the window.  These do not have to be actual lines of text, though
 usually they are, but they must all have the same height.  Usually this
 common height is the window&rsquo;s line-height, but that is not required.
 </p>
-<p>.setq enable-scrolling-p-op page
-.defmetamethod &quot;scrolling windows&quot; :enable-scrolling-p
+<p>.defmetamethod &quot;scrolling windows&quot; :enable-scrolling-p
 The various mouse-scrolling features use this operation to decide
 whether they should be active at any given time.  If this operation
 returns <code>nil</code>, the scrolling facilities do not react to the mouse.
@@ -8132,8 +8047,7 @@ update their displays when the situation changes.
 <a name="Scroll-Bars"></a>
 <h4 class="subsection">10.5.2 Scroll Bars</h4>
 <a name="index-scroll-bar"></a>
-<p>.setq scroll-bar section-page
-</p>
+
 <p>If you move the mouse to the left edge of an editor window from the
 inside, eventually the mouse cursor changes to a thick up-and-down
 arrow.  Simultaneously, a thin vertical line appears next to and outside
@@ -8315,9 +8229,7 @@ flashy scrolling areas overlying the margin scrolling regions.  You
 don&rsquo;t need anything else except <code>tv:basic-scroll-bar</code>.
 .end_defflavor
 </p>
-<p>.need 1500
-.nopara
-Here are two ways of controlling when margin scrolling regions appear
+<p>Here are two ways of controlling when margin scrolling regions appear
 or disappear:
 </p>
 <p>.defflavor tv:margin-scroll-region-on-and-off-with-scroll-bar-mixin
@@ -8372,8 +8284,7 @@ it requires users to define it.
 </p>
 <a name="Mouse-Parameters"></a>
 <h3 class="section">10.6 Mouse Parameters</h3>
-<p>.setq mouse-parameters section-page
-</p>
+
 <dl>
 <dt><a name="index-tv_003ause_002dkbd_002dbuttons"></a>Variable: <strong>tv:use-kbd-buttons</strong></dt>
 <dd><p>If this is non-<code>nil</code>, the Roman numeral keys I through III on the
@@ -8385,7 +8296,7 @@ down.  The default is <code>t</code>.
 <dt><a name="index-tv_003amouse_002dbounce_002dtime"></a>Variable: <strong>tv:mouse-bounce-time</strong></dt>
 <dd><p>The delay in microseconds after a change in a mouse button status
 before the system begins to look for another change.
-The default is 2000. microseconds.
+The default is 2000. microseconds.
 </p></dd></dl>
 
 <dl>
@@ -8416,11 +8327,9 @@ it is treated as a double click.
 
 <a name="Margins_002c-Borders_002c-and-Labels"></a>
 <h2 class="chapter">11 Margins, Borders, and Labels</h2>
-<p>.setq margins section-page
 <a name="index-margins"></a>
 <a name="index-inside"></a>
-.setq inside-size page
-</p>
+
 <p>In previous sections, we have mentioned the distinction between the
 inside and outside parts of the window.  The part of the window that is
 not the inside part is called the <i>margins</i>.  There are four margins,
@@ -8498,8 +8407,7 @@ may be used only within methods or <code>(declare (:self-flavor ...))</code> fun
 <a name="Borders"></a>
 <h3 class="section">11.1 Borders</h3>
 <a name="index-borders"></a>
-<p>.setq borders section-page
-</p>
+
 <p>.defflavor tv:borders-mixin
 The <code>tv:borders-mixin</code> margin item creates the borders around windows that you often see
 when using the Lisp Machine.  You can control the thickness of each of
@@ -8573,7 +8481,6 @@ a specification is a non-<code>nil</code> symbol.
 <p>Note that setting border specifications to ask for a border width of
 zero is not the same thing as giving <code>nil</code> as the argument to this
 option, because in the former case the space for the border margin width
-&rsquo;c (see (tv:borders-mixin-border-margin-width-init-option))
 (see the previous page)
 is allocated, whereas in the latter case it is not.
 .end_definitoption
@@ -8622,9 +8529,8 @@ are full-screen-sized and have <code>tv:full-screen-hack-mixin</code>.
 
 <a name="Labels"></a>
 <h3 class="section">11.2 Labels</h3>
-<p>.setq labels section-page
 <a name="index-label"></a>
-</p>
+
 <p>.defflavor tv:label-mixin
 The <code>tv:label-mixin</code> margin item creates the labels in the corners of
 windows that you often see when using the Lisp Machine.  You can control
@@ -8779,9 +8685,8 @@ Non-<code>nil</code> if a <code>:delayed-set-label</code> has been done but not 
 </p>
 <a name="Margin-Regions"></a>
 <h3 class="section">11.3 Margin Regions</h3>
-<p>.setq margin-regions section-page
 <a name="index-margin-regions"></a>
-</p>
+
 <p>Margin regions are a general facility for allocating space in a window&rsquo;s
 margin for specific purposes.  Each region can display text or graphics
 and can be mouse sensitive.  Margin choices (see (margin-choice)) are
@@ -8938,8 +8843,6 @@ The font to display the strings in.
 	     0 nil nil))))
 </pre></div>
 
-<p>.nopara
-</p>
 <div class="lisp">
 <pre class="lisp">  ((:mouse-enters-region :mouse-leaves-region :mouse-moves)
    (&amp;rest ignore))
@@ -8983,8 +8886,8 @@ outside corner of the window.
 list containing both the contents and the position of the margin item.
 </p>
 <div class="lisp">
-<pre class="lisp">.exdent 96 Example:
-(defflavor mumble-margin-mixin 
+<pre class="lisp">Example:
+</pre><pre class="lisp">(defflavor mumble-margin-mixin 
 	   ((current-mumbles nil) mumble-margin-area)
 	   ()
   (:required-flavors tv:minimum-window)
@@ -9112,11 +9015,9 @@ have changed.
 </p>
 <a name="Frames"></a>
 <h2 class="chapter">12 Frames</h2>
-<p>.setq frame-chapter chapter-number
-.setq frames section-page
 <a name="index-frame"></a>
 <a name="index-pane-1"></a>
-</p>
+
 <p>A <i>frame</i> is a window that is divided into sub-windows, using the
 hierarchical structure of the window system (discussed in
 (window-hierarchy)).  The sub-windows are called <i>panes</i>.  The panes
@@ -9174,8 +9075,7 @@ All frame flavors are built on this one.  <code>tv:frame-forwarding-mixin</code>
 a non-constraint frame to which you need only add code to decide when
 to expose the panes and how big to make them.
 </p>
-<p>.setq frame-flavor-components page
-<code>tv:basic-frame</code> is nearly the same as <code>tv:minimum-window</code>; it does
+<p><code>tv:basic-frame</code> is nearly the same as <code>tv:minimum-window</code>; it does
 <i>not</i> have all the mixins that go into the <code>tv:window</code> flavor.  In
 particular, it does not provide for borders or a label, and it cannot be
 the selected window.  It also has <code>tv:delay-notification-mixin</code> (see
@@ -9185,8 +9085,7 @@ the selected window.  It also has <code>tv:delay-notification-mixin</code> (see
 <a name="Constraint-Frames"></a>
 <h3 class="section">12.1 Constraint Frames</h3>
 <a name="index-constraint-frames"></a>
-<p>.setq constraint-frames section-page
-</p>
+
 <p>If you use <code>Edit Screen</code> to change the shape of an inspector or
 debugger window frame, the shapes of the panes are all changed so that
 the proportions come out looking as they are supposed to.  If you play
@@ -9490,8 +9389,7 @@ this:
  ...)
 </pre></div>
 
-<p>.setq configuration-description page
-</p>
+
 <p>Each configuration-description describes the layout of the panes in a
 single configuration.  The description has two parts.  The first part
 specifies the order in which the windows appear, and the second part
@@ -9672,7 +9570,7 @@ to take up.  The format of a constraint using <code>:ask</code> is as follows:
 
 <p>A message with operation <i>operation</i> and arguments composed of
 some extra arguments passed by the constraint mechanism followed by
-<i>arg-1</i>, <i>arg-2</i>, etc. is sent to the pane; its answer says how much
+<i>arg-1</i>, <i>arg-2</i>, etc. is sent to the pane; its answer says how much
 space the pane should take up.  Note that <i>arg-1</i>, etc., are not
 forms: they are the values of the arguments themselves (i.e. they are
 not evaluated; if you want to compute them, you must build the
@@ -9707,8 +9605,7 @@ This constraint is a variation on <code>:ask</code>.  Its format is:
 used for dummies, when the size of a dummy wants to be controlled by
 the needs of a pane inside it.
 </p>
-<p>.setq :ask-arguments page
-</p></li><li> :funcall &quot;constraint frames&quot;
+</li><li> :funcall &quot;constraint frames&quot;
 This constraint lets you supply a function to be called, which should compute
 the amount of space to use.  The format is:
 
@@ -9718,7 +9615,7 @@ the amount of space to use.  The format is:
 
 <p>The specified <i>function</i> is called.  It is first passed six arguments
 from inside the workings of constraint frames, and then the <i>arg-1</i>,
-<i>arg-2</i>, etc. values.  The six arguments are:
+<i>arg-2</i>, etc. values.  The six arguments are:
 </p>
 <ul class="no-bullet">
 <li> constraint-node
@@ -9752,12 +9649,12 @@ you provide a form.  The format is:
 <p>The six special values that are passed as arguments when the
 <code>:funcall</code> constraint-type is used can be accessed by <i>form</i> as the
 values of the following special variables:  
-&rsquo;vindex tv:**constraint-node**
-&rsquo;vindex tv:**constraint-remaining-width**
-&rsquo;vindex tv:**constraint-remaining-height**
-&rsquo;vindex tv:**constraint-total-width**
-&rsquo;vindex tv:**constraint-total-height**
-&rsquo;vindex tv:**constraint-stacking**
+<a name="index-tv_003a_002a_002aconstraint_002dnode_002a_002a"></a>
+<a name="index-tv_003a_002a_002aconstraint_002dremaining_002dwidth_002a_002a"></a>
+<a name="index-tv_003a_002a_002aconstraint_002dremaining_002dheight_002a_002a"></a>
+<a name="index-tv_003a_002a_002aconstraint_002dtotal_002dwidth_002a_002a"></a>
+<a name="index-tv_003a_002a_002aconstraint_002dtotal_002dheight_002a_002a"></a>
+<a name="index-tv_003a_002a_002aconstraint_002dstacking_002a_002a"></a>
 </p>
 <div class="lisp">
 <pre class="lisp">tv:**constraint-node**
@@ -9998,10 +9895,10 @@ instantiable flavors of constraint frame.
 .end_defflavor
 </p>
 <p><code>tv:basic-frame</code> has an instance variable <code>tv:recursion</code> which
-is used to distinguish between <code>:expose</code>, etc. operations sent by the
+is used to distinguish between <code>:expose</code>, etc. operations sent by the
 frame&rsquo;s code to its panes, and those sent by other programs.
 When an outside program sends a <code>:expose</code>, <code>:deexpose</code>, or <code>:bury</code>
-message to one of the panes, the <code>:inferior-expose</code>, etc. operation
+message to one of the panes, the <code>:inferior-expose</code>, etc. operation
 on the frame simply exposes, deexpose or buries the frame itself,
 and does not allow the operation on the pane to proceed.
 When the frame&rsquo;s code itself exposes a pane, it does so with
@@ -10073,8 +9970,7 @@ would typically be the selected pane.
 <a name="Notifications"></a>
 <h3 class="section">13.1 Notifications</h3>
 <a name="index-notifications"></a>
-<p>.setq notifications section-page
-</p>
+
 <p>Notifications are asynchronous messages that come from something other
 than the selected window.  For example, when an interactive message from
 another user comes in (which was sent with the <code>qsend</code> function), it
@@ -10277,7 +10173,7 @@ on this window; that should be left up to the window&rsquo;s own process.
 Requests to this process, which generally ask the process to select
 a buffer, are passed to it as blips of the form
 <a name="index-blip-types"></a>
-.kindex :execute &quot;blip type&quot;
+<a name="index-_003aexecute-_0022blip-type_0022"></a>
 </p>
 <div class="lisp">
 <pre class="lisp"><code>(:execute zwei:edit-thing <i>spec</i>)</code>
@@ -10475,9 +10371,8 @@ A resource of such windows.
 </p>
 <a name="The-Who-Line"></a>
 <h3 class="section">13.5 The Who Line</h3>
-<p>.setq who-line section-page
 <a name="index-who-line"></a>
-</p>
+
 <p>The <i>who line</i> is the pair of lines at the bottom of the main Lisp
 Machine screen which display the current status of the machine.  The
 first of the two lines displays documentation what mouse clicks would do
@@ -10595,10 +10490,9 @@ string) as the reason in the CLS packet.
 
 <a name="The-Color-Screen"></a>
 <h3 class="section">13.6 The Color Screen</h3>
-<p>.setq color section-page
 <a name="index-color-screen"></a>
-</p>
-<p>The usual color screen on a Lisp Machine has 454. lines of 576. pixels
+
+<p>The usual color screen on a Lisp Machine has 454. lines of 576. pixels
 each, and each pixel has four bits.  This allows sixteen different
 colors to be displayed at once.  There are far more than sixteen possible colors.
 A <i>color map</i> controls the meaning of each of the sixteen pixel values.
@@ -10839,8 +10733,9 @@ resources, and is documented in the Lisp Machine manual.
 </p>
 <p>All the names described in this manual as resources are defined in this way.
 </p>
-<p>.defspec tv:defwindow-resource name parameters &amp;rest options
-Defines a resource of windows, named <i>name</i>.  <i>parameters</i> are parameters on which
+<dl>
+<dt><a name="index-tv_003adefwindow_002dresource"></a>Special Form: <strong>tv:defwindow-resource</strong> <em>name parameters &amp;rest options</em></dt>
+<dd><p>Defines a resource of windows, named <i>name</i>.  <i>parameters</i> are parameters on which
 the object can depend.  Following the parameters specified is one
 additional parameter that is always defined: the window&rsquo;s superior.
 When you allocate a window from the resource, this parameter defaults to
@@ -10878,15 +10773,16 @@ is not exposed is considered to have been returned to the pool.
 <code>:deactivated</code> means that any window that is not active is considered
 to have been returned to the pool.
 </li></ul>
-<p>.end_defspec
-</p>
+</dd></dl>
+
 <dl>
 <dt><a name="index-tv_003awindow_002dresource_002dlist"></a>Variable: <strong>tv:window-resource-list</strong></dt>
 <dd><p>A list of the names of all window resources defined with <code>tv:defwindow-resource</code>.
 </p></dd></dl>
 
 <div class="lisp">
-<pre class="lisp">.exdent 96 Example: the system menu is created thus:
+<pre class="lisp">Example: the system menu is created thus:
+</pre><pre class="lisp">
 
 ;Resource of system menus
 (defwindow-resource system-menu ()
@@ -11083,8 +10979,7 @@ commands.  These can also be used to answer yes-or-no questions.
 
 <a name="Choice-Facilities"></a>
 <h2 class="chapter">14 Choice Facilities</h2>
-<p>.setq choice-chapter chapter-number
-</p>
+
 <p>The window system contains several facilities to allow the user to make
 choices.  These all work by displaying some arrangement of choices in a
 window.  By pointing to one with the mouse the user can select it.  The
@@ -11118,9 +11013,8 @@ will interfere with mouse tracking.
 </p>
 <a name="Menus"></a>
 <h3 class="section">14.1 Menus</h3>
-<p>.setq menu section-page
 <a name="index-menus"></a>
-</p>
+
 <p>A menu is an array of choices, each identified by a word or short phrase.
 You can select one of the choices by moving the mouse near it, which causes
 it to be highlighted (a box appears around it), and then clicking any mouse button.
@@ -11139,8 +11033,7 @@ causing the system menu to appear.
 <a name="Menu-Items"></a>
 <h4 class="subsection">14.1.1 Menu Items</h4>
 <a name="index-menu-items"></a>
-<p>.setq menu-items section-page
-</p>
+
 <p>A menu has a list of items; each item represents one of the choices offered.
 An item tells the menu what to display and what to do if the user selects
 (clicks on) it.  &quot;What to do&quot; specifies both what value to return and a possible
@@ -11153,8 +11046,7 @@ returned value comes back to the user from <code>tv:menu-choose</code>,
 <code>:choose</code>, or <code>:execute</code> depending on how the menu is used.  This
 will be explained in detail later.
 </p>
-<p>.nopara
-An item can take any of the following forms:
+<p>An item can take any of the following forms:
 </p>
 <ul>
 <li> a string or a symbol
@@ -11183,8 +11075,7 @@ It takes up no space in the menu.
 of menu item look like alist elements mapping strings into what to do
 about them.
 </p>
-<p>.nopara
-The possible values of <i>type</i> in the most general form of menu item are:
+<p>The possible values of <i>type</i> in the most general form of menu item are:
 </p>
 <ul class="no-bullet">
 <li> :value &quot;menu item type&quot;
@@ -11203,7 +11094,7 @@ menus.  <i>arg</i> is ignored, but must be present to make the item be the form 
 has a <i>type</i> keyword in it.
 
 </li><li> :kbd &quot;menu item type&quot;
-&rsquo;cindex blip types
+<a name="index-blip-types-1"></a>
 <i>arg</i> is sent to the selected window via the <code>:force-kbd-input</code>
 operation.  Typically it is either a character code, which is to be
 treated as if it were typed in from the keyboard, or a list (a blip),
@@ -11224,7 +11115,7 @@ and the result of choosing from that menu is returned.
 
 </li><li> :buttons &quot;menu item type&quot;
 <i>arg</i> is a list of three menu items.  The item actually chosen
-(i.e. the item to be executed) is one of these three, depending on which mouse
+(i.e. the item to be executed) is one of these three, depending on which mouse
 button was clicked.  The order in the list is <code>(<i>left</i> <i>middle</i> <i>right</i>)</code>.  The three menu items in the list will be used only
 for execution, not for display, so it does not matter what they
 have as the string to be displayed (it can be <code>nil</code>), and
@@ -11242,8 +11133,7 @@ The flavor <code>tv:window-hacking-menu-mixin</code> provides a method to
 implement it.
 </li></ul>
 
-<p>.nopara
-The menu item modifier keywords are:
+<p>The menu item modifier keywords are:
 </p>
 <ul class="no-bullet">
 <li> :font &quot;menu item type&quot;
@@ -11420,17 +11310,14 @@ in the center of the menu.
 The default is <code>tv:mouse-sheet</code>, which is usually a screen.
 </p></dd></dl>
 
-<p>.need 96
-.nopara
-Example:
+<p>Example:
 </p>
 <div class="lisp">
 <pre class="lisp">(tv:menu-choose '((&quot;Read&quot; :value foo) (&quot;Write&quot; :value bar))
 		&quot;Direction&quot;)
 </pre></div>
 
-<p>.nopara
-will return <code>foo</code> or <code>bar</code> (or <code>nil</code> if the user moves the mouse out of the menu).
+<p>will return <code>foo</code> or <code>bar</code> (or <code>nil</code> if the user moves the mouse out of the menu).
 </p>
 <dl>
 <dt><a name="index-tv_003amouse_002dy_002dor_002dn_002dp"></a>Function: <strong>tv:mouse-y-or-n-p</strong> <em>string</em></dt>
@@ -11444,11 +11331,10 @@ if he moves the mouse out of it.
 
 <a name="Geometry"></a>
 <h4 class="subsection">14.1.3 Geometry</h4>
-<p>.setq menu-geometry section-page
 <a name="index-menu-geometry"></a>
 <a name="index-geometry-_0028or-menus_0029"></a>
 <a name="index-filled-menus"></a>
-</p>
+
 <p>The way a menu is displayed is described by six parameters that are
 collectively called its <i>geometry</i>.  Each of these parameters may be
 specified as a constraint, or may be allowed to default based on the
@@ -11462,8 +11348,7 @@ choices: the same as the number of columns.  This is not true in filled
 format.  Filled format is specified by giving zero as the number of
 columns.
 </p>
-<p>.nopara
-The geometry is represented as a list of six elements, one for each
+<p>The geometry is represented as a list of six elements, one for each
 parameter.
 </p>
 <ul class="no-bullet">
@@ -11521,8 +11406,7 @@ and the user will have to scroll to see all the items.
 <p>When the item list of a menu is changed, the display of the menu is
 recomputed based on the new item list and the geometry.
 </p>
-<p>.nopara
-The following init-plist options to a menu will initialize the geometry:
+<p>The following init-plist options to a menu will initialize the geometry:
 </p>
 <p>.definitoption tv:menu :geometry list
 Sets the complete geometry to <i>list</i>, a list of six elements.
@@ -11557,8 +11441,7 @@ the standard font for the purpose <code>:menu</code> on the screen the menu is o
 (see (font-purposes)).
 .end_definitoption
 </p>
-<p>.nopara
-The following operations manipulate the geometry of a menu:
+<p>The following operations manipulate the geometry of a menu:
 </p>
 <p>.defmethod tv:menu :geometry
 Returns a list of six things, the menu&rsquo;s geometry.  These are the constraints,
@@ -11682,8 +11565,7 @@ warps back to where it was when the menu appeared, and the <code>:choose</code>
 operation returns the chosen item or <code>nil</code>.
 .end_defflavor
 </p>
-<p>.nopara
-These are the interesting instantiable menu flavors:
+<p>These are the interesting instantiable menu flavors:
 </p>
 <p>.defflavor tv:menu (<code>basic-menu</code> <code>borders-mixin</code> <code>top-box-label-mixin</code> <code>basic-scroll-bar</code> <code>minimum-window</code>)
 This is <code>tv:basic-menu</code> with borders and a label on top.  The
@@ -11827,8 +11709,7 @@ bar.  See (scroll-protocol).
 </p>
 <a name="Command-Menus"></a>
 <h4 class="subsection">14.1.5 Command Menus</h4>
-<p>.setq command-menu section-page
-</p>
+
 <p>.defflavor tv:command-menu-mixin
 The menus described so far are driven by the <code>:choose</code> operation;
 that is, the program decides when it is time for the user to choose
@@ -11840,7 +11721,7 @@ but Peek cannot spend all its time waiting for the user to do this.
 <p>The command menu is designed for such applications.  When an item in a
 command menu is chosen, the menu puts a blip into its input buffer.  The
 blip is a list
-&rsquo;cindex blip types
+<a name="index-blip-types-2"></a>
 <a name="index-_003amenu-_0022blip-type_0022"></a>
 </p>
 <div class="lisp">
@@ -11937,8 +11818,7 @@ Get or set the form.
 Initializes the form.
 .end_definitoption
 </p>
-<p>.nopara
-These are menu flavors that are just combinations of this with other flavors:
+<p>These are menu flavors that are just combinations of this with other flavors:
 </p>
 <p>.defflavor tv:dynamic-momentary-menu
 A momentary menu with the dynamic item-list mixin.
@@ -12154,9 +12034,9 @@ Make <i>item</i> be highlighted, or make it stop being highlighted.
 .defmethod1 tv:menu-highlighting-mixin :add-highlighted-value value
 .defmethod1 tv:menu-highlighting-mixin :remove-highlighted-value value
 These operations are similar to the preceding four, except that instead of referring
-to items directly you refer to their values, i.e. the result of executing them.
+to items directly you refer to their values, i.e. the result of executing them.
 For instance if your item list is an association list, with elements
-<code>(<i>string</i> . <i>symbol</i>)</code>, these operations use <i>symbol</i>.
+<code>(<i>string</i> . <i>symbol</i>)</code>, these operations use <i>symbol</i>.
 This only works for menu items that can be executed without side-effects,
 not for item types <code>:eval</code>, <code>:funcall</code>, etc.
 .end_defmethod
@@ -12205,8 +12085,7 @@ A instantiable momentary menu flavor that also allows margin choices.
 <a name="Multiple-Choice-Facility"></a>
 <h3 class="section">14.2 Multiple Choice Facility</h3>
 <a name="index-multiple-choice-windows"></a>
-<p>.setq multiple-choice section-page
-</p>
+
 <p>The <i>multiple choice</i> facility provides a window containing a bunch of
 items, one per text line, and several choices about each item.
 To see an example of its use, invoke the
@@ -12221,8 +12100,8 @@ form a column, with a heading at the top saying what that choice is for.
 The leftmost column contains the text naming each item.  The remaining
 columns contain small boxes (called <i>choice boxes</i>).  A &quot;no&quot; box has a
 blank center, while a &quot;yes&quot; box contains an &quot;X&quot;.
-&rsquo;setq choice-box page
-Pointing the mouse at a choice box and clicking the left button
+</p>
+<p>Pointing the mouse at a choice box and clicking the left button
 turns it on or off.  Each choice can be initialized by the
 program to &quot;yes&quot; or &quot;no&quot; as appropriate for a default.
 </p>
@@ -12382,8 +12261,7 @@ This is a resource of temporary multiple-choice windows, used by the <code>tv:mu
 function.
 .end_defresource
 </p>
-<p>.nopara
-The following operations are provided by multiple choice windows.
+<p>The following operations are provided by multiple choice windows.
 </p>
 <p>.definitoption tv:basic-multiple-choice :item-list item-list
 Initializes the window&rsquo;s item list to <i>item-list</i>.
@@ -12422,8 +12300,7 @@ the function <code>tv:multiple-choose</code>.
 <a name="Choose_002dVariable_002dValues-Facility"></a>
 <h3 class="section">14.3 Choose-Variable-Values Facility</h3>
 <a name="index-choose_002dvariable_002dvalues-windows"></a>
-<p>.setq choose-variable-values section-page
-</p>
+
 <p>This facility presents the user with a display of a bunch of Lisp variables
 and their values.  The user may change the value of some of the variables.
 When the values are to his liking he may indicate that he is done.
@@ -12440,8 +12317,7 @@ also a good example.
 </p>
 <a name="Specifying-the-Variables"></a>
 <h4 class="subsection">14.3.1 Specifying the Variables</h4>
-<p>.setq c-v-v-specs section-page
-</p>
+
 <p>When you use a choose-variable-values window, you must specify
 one or more variables with a list of specifiers.  You pass the
 list as an argument to <code>tv:choose-variable-values</code>.
@@ -12466,8 +12342,7 @@ syntax for input and output is controlled by the binding of <code>base</code>,
 <code>ibase</code>, <code>*nopoint</code>, <code>prinlevel</code>, <code>prinlength</code>, <code>package</code>,
 and <code>readtable</code> as usual.
 </p>
-<p>.nopara
-Each line of the display is specified by an <i>item</i>, which can be one of the
+<p>Each line of the display is specified by an <i>item</i>, which can be one of the
 following:
 </p>
 <ul class="no-bullet">
@@ -12673,8 +12548,7 @@ black-on-white.  It is used as the argument of the <code>:set-reverse-video-p</c
 </li></ul>
 </dd></dl>
 
-<p>.setq c-v-v-function page
-A choose-variable-values window optionally may have an <i>associated
+<p>A choose-variable-values window optionally may have an <i>associated
 function</i>, which is called whenever the user commands the window to
 change the value of one of the variables.
 </p>
@@ -12685,9 +12559,7 @@ original variable needs to be redisplayed, or <code>t</code> if no redisplay is
 required; in this case it would usually <code>setq</code> several of the
 variables, then perform a <code>:refresh</code> operation on the window.
 </p>
-<p>.need 2000
-.setq choose-variable-values-examples page
-Here are some examples of how to call <code>tv:choose-variable-values</code>.  The simplest
+<p>Here are some examples of how to call <code>tv:choose-variable-values</code>.  The simplest
 sort of thing you can do is:
 </p>
 <div class="lisp">
@@ -12820,7 +12692,7 @@ the variable.
 A string to display in the mouse documentation line when the mouse is
 pointing at this item.  This string should tell the user that clicking
 the mouse will change the value of this variable and give any special
-information (e.g. that the value must be a number).
+information (e.g. that the value must be a number).
 
 <p>Alternatively, this can be a symbol that is the name of a function.  It will
 be called with one argument, which is the current element of <i>choices</i> or
@@ -12835,8 +12707,8 @@ The function is called by the who-line updating in the scheduler, not in the use
 </p></li></ul>
 
 <div class="lisp">
-<pre class="lisp">.exdent 96 For example, <code>:boolean</code> is defined thus:
-(defprop :boolean 
+<pre class="lisp">For example, <code>:boolean</code> is defined thus:
+</pre><pre class="lisp">(defprop :boolean 
          (choose-variable-values-boolean-print nil (t nil))
 	 choose-variable-values-keyword)
 (defun choose-variable-values-boolean-print (value stream)
@@ -12893,8 +12765,7 @@ But in any case, you must specify the list of variable-specifiers
 (see (c-v-v-specs)) and the stack group to evaluate variables in
 before you can use the window.
 </p>
-<p>.nopara
-The following init options are available:
+<p>The following init options are available:
 </p>
 <p>.definitoption tv:basic-choose-variable-values :variables specifier-list
 Initializes the list of variable-specifiers, telling the window
@@ -12965,8 +12836,7 @@ height is dictated by the number of variables to be displayed.
 Specifying a height in the init-plist, using any of the standard dimension-specifying
 init-plist options, overrides the automatic choice of height.
 </p>
-<p>.nopara
-Choose-variable-values windows provide these operations:
+<p>Choose-variable-values windows provide these operations:
 </p>
 <p>.defmethod tv:choose-variable-values-window :setup items label function margin-choices
 Changes the list of items (variables), the window label, the constraint function,
@@ -12984,7 +12854,7 @@ displayed in the window, then redisplays the window.
 <p>Unless
 <i>dont-set-height</i> is supplied non-<code>nil</code>, the height of the window
 will be adjusted according to the number of lines required.  If more
-than 25. lines would be required, 25. lines will be used and scrolling
+than 25. lines would be required, 25. lines will be used and scrolling
 will be enabled.  The <code>:setup</code> operation uses <code>:set-variables</code> to do part of its work.
 .end_defmethod
 </p>
@@ -13033,9 +12903,8 @@ for this purpose.
 The I/O buffer to be used for blips and for ordinary input from the window.
 .end_definitoption
 </p>
-<p>&rsquo;cindex blip types
-.nopara
-The following forms of list are inserted as blips into the input buffer:
+<a name="index-blip-types-3"></a>
+<p>The following forms of list are inserted as blips into the input buffer:
 </p>
 <ul>
 <li> <a name="index-_003avariable_002dchoice-_0022blip-type_0022"></a>
@@ -13098,8 +12967,9 @@ for putting all the options into a choose-values window so that the user can alt
 them, for writing the current state of the options into an init file, and for resetting
 all the options to their default initial values.
 </p>
-<p>.defspec define-user-option-alist name constructor documentation
-Defines <i>name</i> a special variable whose value is
+<dl>
+<dt><a name="index-define_002duser_002doption_002dalist"></a>Special Form: <strong>define-user-option-alist</strong> <em>name constructor documentation</em></dt>
+<dd><p>Defines <i>name</i> a special variable whose value is
 a &quot;user option alist&quot;, something which may be used by the other
 functions below.  This alist will keep track of all of the option variables for
 a particular program.
@@ -13117,10 +12987,11 @@ similarly-named arguments to <code>defvar-user-option</code>.
 <p>A third argument may be used to specify a documentation string for the
 variable <i>name</i>.  To specify a documentation string and no constructor,
 give <code>nil</code> for the constructor.
-.end_defspec
-</p>
-<p>.defspec defvar-user-option
-Defines an option and adds it to a user option list.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-defvar_002duser_002doption"></a>Special Form: <strong>defvar-user-option</strong></dt>
+<dd><p>Defines an option and adds it to a user option list.
 </p>
 <div class="lisp">
 <pre class="lisp">(defvar-user-option <i>option</i> <i>default</i> <i>documentation</i>
@@ -13141,28 +13012,30 @@ the definition is done), are the arguments for the type keyword used.
 choose-variable-values window.  If it is omitted or <code>nil</code>, the default
 is <code>(string-capitalize-words (get-pname <i>option</i>))</code>; except that
 when the first and last characters of the print-name are asterisks, they
-are removed.  E.g. the default name for <code>sowq:*sunny-side-up*</code> would
+are removed.  E.g. the default name for <code>sowq:*sunny-side-up*</code> would
 be <code>&quot;Sunny Side Up&quot;</code>.
 </p>
 <div class="lisp">
-<pre class="lisp">.exdent 96 Example:
-(defvar-user-option preferred-radix 8 
+<pre class="lisp">Example:
+</pre><pre class="lisp">(defvar-user-option preferred-radix 8 
   &quot;Radix to use for files that don't specify one.&quot;
   my-program-option-alist &quot;Preferred radix&quot;
   :assoc '((&quot;8&quot; 8) (&quot;10&quot; 10.)))
 </pre></div>
-<p>.end_defspec
-</p>
-<p>.defspec defvar-site-user-option
-This is like <code>defvar-user-option</code>, except that instead of an initial
+</dd></dl>
+
+<dl>
+<dt><a name="index-defvar_002dsite_002duser_002doption"></a>Special Form: <strong>defvar-site-user-option</strong></dt>
+<dd><p>This is like <code>defvar-user-option</code>, except that instead of an initial
 value a site option keyword is specified.  Instead of a default value,
 you specify the name of a site option (a keyword).  The actual default
 value is the value of that site option in the current
 site table.  Loading a new site table resets the option.
-.end_defspec
-</p>
-<p>.defspec defvar-site-alist-user-option
-Defines a user option whose possible values are controlled by
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-defvar_002dsite_002dalist_002duser_002doption"></a>Special Form: <strong>defvar-site-alist-user-option</strong></dt>
+<dd><p>Defines a user option whose possible values are controlled by
 site options.
 </p>
 <div class="lisp">
@@ -13201,8 +13074,8 @@ site option&rsquo;s value is <code>:foo-present</code>.
 </p>
 <p>If <i>default</i> is <code>nil</code>, then the first available menu alist item is
 also the default.
-.end_defspec
-</p>
+</p></dd></dl>
+
 <dl>
 <dt><a name="index-choose_002duser_002doptions"></a>Function: <strong>choose-user-options</strong> <em>alist &amp;rest options</em></dt>
 <dd><p>Displays the values of the option variables in <i>alist</i> to the user and
@@ -13358,7 +13231,7 @@ that the menu is going to apply to.
 </pre></div>
 
 <p>When an item is clicked on with the mouse, a blip which is a list of the form
-&rsquo;cindex blip types
+<a name="index-blip-types-4"></a>
 <a name="index-_003atypeout_002dexecute-_0022blip-type_0022"></a>
 </p>
 <div class="lisp">
@@ -13384,7 +13257,7 @@ blip might be
 </p>
 <div class="lisp">
 <pre class="lisp">(:typeout-execute zwei:load-defaulted-file
- #fs:logical-pathname &quot;SYS: SYS; QFCTNS LISP&quot;)
+ #fs:logical-pathname &quot;SYS: SYS; QFCTNS LISP&quot;)
 </pre></div>
 
 <p>.defmethod tv:basic-mouse-sensitive-items :item-type-alist
@@ -13396,8 +13269,9 @@ Return or set the item type alist of the window.
 Initializes the item type alist of the window.
 .end_definitoption
 </p>
-<p>.defspec tv:add-typeout-item-type
-The special form
+<dl>
+<dt><a name="index-tv_003aadd_002dtypeout_002ditem_002dtype"></a>Special Form: <strong>tv:add-typeout-item-type</strong></dt>
+<dd><p>The special form
 </p>
 <div class="lisp">
 <pre class="lisp">(tv:add-typeout-item-type <i>alist</i> <i>type</i> <i>name</i> <i>function</i>
@@ -13440,11 +13314,9 @@ and <i>documentation</i> are evaluated.
 <code>:typeout-execute</code> blip is read) as a function to be called, and the
 <code>tv:add-typeout-item-type</code> form is typically placed right before the
 function definition of <i>alternative</i>.
-.end_defspec
-</p>
-<p>.need 1500
-.nopara
-These are the operations used to print items on a window.
+</p></dd></dl>
+
+<p>These are the operations used to print items on a window.
 </p>
 <p>.defmethod tv:basic-mouse-sensitive-items :item type item &amp;rest format-args
 A new item <i>item</i> of type <i>type</i> is printed, either by calling
@@ -13460,8 +13332,8 @@ is used to look up a function in the item type alist, and <i>item</i> is
 placed directly into the <code>:typeout-execute</code> blip.
 </p>
 <div class="lisp">
-<pre class="lisp">.exdent 96 Example:
-(send standard-output ':item 'zwei:file pathname)
+<pre class="lisp">Example:
+</pre><pre class="lisp">(send standard-output ':item 'zwei:file pathname)
 </pre></div>
 
 <p>in the editor, where <code>standard-output</code> is a window that supports
@@ -13498,8 +13370,8 @@ Returns a list describing the mouse-sensitive item found at cursor
 position <i>x</i>, <i>y</i> in the window, or <code>nil</code> if there is none there.
 </p>
 <div class="lisp">
-<pre class="lisp">.exdent 96 The list looks like this:
-(<i>type</i> <i>item</i> <i>left</i> <i>top</i> <i>right</i> <i>bottom</i>)
+<pre class="lisp">The list looks like this:
+</pre><pre class="lisp">(<i>type</i> <i>item</i> <i>left</i> <i>top</i> <i>right</i> <i>bottom</i>)
 </pre></div>
 
 <p>The <i>type</i> and <i>item</i> are as specified in the <code>:item</code> operation
@@ -13511,8 +13383,7 @@ outside top left corner of the window).
 <h3 class="section">14.5 Margin Choices</h3>
 <a name="index-margin-choices"></a>
 <a name="index-choice-boxes"></a>
-<p>.setq margin-choice page
-</p>
+
 <p>A window can be augmented with choice boxes (see (choice-box)) in its
 bottom margin using the flavor <code>tv:margin-choice-mixin</code>.  These give
 the user a few labeled mouse-sensitive points that are independent of
@@ -13591,10 +13462,7 @@ the menu.
 <a name="Typeout-Windows"></a>
 <h2 class="chapter">15 Typeout Windows</h2>
 <a name="index-typeout-windows"></a>
-<p>.setq typeout-window-chapter chapter-number
-.setq typeout-windows section-page
-.setq windows-with-typeout section-page
-</p>
+
 <p><i>Typeout windows</i> are a facility provided to make it easier for a program
 that normally displays a single updating picture to print a stream of
 unrelated output from time to time.
@@ -13931,11 +13799,9 @@ All the standard output stream operations also do this.
 </p>
 <a name="Text-Scroll-Windows"></a>
 <h2 class="chapter">16 Text Scroll Windows</h2>
-<p>.setq text-scroll-window-chapter chapter-number
-.setq text-scroll-windows section-page
 <a name="index-text-scroll-windows"></a>
 <a name="index-items_002c-in-text-scroll-windows"></a>
-</p>
+
 <p>Text scroll windows provide a simple means of maintaining a display of a
 number of lines of the same type with scrolling.  For example, they are
 used by the inspector to display the slots of a structure.  (See
@@ -13991,9 +13857,7 @@ The index of the first item currently being displayed (on the first line
 of the window).  This is how the current scroll position is remembered.
 .end_definstvar
 </p>
-<p>.need 1500
-.nopara
-The flavor <code>tv:text-scroll-window</code> provides these operations:
+<p>The flavor <code>tv:text-scroll-window</code> provides these operations:
 </p>
 <p>.defmethod tv:text-scroll-window :items
 Returns the window&rsquo;s array of items.
@@ -14156,9 +14020,8 @@ the interior of the window becomes gray.
 </p>
 <a name="Item-Generators"></a>
 <h3 class="section">16.3 Item Generators</h3>
-<p>.setq item-generators section-page
 <a name="index-item-generators"></a>
-</p>
+
 <p>The item generator feature is how the inspector can scroll through the
 elements of a large array without having to cons up another equally
 large array of items.
@@ -14253,8 +14116,7 @@ from the flavor <code>tv:function-text-scroll-window</code>; see (tv:function-t
 <p><code>:insert-item</code> and <code>:delete-item</code> are not supported, since the inspector
 does not try to insert or delete items.
 </p>
-<p>.setq print-function-example page
-The inspector uses a <code>tv:function-text-scroll-window</code> (see
+<p>The inspector uses a <code>tv:function-text-scroll-window</code> (see
 (tv:function-text-scroll-window-flavor)) so <code>:print-object</code> is
 handled by calling a dynamically changeable <i>print-function</i>.  Here is
 a simplified version of the <i>print-function</i> used by the inspector
@@ -14371,7 +14233,7 @@ Here is the real code for the <code>cond</code>-clause that handles leader eleme
 makes mouse sensitive at various times.
 </p>
 <p>When the mouse is clicked on a mouse sensitive item, a blip is placed in the window&rsquo;s input buffer.  The blip looks like
-&rsquo;cindex blip types
+<a name="index-blip-types-5"></a>
 </p>
 <div class="lisp">
 <pre class="lisp">(<i>type</i> <i>item</i> <i>window</i> <i>mouse-character</i>)
@@ -14395,7 +14257,7 @@ the space used for displaying the items.
 flavor combination you instantiate.
 </p>
 <p>A mouse click in the line area puts a blip into the input buffer that looks like this:
-&rsquo;cindex blip types
+<a name="index-blip-types-6"></a>
 <a name="index-_003aline_002darea-_0022blip-type_0022"></a>
 </p>
 <div class="lisp">
@@ -14437,9 +14299,7 @@ no matter where it scrolls to.
 Get or set the value of <code>tv:current-item</code>.
 .end_defmethod
 </p>
-<p>.need 1500
-.nopara
-These flavors are part of the implementation of <code>tv:mouse-sensitive-text-scroll-window</code>.
+<p>These flavors are part of the implementation of <code>tv:mouse-sensitive-text-scroll-window</code>.
 </p>
 <p>.defflavor tv:mouse-sensitive-text-scroll-window-without-click
 This is a component of <code>tv:mouse-sensitive-text-scroll-window</code> that
@@ -14479,9 +14339,7 @@ as my mother.
 <a name="index-scroll-windows"></a>
 <a name="index-items_002c-in-scroll-windows"></a>
 <a name="index-entries_002c-in-scroll-windows"></a>
-<p>.setq scroll-window-chapter chapter-number
-.setq scroll-windows section-page
-</p>
+
 <p>General scroll windows are used to put up a continuously-maintained
 display of items, each of which can vary in size.  They are used by
 Peek.  General scroll windows (from now on called simply
@@ -14794,10 +14652,7 @@ Initializes the truncation flag.
 .end_definitoption
 </p>
 <a name="index-value-array-of-a-scroll-window"></a>
-<p>.setq value-array page
-.need 1500
-.nopara
-A scroll window has a <i>value array</i> whose elements may be used to
+<p>A scroll window has a <i>value array</i> whose elements may be used to
 hold arbitrary data to be displayed by entries using the keyword
 <code>:value</code>.  Such an entry specifies the index of a slot in the value
 array whose contents are the data to display.  Putting appropriate
@@ -14897,8 +14752,7 @@ that position.
 </p>
 <a name="Automatically-Updating-Items"></a>
 <h3 class="section">17.4 Automatically Updating Items</h3>
-<p>.setq automatically-updating-items section-page
-</p>
+
 <p>Just as an entry automatically updates the value it displays, sometimes
 one wants an item to update automatically the list of items it contains.
 For example, the Active Processes display contains one item that
@@ -15033,8 +14887,7 @@ of automatically updating items:
 		(peek-window-inferiors sheet (+ indent 4)))))))
 </pre></div>
 
-<p>.need 4000
-And here is how it makes the item that displays a chaosnet connection&rsquo;s packets.
+<p>And here is how it makes the item that displays a chaosnet connection&rsquo;s packets.
 </p>
 <div class="lisp">
 <pre class="lisp">(tv:scroll-maintain-list
@@ -15118,8 +14971,7 @@ Peek never needs to do so.
 </p>
 <a name="Mouse-Sensitive-Scroll-Windows"></a>
 <h3 class="section">17.6 Mouse Sensitive Scroll Windows</h3>
-<p>.setq scroll-window-mouse section-page
-</p>
+
 <p>.defflavor tv:essential-scroll-mouse-mixin
 This mixin gives a scroll window the ability to make either items or
 entries mouse sensitive.
@@ -15147,7 +14999,7 @@ other process has expressed its willingness to handle them with a
 <p>If the car of the mouse sensitivity is non-<code>nil</code>, a click is handled
 by putting a blip into the scroll window&rsquo;s
 input buffer.  The blip has the form
-&rsquo;cindex blip types
+<a name="index-blip-types-7"></a>
 </p>
 <div class="lisp">
 <pre class="lisp">(<i>blip-type</i> <i>sensitivity</i> <i>window</i> <i>mouse-character</i>)
@@ -15162,7 +15014,7 @@ indicates which button was clicked.
 that programs that use scroll windows may need to handle blips from many
 sources.  By specifying the car of each mouse sensitivity, the program
 can arrange to distinguish these blips from blips coming from menus,
-typeout windows, etc. and process each one in the correct fashion.
+typeout windows, etc. and process each one in the correct fashion.
 </p>
 
 <p>Often a scroll window displays many similar items that describe
