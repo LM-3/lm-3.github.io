@@ -130,23 +130,23 @@ ul.no-bullet {list-style: none}
   <li><a name="toc-Unibus-and-Xbus-address-mapping" href="#Unibus-and-Xbus-address-mapping">25 Unibus and Xbus address mapping</a>
   <ul class="no-bullet">
     <li><a name="toc-The-unibus-map" href="#The-unibus-map">The unibus map</a></li>
-    <li><a name="toc-The-16_002dbit-parallel-I_002fO-register_002e" href="#The-16_002dbit-parallel-I_002fO-register_002e">The 16-bit parallel I/O register.</a></li>
-    <li><a name="toc-Serial-I_002fO_002e" href="#Serial-I_002fO_002e">Serial I/O.</a></li>
-    <li><a name="toc-Timers_002e" href="#Timers_002e">Timers.</a></li>
-    <li><a name="toc-Keyboard_002e" href="#Keyboard_002e">Keyboard.</a></li>
-    <li><a name="toc-Mouse_002e" href="#Mouse_002e">Mouse.</a></li>
-    <li><a name="toc-Speaker_002e" href="#Speaker_002e">Speaker.</a></li>
-    <li><a name="toc-I_002fO-board-status-register_002e" href="#I_002fO-board-status-register_002e">I/O board status register.</a></li>
-    <li><a name="toc-Chaos-Interface_002e" href="#Chaos-Interface_002e">Chaos Interface.</a></li>
-    <li><a name="toc-Table-of-all-unibus-addresses-used_002e" href="#Table-of-all-unibus-addresses-used_002e">Table of all unibus addresses used.</a></li>
+    <li><a name="toc-The-16_002dbit-parallel-I_002fO-register" href="#The-16_002dbit-parallel-I_002fO-register">The 16-bit parallel I/O register</a></li>
+    <li><a name="toc-Serial-I_002fO" href="#Serial-I_002fO">Serial I/O</a></li>
+    <li><a name="toc-Timers" href="#Timers">Timers</a></li>
+    <li><a name="toc-Keyboard" href="#Keyboard">Keyboard</a></li>
+    <li><a name="toc-Mouse" href="#Mouse">Mouse</a></li>
+    <li><a name="toc-Speaker" href="#Speaker">Speaker</a></li>
+    <li><a name="toc-I_002fO-board-status-register" href="#I_002fO-board-status-register">I/O board status register</a></li>
+    <li><a name="toc-Chaos-Interface" href="#Chaos-Interface">Chaos Interface</a></li>
+    <li><a name="toc-Table-of-all-unibus-addresses-used" href="#Table-of-all-unibus-addresses-used">Table of all unibus addresses used</a></li>
   </ul></li>
   <li><a name="toc-Programming-Documentation-on-the-I_002fO-Board" href="#Programming-Documentation-on-the-I_002fO-Board">26 Programming Documentation on the I/O Board</a>
   <ul class="no-bullet">
     <li><a name="toc-General_002dPurpose-I_002fO" href="#General_002dPurpose-I_002fO">General-Purpose I/O</a></li>
     <li><a name="toc-Clocks-1" href="#Clocks-1">Clocks</a></li>
     <li><a name="toc-Command_002fStatus-register-_0028CSR_0029" href="#Command_002fStatus-register-_0028CSR_0029">Command/Status register (CSR)</a></li>
-    <li><a name="toc-Keyboard" href="#Keyboard">Keyboard</a></li>
-    <li><a name="toc-Mouse" href="#Mouse">Mouse</a></li>
+    <li><a name="toc-Keyboard-1" href="#Keyboard-1">Keyboard</a></li>
+    <li><a name="toc-Mouse-1" href="#Mouse-1">Mouse</a></li>
     <li><a name="toc-Chaos-Net" href="#Chaos-Net">Chaos Net</a></li>
     <li><a name="toc-Keyboard-Protocol" href="#Keyboard-Protocol">Keyboard Protocol</a></li>
   </ul></li>
@@ -4102,8 +4102,8 @@ is non-existent memory.  Bit 14 enables write access from the unibus.
 The remainder of the register is the page number (address divided by 400)
 of the xbus page to be accessed from this unibus page.
 </p>
-<a name="The-16_002dbit-parallel-I_002fO-register_002e"></a>
-<h3 class="unnumberedsec">The 16-bit parallel I/O register.</h3>
+<a name="The-16_002dbit-parallel-I_002fO-register"></a>
+<h3 class="unnumberedsec">The 16-bit parallel I/O register</h3>
 
 <p>The I/O board contains one 16-bit register which can be connected to an
 arbitrary device.  Any unibus word written to this register appears on one
@@ -4123,14 +4123,14 @@ bidirectional device.
 <p>If you connect to two of these connectors, all connections to the same input
 or output pin are shorted together.
 </p>
-<a name="Serial-I_002fO_002e"></a>
-<h3 class="unnumberedsec">Serial I/O.</h3>
+<a name="Serial-I_002fO"></a>
+<h3 class="unnumberedsec">Serial I/O</h3>
 
 <p>The serial I/O port uses unibus locations from 764160 through 164166.
 It interrupts with vector 264.  More information needs to be inserted here.
 </p>
-<a name="Timers_002e"></a>
-<h3 class="unnumberedsec">Timers.</h3>
+<a name="Timers"></a>
+<h3 class="unnumberedsec">Timers</h3>
 
 <p>The I/O board contains three timers: the microsecond clock, the 60 cycle clock,
 and the interval timer.  The first two are registers that you can read.  The
@@ -4156,8 +4156,8 @@ and located at unibus address 764124 (the same address which, when read, gives
 the 60 cycle clock).  The timer increments each 16 microseconds, and when it
 reaches zero, it requests an interrupt with a vector of 274.
 </p>
-<a name="Keyboard_002e"></a>
-<h3 class="unnumberedsec">Keyboard.</h3>
+<a name="Keyboard"></a>
+<h3 class="unnumberedsec">Keyboard</h3>
 
 <p>Data from the keyboard appears in a 32-bit register at unibus addresses
 764100 and 764102.  The high half must be read first.  The keyboard generates
@@ -4168,8 +4168,8 @@ an interrupt with vector number 260 when data is available, if enabled
 mouse and speaker signals as well as the video output signal that runs through
 the I/O board from the TV board.
 </p>
-<a name="Mouse_002e"></a>
-<h3 class="unnumberedsec">Mouse.</h3>
+<a name="Mouse"></a>
+<h3 class="unnumberedsec">Mouse</h3>
 
 <p>The mouse X position, in 16 bits, is accessible at unibus address
 764106, and the Y position and buttons are in 764104.  Only the
@@ -4178,15 +4178,15 @@ Changes in the mouse position or buttons can cause an interrupt, but the
 Lisp machine system does not enable the interrupt.  If enabled, the
 interrupt vector is 260.
 </p>
-<a name="Speaker_002e"></a>
-<h3 class="unnumberedsec">Speaker.</h3>
+<a name="Speaker"></a>
+<h3 class="unnumberedsec">Speaker</h3>
 
 <p>To complement the signal sent to the keyboard speaker, refer to unibus
 location 764110.  The value is meaningless.  A sound is produced by
 complementing the signal at the desired frequency.
 </p>
-<a name="I_002fO-board-status-register_002e"></a>
-<h3 class="unnumberedsec">I/O board status register.</h3>
+<a name="I_002fO-board-status-register"></a>
+<h3 class="unnumberedsec">I/O board status register</h3>
 
 <p>Unibus address 764112 contains the I/O board status register.
 In this register:
@@ -4196,8 +4196,8 @@ In this register:
  Bit 3  enables clock interrupts.
  Bit 7  enables input interrupts from the serial I/O port.
 </p>
-<a name="Chaos-Interface_002e"></a>
-<h3 class="unnumberedsec">Chaos Interface.</h3>
+<a name="Chaos-Interface"></a>
+<h3 class="unnumberedsec">Chaos Interface</h3>
 
 <p>The I/O board contains the interface to the Chaos network.
 </p>
@@ -4224,8 +4224,8 @@ connected to the cable must have that subnet number in their net addresses.
 </p>
 <p>Connector J01 on the I/O board runs to the transceiver box.
 </p>
-<a name="Table-of-all-unibus-addresses-used_002e"></a>
-<h3 class="unnumberedsec">Table of all unibus addresses used.</h3>
+<a name="Table-of-all-unibus-addresses-used"></a>
+<h3 class="unnumberedsec">Table of all unibus addresses used</h3>
 
 <pre class="verbatim">140000-177777   (in CADR)  UNIBUS region mapped to XBUS
 
@@ -4476,7 +4476,7 @@ Scheme chip interface registers:
 	      7 (RO) Zero.
 	   8-15 (RO) Random meaningless data.
 </pre>
-<a name="Keyboard"></a>
+<a name="Keyboard-1"></a>
 <h3 class="unnumberedsec">Keyboard</h3>
 
 <pre class="verbatim">764100	(Read)	The low 16 bits of keyboard input.  This is the last character typed,
@@ -4500,7 +4500,7 @@ Scheme chip interface registers:
 764110		Any reference to this location complements the audio output to
 		the speaker built into the keyboard.
 </pre>
-<a name="Mouse"></a>
+<a name="Mouse-1"></a>
 <h3 class="unnumberedsec">Mouse</h3>
 
 <p>The mouse status is guaranteed not to change while you&rsquo;re reading it.
