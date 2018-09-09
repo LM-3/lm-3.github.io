@@ -5,36 +5,646 @@
     <link rel="stylesheet" type="text/css"
 	  href="https://lm-3.github.io/static/texinfo.css">
     <title>LM-3 --- MIT CADR related schematics</title>
+
+    <style>
+      img {
+	  border: 1px solid #ddd;
+	  border-radius: 4px;
+	  padding: 5px;
+	  width: 150px;
+      }
+
+      img:hover {
+	  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+      }
+
+      .row {
+	  display: flex;
+	  flex-wrap: wrap;
+	  padding: 0 4px;
+      }
+
+      .column {
+	  flex: 50%;
+	  padding: 0 4px;
+      }
+
+      .column img {
+	  margin-top: 8px;
+	  vertical-align: middle;
+      }
+    </style>
   </head>
+
   <body>
     <h1>LM-3 --- MIT CADR related schematics</h1>
 
     <h2>CADR</h2>
-    <ul><li><a href="schematics/cadr">Schematics</a></li></ul>	  
+    <div class="row">
+      <div class="column">
+	<img src="schematics/cadr/actl.png">
+	<img src="schematics/cadr/alatch.png">
+	<img src="schematics/cadr/alu0.png">
+	<img src="schematics/cadr/alu1.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr/aluc4.png">
+	<img src="schematics/cadr/alucry.png">
+	<img src="schematics/cadr/amem1.png">
+	<img src="schematics/cadr/apar.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr/bcpins.png">
+	<img src="schematics/cadr/bcterm.png">
+	<img src="schematics/cadr/bodies.png">
+	<img src="schematics/cadr/caps.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr/clock1.png">
+	<img src="schematics/cadr/clock2.png">
+	<img src="schematics/cadr/clockd.png">
+	<img src="schematics/cadr/contrl.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr/cpins.png">
+	<img src="schematics/cadr/debug.png">
+	<img src="schematics/cadr/dram0.png">
+	<img src="schematics/cadr/dram1.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr/dram2.png">
+	<img src="schematics/cadr/dspctl.png">
+	<img src="schematics/cadr/flag.png">
+	<img src="schematics/cadr/icaps.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr/ictl.png">
+	<img src="schematics/cadr/init.png">
+	<img src="schematics/cadr/ior.png">
+	<img src="schematics/cadr/ipar.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr/iram00.png">
+	<img src="schematics/cadr/iram01.png">
+	<img src="schematics/cadr/iram02.png">
+	<img src="schematics/cadr/iram03.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr/iram10.png">
+	<img src="schematics/cadr/iram11.png">
+	<img src="schematics/cadr/iram12.png">
+	<img src="schematics/cadr/iram13.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr/iram20.png">
+	<img src="schematics/cadr/iram21.png">
+	<img src="schematics/cadr/iram22.png">
+	<img src="schematics/cadr/iram23.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr/iram30.png">
+	<img src="schematics/cadr/iram31.png">
+	<img src="schematics/cadr/iram32.png">
+	<img src="schematics/cadr/iram33.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr/ireg.png">
+	<img src="schematics/cadr/iwr.png">
+	<img src="schematics/cadr/iwrpar.png">
+	<img src="schematics/cadr/l.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr/lc.png">
+	<img src="schematics/cadr/lcc.png">
+	<img src="schematics/cadr/lpc.png">
+	<img src="schematics/cadr/mbcpin.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr/mcpins.png">
+	<img src="schematics/cadr/mctl.png">
+	<img src="schematics/cadr/md.png">
+	<img src="schematics/cadr/mds.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr/mf.png">
+	<img src="schematics/cadr/mlatch.png">
+	<img src="schematics/cadr/mmem.png">
+	<img src="schematics/cadr/mo0.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr/mo1.png">
+	<img src="schematics/cadr/mskg4.png">
+	<img src="schematics/cadr/npc.png">
+	<img src="schematics/cadr/olord1.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr/olord2.png">
+	<img src="schematics/cadr/opcd.png">
+	<img src="schematics/cadr/opcs.png">
+	<img src="schematics/cadr/pctl.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr/pdl0.png">
+	<img src="schematics/cadr/pdl1.png">
+	<img src="schematics/cadr/pdlctl.png">
+	<img src="schematics/cadr/pdlptr.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr/platch.png">
+	<img src="schematics/cadr/prom0.png">
+	<img src="schematics/cadr/prom1.png">
+	<img src="schematics/cadr/q.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr/qctl.png">
+	<img src="schematics/cadr/shift0.png">
+	<img src="schematics/cadr/shift1.png">
+	<img src="schematics/cadr/sips.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr/smctl.png">
+	<img src="schematics/cadr/source.png">
+	<img src="schematics/cadr/spc.png">
+	<img src="schematics/cadr/spclch.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr/spcpar.png">
+	<img src="schematics/cadr/spcw.png">
+	<img src="schematics/cadr/spy0.png">
+	<img src="schematics/cadr/spy1.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr/spy2.png">
+	<img src="schematics/cadr/spy4.png">
+	<img src="schematics/cadr/stat.png">
+	<img src="schematics/cadr/trap.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr/vctl1.png">
+	<img src="schematics/cadr/vctl2.png">
+	<img src="schematics/cadr/vma.png">
+	<img src="schematics/cadr/vmas.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr/vmem0.png">
+	<img src="schematics/cadr/vmem1.png">
+	<img src="schematics/cadr/vmem2.png">
+	<img src="schematics/cadr/vmemdr.png">
+      </div>
+
+    </div>
 
     <h2>CADR bus</h2>
-    <ul><li><a href="schematics/cadr1">Schematics</a></li></ul>	  
+    <div class="row">
+      <div class="column">
+	<img src="schematics/cadr1/blank.png">
+	<img src="schematics/cadr1/buspar.png">
+	<img src="schematics/cadr1/bussel.png">
+	<img src="schematics/cadr1/busses.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr1/caps.png">
+	<img src="schematics/cadr1/cdcadr.png">
+	<img src="schematics/cadr1/clm.png">
+	<img src="schematics/cadr1/ctp.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr1/cubus.png">
+	<img src="schematics/cadr1/cxbus.png">
+	<img src="schematics/cadr1/datctl.png">
+	<img src="schematics/cadr1/dbgin.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr1/dbgout.png">
+	<img src="schematics/cadr1/diag.png">
+	<img src="schematics/cadr1/dpadr.png">
+	<img src="schematics/cadr1/dpdata.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr1/init.png">
+	<img src="schematics/cadr1/lmadr.png">
+	<img src="schematics/cadr1/lmdata.png">
+	<img src="schematics/cadr1/memd1.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr1/rbuf.png">
+	<img src="schematics/cadr1/reqerr.png">
+	<img src="schematics/cadr1/reqlm.png">
+	<img src="schematics/cadr1/reqtim.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr1/requ.png">
+	<img src="schematics/cadr1/requb.png">
+	<img src="schematics/cadr1/rqsync.png">
+	<img src="schematics/cadr1/uba.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr1/ubcyc.png">
+	<img src="schematics/cadr1/ubd.png">
+	<img src="schematics/cadr1/ubintc.png">
+	<img src="schematics/cadr1/ubmap.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr1/ubmast.png">
+	<img src="schematics/cadr1/ubxa.png">
+	<img src="schematics/cadr1/uprior.png">
+	<img src="schematics/cadr1/wbuf.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadr1/xa.png">
+	<img src="schematics/cadr1/xapar.png">
+	<img src="schematics/cadr1/xbd.png">
+	<img src="schematics/cadr1/xd.png">
+      </div>
+
+    </div>
 
     <h2>Disk Controller</h2>
-    <ul><li><a href="schematics/cadrdc">Schematics</a></li></ul>	  
+    <div class="row">
+      <div class="column">
+	<img src="schematics/cadrdc/dcbusy.png">
+	<img src="schematics/cadrdc/dccaps.png">
+	<img src="schematics/cadrdc/dcccw.png">
+	<img src="schematics/cadrdc/dcchan.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrdc/dcclk.png">
+	<img src="schematics/cadrdc/dcclp.png">
+	<img src="schematics/cadrdc/dccmd.png">
+	<img src="schematics/cadrdc/dcda.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrdc/dcdbus.png">
+	<img src="schematics/cadrdc/dcecc.png">
+	<img src="schematics/cadrdc/dcedge.png">
+	<img src="schematics/cadrdc/dchdcm.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrdc/dcpar.png">
+	<img src="schematics/cadrdc/dcposc.png">
+	<img src="schematics/cadrdc/dcrbuf.png">
+	<img src="schematics/cadrdc/dcreg.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrdc/dcsh.png">
+	<img src="schematics/cadrdc/dcsts.png">
+	<img src="schematics/cadrdc/dctmot.png">
+	<img src="schematics/cadrdc/dctrid.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrdc/dctrsg.png">
+	<img src="schematics/cadrdc/dcuc.png">
+	<img src="schematics/cadrdc/dcui.png">
+	<img src="schematics/cadrdc/dcwbuf.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrdc/dcxbsa.png">
+	<img src="schematics/cadrdc/dcxbus.png">
+	<img src="schematics/cadrdc/mkbusy.png">
+	<img src="schematics/cadrdc/mkclk.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrdc/mkcmd.png">
+	<img src="schematics/cadrdc/mkdbus.png">
+	<img src="schematics/cadrdc/mkpanl.png">
+	<img src="schematics/cadrdc/mkrd.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrdc/mksman.png">
+	<img src="schematics/cadrdc/mksts.png">
+	<img src="schematics/cadrdc/mkuc.png">
+	<img src="schematics/cadrdc/mkui.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrdc/xbus.png">
+      </div>
+    </div>
 
     <h2>IOB </h2>
-    <ul><li><a href="schematics/cadrio">Schematics</a></li></ul>	  
+    <div class="row">
+      <div class="column">
+	<img src="schematics/cadrio/bodies.png">
+	<img src="schematics/cadrio/clk60h.png">
+	<img src="schematics/cadrio/clktim.png">
+	<img src="schematics/cadrio/clktod.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrio/hexspc.png">
+	<img src="schematics/cadrio/iobadr.png">
+	<img src="schematics/cadrio/iobclk.png">
+	<img src="schematics/cadrio/iobcsr.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrio/iobint.png">
+	<img src="schematics/cadrio/iobkbd.png">
+	<img src="schematics/cadrio/iobms2.png">
+	<img src="schematics/cadrio/iobmse.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrio/iobser.png">
+	<img src="schematics/cadrio/iobxcv.png">
+      </div>
+    </div>
 
     <h2>Memory</h2>
-    <ul><li><a href="schematics/cadrm">Schematics</a></li></ul>	  
+    <div class="row">
+      <div class="column">
+	<img src="schematics/cadrm/mcp0lh.png">
+	<img src="schematics/cadrm/mcp0rh.png">
+	<img src="schematics/cadrm/mcp1lh.png">
+	<img src="schematics/cadrm/mcp1rh.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrm/mcp2lh.png">
+	<img src="schematics/cadrm/mcp2rh.png">
+	<img src="schematics/cadrm/mcp3lh.png">
+	<img src="schematics/cadrm/mcp3rh.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrm/mem0lh.png">
+	<img src="schematics/cadrm/mem0rh.png">
+	<img src="schematics/cadrm/mem1lh.png">
+	<img src="schematics/cadrm/mem1rh.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrm/mem2lh.png">
+	<img src="schematics/cadrm/mem2rh.png">
+	<img src="schematics/cadrm/mem3lh.png">
+	<img src="schematics/cadrm/mem3rh.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrm/memadl.png">
+	<img src="schematics/cadrm/memadr.png">
+	<img src="schematics/cadrm/memads.png">
+	<img src="schematics/cadrm/memctl.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrm/memras.png">
+	<img src="schematics/cadrm/memxba.png">
+	<img src="schematics/cadrm/memxbd.png">
+	<img src="schematics/cadrm/pmaddr.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrm/pmbuf1.png">
+	<img src="schematics/cadrm/pmbuf2.png">
+	<img src="schematics/cadrm/pmctl.png">
+	<img src="schematics/cadrm/pmreg1.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrm/pmreg2.png">
+      </div>
+    </div>
 
     <h2>Multiwire Memory</h2>
-    <ul><li><a href="schematics/cadrmw">Schematics</a></li></ul>	  
+    <div class="row">
+      <div class="column">
+	<img src="schematics/cadrmw/board.png">
+	<img src="schematics/cadrmw/memads.png">
+	<img src="schematics/cadrmw/memalh.png">
+	<img src="schematics/cadrmw/memarh.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrmw/memblh.png">
+	<img src="schematics/cadrmw/membrh.png">
+	<img src="schematics/cadrmw/memclh.png">
+	<img src="schematics/cadrmw/memcrh.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrmw/memctl.png">
+	<img src="schematics/cadrmw/memdlh.png">
+	<img src="schematics/cadrmw/memdrh.png">
+	<img src="schematics/cadrmw/memelh.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrmw/memerh.png">
+	<img src="schematics/cadrmw/memflh.png">
+	<img src="schematics/cadrmw/memfrh.png">
+	<img src="schematics/cadrmw/memhlh.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrmw/memhrh.png">
+	<img src="schematics/cadrmw/memras.png">
+	<img src="schematics/cadrmw/memres.png">
+	<img src="schematics/cadrmw/memv.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrmw/memxba.png">
+	<img src="schematics/cadrmw/memxbd.png">
+	<img src="schematics/cadrmw/mwxbus.png">
+      </div>
+    </div>
 
     <h2>TV</h2>
-    <ul><li><a href="schematics/cadrtv">Schematics</a></li></ul>	  
+    <div class="row">
+      <div class="column">
+	<img src="schematics/cadrtv/bod1.png">
+	<img src="schematics/cadrtv/bod2.png">
+	<img src="schematics/cadrtv/eclbod.png">
+	<img src="schematics/cadrtv/eclcap.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrtv/eclclk.png">
+	<img src="schematics/cadrtv/eclsip.png">
+	<img src="schematics/cadrtv/eclvid.png">
+	<img src="schematics/cadrtv/gen4b.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrtv/gen8b.png">
+	<img src="schematics/cadrtv/lmram.png">
+	<img src="schematics/cadrtv/ncapa.png">
+	<img src="schematics/cadrtv/ncapb.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrtv/ncapc.png">
+	<img src="schematics/cadrtv/ncapd.png">
+	<img src="schematics/cadrtv/necclk.png">
+	<img src="schematics/cadrtv/necsip.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrtv/nraadr.png">
+	<img src="schematics/cadrtv/nrabuf.png">
+	<img src="schematics/cadrtv/nracol.png">
+	<img src="schematics/cadrtv/nrama.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrtv/nramb.png">
+	<img src="schematics/cadrtv/nramc.png">
+	<img src="schematics/cadrtv/nramd.png">
+	<img src="schematics/cadrtv/nrashf.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrtv/nsyadr.png">
+	<img src="schematics/cadrtv/nsyclk.png">
+	<img src="schematics/cadrtv/nsyram.png">
+	<img src="schematics/cadrtv/nsyreg.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrtv/ntvinc.png">
+	<img src="schematics/cadrtv/nxbctl.png">
+	<img src="schematics/cadrtv/nxbus.png">
+	<img src="schematics/cadrtv/ramadr.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrtv/rambuf.png">
+	<img src="schematics/cadrtv/ramcas.png">
+	<img src="schematics/cadrtv/ramcol.png">
+	<img src="schematics/cadrtv/rampwr.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrtv/ramreg.png">
+	<img src="schematics/cadrtv/ramshf.png">
+	<img src="schematics/cadrtv/synadr.png">
+	<img src="schematics/cadrtv/synclk.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrtv/synmod.png">
+	<img src="schematics/cadrtv/synram.png">
+	<img src="schematics/cadrtv/synreg.png">
+	<img src="schematics/cadrtv/tvma.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrtv/tvminc.png">
+	<img src="schematics/cadrtv/xbadr.png">
+	<img src="schematics/cadrtv/xbctl.png">
+	<img src="schematics/cadrtv/xbdata.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/cadrtv/xbus.png">
+      </div>
+    </div>
 
     <h2>Chaosnet</h2>
-    <ul><li><a href="schematics/chaos">Schematics</a></li></ul>	  
-    
+    <div class="row">
+      <div class="column">
+	<img src="schematics/chaos/inbods.png">
+	<img src="schematics/chaos/lmdatp.png">
+	<img src="schematics/chaos/lmdetc.png">
+	<img src="schematics/chaos/lmjpns.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/chaos/lmmodu.png">
+	<img src="schematics/chaos/lmmynm.png">
+	<img src="schematics/chaos/lmrbuf.png">
+	<img src="schematics/chaos/lmrclk.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/chaos/lmrctl.png">
+	<img src="schematics/chaos/lmtbfc.png">
+	<img src="schematics/chaos/lmtbuf.png">
+	<img src="schematics/chaos/lmtclk.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/chaos/lmturn.png">
+	<img src="schematics/chaos/lmucon.png">
+	<img src="schematics/chaos/nbods.png">
+	<img src="schematics/chaos/qadadr.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/chaos/qadint.png">
+	<img src="schematics/chaos/qadjps.png">
+	<img src="schematics/chaos/qadspc.png">
+	<img src="schematics/chaos/qadtim.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/chaos/qadxcv.png">
+	<img src="schematics/chaos/qbcon.png">
+	<img src="schematics/chaos/qbus.png">
+      </div>
+    </div>
+
+    <h2>Misc.</h2>
+    <div class="row">
+      <div class="column">
+	<img src="schematics/lmdoc/chod1.png">
+	<img src="schematics/lmdoc/chodam.png">
+	<img src="schematics/lmdoc/chodi.png">
+	<img src="schematics/lmdoc/chodtm.png">
+      </div>
+
+      <div class="column">
+	<img src="schematics/lmdoc/fig1.png">
+	<img src="schematics/lmdoc/fig2.png">
+	<img src="schematics/lmdoc/fig3.png">
+	<img src="schematics/lmdoc/fig5.png">
+      </div>
+    </div>
+
     <hr/>
-    <p>Last modified: 2018/09/09 13:45:09 (UTC) by ams</p>
+    <p>Last modified: 2018/09/09 14:07:27 (UTC) by ams</p>
   </body>
 </html>
 
