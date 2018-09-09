@@ -14,6 +14,7 @@ all:
 	(cd $(LM3_DOC); git pull)
 	make -C $(LM3_DOC) all-html
 	cp $(addprefix $(LM3_DOC)/, $(HTMLSRC)) .
+	rsync -avrz $(LM3_DOC)/schematics/ schematics/
 
 .PHONY: clean
 clean:
